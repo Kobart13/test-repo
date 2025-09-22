@@ -81,3 +81,4 @@
 
 Если возникли вопросы по настройке GitHub Pages, обратитесь к [документации GitHub](https://docs.github.com/en/pages).- [ShapovalovyBuh/trf_shpb_v4.html](https://Kobart13.github.io/test-repo/ShapovalovyBuh/trf_shpb_v4.html)
 - [LookFita/trf_lf_dsh_v1.html](https://Kobart13.github.io/test-repo/LookFita/trf_lf_dsh_v1.html)
+- [RenderHouse/rh_7_oshibok_lm.html](https://Kobart13.github.io/test-repo/RenderHouse/rh_7_oshibok_lm.html)
