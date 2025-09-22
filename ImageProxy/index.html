@@ -1,566 +1,965 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Image Proxy Service</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🖼️</text></svg>">
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🖼️</text></svg>" />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+        color: #333;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .header {
+        text-align: center;
+        color: white;
+        margin-bottom: 30px;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+
+      .header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        padding: 25px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+      }
+
+      .info h3 {
+        color: #4a5568;
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+      }
+
+      .info ul {
+        margin-left: 20px;
+        margin-bottom: 15px;
+      }
+
+      .info li {
+        margin-bottom: 8px;
+        line-height: 1.5;
+      }
+
+      code {
+        background: #f7fafc;
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
+        color: #2d3748;
+        border: 1px solid #e2e8f0;
+      }
+
+      .example {
+        background: #f0fff4;
+        border-left: 4px solid #38a169;
+        padding: 12px 16px;
+        margin: 10px 0;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .image-container {
+        text-align: center;
+        position: relative;
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .image-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .image-container img:hover {
+        transform: scale(1.02);
+      }
+
+      .loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        color: #666;
+        font-style: italic;
+        padding: 40px;
+      }
+
+      .spinner {
+        width: 20px;
+        height: 20px;
+        border: 2px solid #e2e8f0;
+        border-top: 2px solid #667eea;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
         }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-            color: #333;
+        100% {
+          transform: rotate(360deg);
         }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .header {
-            text-align: center;
-            color: white;
-            margin-bottom: 30px;
-        }
-        
+      }
+
+      .status {
+        margin-top: 15px;
+        padding: 12px;
+        background: #f7fafc;
+        border-radius: 8px;
+        font-size: 14px;
+        border-left: 4px solid #667eea;
+      }
+
+      .status strong {
+        color: #2d3748;
+      }
+
+      .status a {
+        color: #667eea;
+        text-decoration: none;
+        word-break: break-all;
+      }
+
+      .status a:hover {
+        text-decoration: underline;
+      }
+
+      .error {
+        color: #e53e3e;
+        background: #fed7d7;
+        border: 1px solid #feb2b2;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      .error h3 {
+        margin-bottom: 15px;
+      }
+
+      .error ul {
+        text-align: left;
+        display: inline-block;
+        margin: 15px 0;
+      }
+
+      .controls {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .btn {
+        background: #667eea;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        margin: 0 5px;
+      }
+
+      .btn:hover {
+        background: #5a67d8;
+        transform: translateY(-1px);
+      }
+
+      .btn:active {
+        transform: translateY(0);
+      }
+
+      @media (max-width: 768px) {
         .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+          font-size: 2rem;
         }
-        
-        .header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        
+
         .card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
+          padding: 20px;
         }
-        
-        .info h3 {
-            color: #4a5568;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
+
+        body {
+          padding: 10px;
         }
-        
-        .info ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-        
-        .info li {
-            margin-bottom: 8px;
-            line-height: 1.5;
-        }
-        
-        code {
-            background: #f7fafc;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
-            color: #2d3748;
-            border: 1px solid #e2e8f0;
-        }
-        
-        .example {
-            background: #f0fff4;
-            border-left: 4px solid #38a169;
-            padding: 12px 16px;
-            margin: 10px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .image-container {
-            text-align: center;
-            position: relative;
-            min-height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .image-container img:hover {
-            transform: scale(1.02);
-        }
-        
-        .loading {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            color: #666;
-            font-style: italic;
-            padding: 40px;
-        }
-        
-        .spinner {
-            width: 20px;
-            height: 20px;
-            border: 2px solid #e2e8f0;
-            border-top: 2px solid #667eea;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .status {
-            margin-top: 15px;
-            padding: 12px;
-            background: #f7fafc;
-            border-radius: 8px;
-            font-size: 14px;
-            border-left: 4px solid #667eea;
-        }
-        
-        .status strong {
-            color: #2d3748;
-        }
-        
-        .status a {
-            color: #667eea;
-            text-decoration: none;
-            word-break: break-all;
-        }
-        
-        .status a:hover {
-            text-decoration: underline;
-        }
-        
-        .error {
-            color: #e53e3e;
-            background: #fed7d7;
-            border: 1px solid #feb2b2;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-        }
-        
-        .error h3 {
-            margin-bottom: 15px;
-        }
-        
-        .error ul {
-            text-align: left;
-            display: inline-block;
-            margin: 15px 0;
-        }
-        
-        .controls {
-            text-align: center;
-            margin-top: 20px;
-        }
-        
-        .btn {
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            margin: 0 5px;
-        }
-        
-        .btn:hover {
-            background: #5a67d8;
-            transform: translateY(-1px);
-        }
-        
-        .btn:active {
-            transform: translateY(0);
-        }
-        
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .card {
-                padding: 20px;
-            }
-            
-            body {
-                padding: 10px;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
         <div class="header">
             <h1>🖼️ Image Proxy Service</h1>
-            <p>Надёжный источник изображений с автоматическим fallback</p>
-        </div>
-        
-        <div class="card info">
-            <h3>📖 Как использовать</h3>
-            <p>Добавьте параметры в URL для получения изображения нужного размера:</p>
-            
-            <div class="example">
-                <strong>Основные параметры:</strong><br>
-                <code>?width=800&height=600</code> - точные размеры<br>
-                <code>?size=800x600</code> - альтернативный формат<br>
-                <code>?category=nature</code> - тематика изображения<br>
-                <code>?text=Custom+Text</code> - текст для placeholder
-            </div>
-            
-            <h3>🎯 Примеры использования</h3>
-            <ul>
-                <li><code>image-proxy.html?width=800&height=400</code></li>
-                <li><code>image-proxy.html?size=600x700&category=architecture</code></li>
-                <li><code>image-proxy.html?width=400&height=300&text=Тест+изображения</code></li>
-                <li><code>image-proxy.html?size=1200x800&category=nature</code></li>
-            </ul>
-            
-            <h3>🏷️ Доступные категории</h3>
-            <p><code>nature</code>, <code>architecture</code>, <code>people</code>, <code>tech</code>, <code>business</code>, <code>food</code>, <code>art</code>, <code>travel</code></p>
+            <p>Надёжный источник изображений с автоматическим fallback + локальная генерация</p>
+        </div>      <div class="card info">
+        <h3>📖 Как использовать</h3>
+        <p>
+          Добавьте параметры в URL для получения изображения нужного размера. Если внешние источники недоступны - автоматически генерируется изображение локально с помощью Canvas API!
+        </p>
+
+        <div class="example">
+          <strong>Основные параметры:</strong>
+          <br />
+          <code>?width=800&height=600</code>
+          - точные размеры
+          <br />
+          <code>?size=800x600</code>
+          - альтернативный формат
+          <br />
+          <code>?category=nature</code>
+          - тематика изображения
+          <br />
+          <code>?text=Custom+Text</code>
+          - текст для placeholder
         </div>
 
-        <div class="card">
-            <div class="image-container" id="imageContainer">
-                <div class="loading">
-                    <div class="spinner"></div>
-                    <span>Загружаем изображение...</span>
-                </div>
-            </div>
-            
-            <div id="imageStatus" class="status" style="display: none;"></div>
-            
-            <div class="controls">
-                <button class="btn" onclick="loadImage()">🔄 Перезагрузить</button>
-                <button class="btn" onclick="copyImageUrl()">📋 Скопировать URL</button>
-                <button class="btn" onclick="downloadImage()">💾 Скачать</button>
-            </div>
+        <h3>🎯 Примеры использования</h3>
+        <ul>
+          <li><code>image-proxy.html?width=800&height=400</code></li>
+          <li>
+            <code>image-proxy.html?size=600x700&category=architecture</code>
+          </li>
+          <li>
+            <code>
+              image-proxy.html?width=400&height=300&text=Тест+изображения
+            </code>
+          </li>
+          <li><code>image-proxy.html?size=1200x800&category=nature</code></li>
+        </ul>
+
+        <h3>🏷️ Доступные категории</h3>
+        <p>
+          <code>nature</code>
+          ,
+          <code>architecture</code>
+          ,
+          <code>people</code>
+          ,
+          <code>tech</code>
+          ,
+          <code>business</code>
+          ,
+          <code>food</code>
+          ,
+          <code>art</code>
+          ,
+          <code>travel</code>
+        </p>
+
+        <h3>🔄 Источники изображений</h3>
+        <p>Сервис автоматически пробует различные источники в порядке надёжности:</p>
+        <ol>
+          <li><strong>Внешние источники:</strong> Unsplash, Picsum, PlaceImg и другие</li>
+          <li><strong>🎨 Локальная генерация (Canvas API)</strong> - если все внешние источники недоступны</li>
+        </ol>
+        <div class="example">
+          <strong>💡 Преимущества локальной генерации:</strong><br>
+          ✅ Работает без интернета<br>
+          ✅ Обходит любые блокировки и ограничения<br>
+          ✅ Тематические изображения под выбранную категорию<br>
+          ✅ Мгновенная генерация<br>
+          ✅ Уникальное изображение при каждом обращении
         </div>
+      </div>
+
+      <div class="card">
+        <div class="image-container" id="imageContainer">
+          <div class="loading">
+            <div class="spinner"></div>
+            <span>Загружаем изображение...</span>
+          </div>
+        </div>
+
+        <div id="imageStatus" class="status" style="display: none"></div>
+
+        <div class="controls">
+          <button class="btn" onclick="loadImage()">🔄 Перезагрузить</button>
+          <button class="btn" onclick="copyImageUrl()">
+            📋 Скопировать URL
+          </button>
+          <button class="btn" onclick="downloadImage()">💾 Скачать</button>
+        </div>
+      </div>
     </div>
 
     <script>
-        // Источники изображений с приоритетами и категориями
-        const imageSources = [
-            {
-                name: 'Unsplash',
-                url: (w, h, category) => {
-                    const categoryMap = {
-                        nature: 'nature',
-                        architecture: 'architecture',
-                        people: 'people',
-                        tech: 'technology',
-                        business: 'business',
-                        food: 'food',
-                        art: 'art',
-                        travel: 'travel'
-                    };
-                    const cat = categoryMap[category] || '';
-                    return `https://source.unsplash.com/${w}x${h}${cat ? '/?'+cat : ''}`;
-                },
-                test: (w, h) => `https://source.unsplash.com/${w}x${h}`,
-                reliability: 0.9
-            },
-            {
-                name: 'Picsum Photos',
-                url: (w, h) => `https://picsum.photos/${w}/${h}?random=${Math.floor(Math.random() * 10000)}`,
-                test: (w, h) => `https://picsum.photos/${w}/${h}`,
-                reliability: 0.8
-            },
-            {
-                name: 'Lorem Picsum',
-                url: (w, h) => `https://loremflickr.com/${w}/${h}`,
-                test: (w, h) => `https://loremflickr.com/${w}/${h}`,
-                reliability: 0.7
-            },
-            {
-                name: 'PlaceImg',
-                url: (w, h, category) => {
-                    const categoryMap = {
-                        nature: 'nature',
-                        architecture: 'arch',
-                        people: 'people',
-                        tech: 'tech',
-                        business: 'business',
-                        food: 'food',
-                        art: 'art',
-                        travel: 'travel'
-                    };
-                    const cat = categoryMap[category] || 'any';
-                    return `https://placeimg.com/${w}/${h}/${cat}`;
-                },
-                test: (w, h) => `https://placeimg.com/${w}/${h}/any`,
-                reliability: 0.6
-            },
-            {
-                name: 'Placeholder.com',
-                url: (w, h, category, text) => {
-                    const displayText = text || `${w}×${h}`;
-                    return `https://via.placeholder.com/${w}x${h}/667eea/ffffff?text=${encodeURIComponent(displayText)}`;
-                },
-                test: (w, h) => `https://via.placeholder.com/${w}x${h}`,
-                reliability: 0.9
-            },
-            {
-                name: 'DummyImage',
-                url: (w, h, category, text) => {
-                    const displayText = text || `${w}×${h}`;
-                    return `https://dummyimage.com/${w}x${h}/667eea/ffffff&text=${encodeURIComponent(displayText)}`;
-                },
-                test: (w, h) => `https://dummyimage.com/${w}x${h}`,
-                reliability: 0.8
+      // Клиентский генератор изображений с Canvas API
+      class LocalImageGenerator {
+        constructor() {
+          this.canvas = document.createElement('canvas');
+          this.ctx = this.canvas.getContext('2d');
+        }
+
+        // Генерация случайного числа в диапазоне
+        random(min, max) {
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Генерация случайного цвета
+        randomColor(opacity = 1) {
+          const colors = [
+            `rgba(103, 126, 234, ${opacity})`, // Purple-blue
+            `rgba(59, 130, 246, ${opacity})`,  // Blue  
+            `rgba(16, 185, 129, ${opacity})`,  // Green
+            `rgba(245, 101, 101, ${opacity})`, // Red
+            `rgba(251, 191, 36, ${opacity})`,  // Yellow
+            `rgba(139, 92, 246, ${opacity})`,  // Purple
+            `rgba(236, 72, 153, ${opacity})`,  // Pink
+            `rgba(34, 197, 94, ${opacity})`    // Emerald
+          ];
+          return colors[this.random(0, colors.length - 1)];
+        }
+
+        // Создание градиента
+        createGradient(width, height, type = 'linear') {
+          let gradient;
+          
+          if (type === 'radial') {
+            gradient = this.ctx.createRadialGradient(
+              width/2, height/2, 0, 
+              width/2, height/2, Math.max(width, height)/2
+            );
+          } else {
+            const angle = this.random(0, 360) * (Math.PI / 180);
+            const x1 = Math.cos(angle) * width;
+            const y1 = Math.sin(angle) * height;
+            gradient = this.ctx.createLinearGradient(0, 0, x1, y1);
+          }
+          
+          gradient.addColorStop(0, this.randomColor());
+          gradient.addColorStop(0.5, this.randomColor());
+          gradient.addColorStop(1, this.randomColor());
+          
+          return gradient;
+        }
+
+        // Рисование геометрических фигур
+        drawShapes(width, height, category) {
+          const shapesCount = this.random(3, 8);
+          
+          for (let i = 0; i < shapesCount; i++) {
+            this.ctx.save();
+            this.ctx.globalAlpha = this.random(10, 40) / 100;
+            
+            const shapeType = this.random(1, 4);
+            const x = this.random(0, width);
+            const y = this.random(0, height);
+            const size = this.random(20, Math.min(width, height) / 3);
+            
+            this.ctx.fillStyle = this.randomColor();
+            
+            switch (shapeType) {
+              case 1: // Круг
+                this.ctx.beginPath();
+                this.ctx.arc(x, y, size/2, 0, 2 * Math.PI);
+                this.ctx.fill();
+                break;
+                
+              case 2: // Прямоугольник
+                this.ctx.fillRect(x - size/2, y - size/2, size, size * 0.6);
+                break;
+                
+              case 3: // Треугольник
+                this.ctx.beginPath();
+                this.ctx.moveTo(x, y - size/2);
+                this.ctx.lineTo(x - size/2, y + size/2);
+                this.ctx.lineTo(x + size/2, y + size/2);
+                this.ctx.closePath();
+                this.ctx.fill();
+                break;
+                
+              case 4: // Ромб
+                this.ctx.beginPath();
+                this.ctx.moveTo(x, y - size/2);
+                this.ctx.lineTo(x + size/2, y);
+                this.ctx.lineTo(x, y + size/2);
+                this.ctx.lineTo(x - size/2, y);
+                this.ctx.closePath();
+                this.ctx.fill();
+                break;
             }
-        ];
+            
+            this.ctx.restore();
+          }
+        }
 
-        let currentImageUrl = '';
-        let currentParams = {};
-
-        // Парсинг параметров URL
-        function getUrlParams() {
-            const params = new URLSearchParams(window.location.search);
-            let width, height;
-
-            // Проверяем формат size=WxH
-            const size = params.get('size');
-            if (size && size.includes('x')) {
-                [width, height] = size.split('x').map(s => parseInt(s.trim()));
-            } else {
-                width = parseInt(params.get('width')) || 800;
-                height = parseInt(params.get('height')) || 600;
+        // Рисование архитектурных элементов
+        drawArchitecture(width, height) {
+          // Здания-блоки
+          const buildings = this.random(3, 6);
+          const buildingWidth = width / (buildings + 1);
+          
+          for (let i = 0; i < buildings; i++) {
+            const x = (i + 0.5) * buildingWidth;
+            const buildingHeight = this.random(height * 0.3, height * 0.8);
+            const y = height - buildingHeight;
+            
+            this.ctx.fillStyle = this.randomColor(0.8);
+            this.ctx.fillRect(x - buildingWidth/3, y, buildingWidth * 0.6, buildingHeight);
+            
+            // Окна
+            const windowRows = Math.floor(buildingHeight / 40);
+            const windowCols = Math.floor(buildingWidth * 0.6 / 30);
+            
+            this.ctx.fillStyle = this.randomColor(0.3);
+            for (let row = 0; row < windowRows; row++) {
+              for (let col = 0; col < windowCols; col++) {
+                const wx = x - buildingWidth/3 + col * 25 + 10;
+                const wy = y + row * 35 + 10;
+                this.ctx.fillRect(wx, wy, 8, 12);
+              }
             }
+          }
+        }
 
-            return {
-                width: Math.max(50, Math.min(4000, width)), // ограничиваем размеры
-                height: Math.max(50, Math.min(4000, height)),
-                category: params.get('category') || '',
-                text: params.get('text') || ''
+        // Рисование природных элементов  
+        drawNature(width, height) {
+          // Деревья
+          const trees = this.random(5, 10);
+          
+          for (let i = 0; i < trees; i++) {
+            const x = this.random(50, width - 50);
+            const treeHeight = this.random(height * 0.2, height * 0.6);
+            const trunkWidth = this.random(8, 15);
+            
+            // Ствол
+            this.ctx.fillStyle = '#8B4513';
+            this.ctx.fillRect(x - trunkWidth/2, height - treeHeight/3, trunkWidth, treeHeight/3);
+            
+            // Крона
+            this.ctx.fillStyle = this.random(1, 2) === 1 ? '#228B22' : '#32CD32';
+            this.ctx.beginPath();
+            this.ctx.arc(x, height - treeHeight + treeHeight/4, treeHeight/3, 0, 2 * Math.PI);
+            this.ctx.fill();
+          }
+          
+          // Облака
+          const clouds = this.random(2, 4);
+          for (let i = 0; i < clouds; i++) {
+            const x = this.random(100, width - 100);
+            const y = this.random(50, height * 0.3);
+            
+            this.ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            // Рисуем облако из кругов
+            for (let j = 0; j < 4; j++) {
+              this.ctx.beginPath();
+              this.ctx.arc(x + j * 15, y + Math.sin(j) * 5, this.random(20, 30), 0, 2 * Math.PI);
+              this.ctx.fill();
+            }
+          }
+        }
+
+        // Рисование технологических элементов
+        drawTech(width, height) {
+          // Сетка
+          this.ctx.strokeStyle = this.randomColor(0.3);
+          this.ctx.lineWidth = 1;
+          
+          const gridSize = 30;
+          for (let x = 0; x < width; x += gridSize) {
+            this.ctx.beginPath();
+            this.ctx.moveTo(x, 0);
+            this.ctx.lineTo(x, height);
+            this.ctx.stroke();
+          }
+          
+          for (let y = 0; y < height; y += gridSize) {
+            this.ctx.beginPath();
+            this.ctx.moveTo(0, y);
+            this.ctx.lineTo(width, y);
+            this.ctx.stroke();
+          }
+          
+          // Цифровые элементы
+          const elements = this.random(8, 15);
+          for (let i = 0; i < elements; i++) {
+            const x = this.random(50, width - 50);
+            const y = this.random(50, height - 50);
+            const size = this.random(20, 60);
+            
+            this.ctx.strokeStyle = this.randomColor(0.8);
+            this.ctx.lineWidth = 2;
+            
+            // Случайная фигура
+            const type = this.random(1, 3);
+            switch(type) {
+              case 1: // Шестиугольник
+                this.ctx.beginPath();
+                for (let j = 0; j < 6; j++) {
+                  const angle = (j * Math.PI) / 3;
+                  const px = x + Math.cos(angle) * size/2;
+                  const py = y + Math.sin(angle) * size/2;
+                  if (j === 0) this.ctx.moveTo(px, py);
+                  else this.ctx.lineTo(px, py);
+                }
+                this.ctx.closePath();
+                this.ctx.stroke();
+                break;
+                
+              case 2: // Круг с линиями
+                this.ctx.beginPath();
+                this.ctx.arc(x, y, size/2, 0, 2 * Math.PI);
+                this.ctx.stroke();
+                
+                for (let j = 0; j < 4; j++) {
+                  const angle = (j * Math.PI) / 2;
+                  this.ctx.beginPath();
+                  this.ctx.moveTo(x, y);
+                  this.ctx.lineTo(x + Math.cos(angle) * size/2, y + Math.sin(angle) * size/2);
+                  this.ctx.stroke();
+                }
+                break;
+                
+              case 3: // Квадрат с диагоналями
+                this.ctx.strokeRect(x - size/2, y - size/2, size, size);
+                this.ctx.beginPath();
+                this.ctx.moveTo(x - size/2, y - size/2);
+                this.ctx.lineTo(x + size/2, y + size/2);
+                this.ctx.moveTo(x + size/2, y - size/2);
+                this.ctx.lineTo(x - size/2, y + size/2);
+                this.ctx.stroke();
+                break;
+            }
+          }
+        }
+
+        // Основной метод генерации
+        generateImage(width, height, category = '', text = '') {
+          this.canvas.width = width;
+          this.canvas.height = height;
+          
+          // Очистка и фон
+          this.ctx.clearRect(0, 0, width, height);
+          
+          // Градиентный фон
+          const gradient = this.createGradient(width, height, this.random(1, 2) === 1 ? 'linear' : 'radial');
+          this.ctx.fillStyle = gradient;
+          this.ctx.fillRect(0, 0, width, height);
+          
+          // Тематический контент
+          switch(category.toLowerCase()) {
+            case 'architecture':
+              this.drawArchitecture(width, height);
+              break;
+            case 'nature':
+              this.drawNature(width, height);
+              break;
+            case 'tech':
+            case 'technology':
+              this.drawTech(width, height);
+              break;
+            default:
+              this.drawShapes(width, height, category);
+              break;
+          }
+          
+          // Текст
+          const displayText = text || `${width}×${height}`;
+          if (displayText) {
+            const fontSize = Math.max(16, Math.min(width, height) / 20);
+            this.ctx.font = `bold ${fontSize}px Arial, sans-serif`;
+            this.ctx.textAlign = 'center';
+            this.ctx.textBaseline = 'middle';
+            
+            // Тень для текста
+            this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+            this.ctx.fillText(displayText, width/2 + 2, height/2 + 2);
+            
+            // Основной текст
+            this.ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+            this.ctx.fillText(displayText, width/2, height/2);
+          }
+          
+          return this.canvas.toDataURL('image/png');
+        }
+      }
+
+      // Создаем экземпляр генератора
+      const localGenerator = new LocalImageGenerator();
+
+      // Источники изображений с приоритетами и категориями
+      const imageSources = [
+        {
+          name: "Unsplash",
+          url: (w, h, category) => {
+            const categoryMap = {
+              nature: "nature",
+              architecture: "architecture",
+              people: "people",
+              tech: "technology",
+              business: "business",
+              food: "food",
+              art: "art",
+              travel: "travel",
             };
+            const cat = categoryMap[category] || "";
+            return `https://source.unsplash.com/${w}x${h}${
+              cat ? "/?" + cat : ""
+            }`;
+          },
+          test: (w, h) => `https://source.unsplash.com/${w}x${h}`,
+          reliability: 0.9,
+        },
+        {
+          name: "Picsum Photos",
+          url: (w, h) =>
+            `https://picsum.photos/${w}/${h}?random=${Math.floor(
+              Math.random() * 10000
+            )}`,
+          test: (w, h) => `https://picsum.photos/${w}/${h}`,
+          reliability: 0.8,
+        },
+        {
+          name: "Lorem Picsum",
+          url: (w, h) => `https://loremflickr.com/${w}/${h}`,
+          test: (w, h) => `https://loremflickr.com/${w}/${h}`,
+          reliability: 0.7,
+        },
+        {
+          name: "PlaceImg",
+          url: (w, h, category) => {
+            const categoryMap = {
+              nature: "nature",
+              architecture: "arch",
+              people: "people",
+              tech: "tech",
+              business: "business",
+              food: "food",
+              art: "art",
+              travel: "travel",
+            };
+            const cat = categoryMap[category] || "any";
+            return `https://placeimg.com/${w}/${h}/${cat}`;
+          },
+          test: (w, h) => `https://placeimg.com/${w}/${h}/any`,
+          reliability: 0.6,
+        },
+        {
+          name: "Placeholder.com",
+          url: (w, h, category, text) => {
+            const displayText = text || `${w}×${h}`;
+            return `https://via.placeholder.com/${w}x${h}/667eea/ffffff?text=${encodeURIComponent(
+              displayText
+            )}`;
+          },
+          test: (w, h) => `https://via.placeholder.com/${w}x${h}`,
+          reliability: 0.9,
+        },
+        {
+          name: "DummyImage",
+          url: (w, h, category, text) => {
+            const displayText = text || `${w}×${h}`;
+            return `https://dummyimage.com/${w}x${h}/667eea/ffffff&text=${encodeURIComponent(
+              displayText
+            )}`;
+          },
+          test: (w, h) => `https://dummyimage.com/${w}x${h}`,
+          reliability: 0.8,
+        },
+      ];
+
+      let currentImageUrl = "";
+      let currentParams = {};
+
+      // Парсинг параметров URL
+      function getUrlParams() {
+        const params = new URLSearchParams(window.location.search);
+        let width, height;
+
+        // Проверяем формат size=WxH
+        const size = params.get("size");
+        if (size && size.includes("x")) {
+          [width, height] = size.split("x").map((s) => parseInt(s.trim()));
+        } else {
+          width = parseInt(params.get("width")) || 800;
+          height = parseInt(params.get("height")) || 600;
         }
 
-        // Тестирование доступности источника
-        async function testImageSource(url, timeout = 8000) {
-            return new Promise((resolve) => {
-                const img = new Image();
-                const timer = setTimeout(() => {
-                    img.onload = img.onerror = null;
-                    resolve(false);
-                }, timeout);
+        return {
+          width: Math.max(50, Math.min(4000, width)), // ограничиваем размеры
+          height: Math.max(50, Math.min(4000, height)),
+          category: params.get("category") || "",
+          text: params.get("text") || "",
+        };
+      }
 
-                img.onload = () => {
-                    clearTimeout(timer);
-                    resolve(true);
-                };
-                
-                img.onerror = () => {
-                    clearTimeout(timer);
-                    resolve(false);
-                };
-                
-                // Добавляем случайный параметр для обхода кеша
-                img.src = url + (url.includes('?') ? '&' : '?') + '_t=' + Date.now();
-            });
-        }
+      // Тестирование доступности источника
+      async function testImageSource(url, timeout = 8000) {
+        return new Promise((resolve) => {
+          const img = new Image();
+          const timer = setTimeout(() => {
+            img.onload = img.onerror = null;
+            resolve(false);
+          }, timeout);
 
-        // Обновление статуса
-        function updateStatus(message, isError = false) {
-            const statusEl = document.getElementById('imageStatus');
-            statusEl.innerHTML = message;
-            statusEl.style.display = 'block';
-            statusEl.style.borderLeftColor = isError ? '#e53e3e' : '#667eea';
-            statusEl.style.background = isError ? '#fed7d7' : '#f7fafc';
-        }
+          img.onload = () => {
+            clearTimeout(timer);
+            resolve(true);
+          };
 
-        // Основная функция загрузки изображения
-        async function loadImage() {
-            currentParams = getUrlParams();
-            const { width, height, category, text } = currentParams;
-            
-            const container = document.getElementById('imageContainer');
-            
-            // Показываем загрузку
-            container.innerHTML = `
+          img.onerror = () => {
+            clearTimeout(timer);
+            resolve(false);
+          };
+
+          // Добавляем случайный параметр для обхода кеша
+          img.src = url + (url.includes("?") ? "&" : "?") + "_t=" + Date.now();
+        });
+      }
+
+      // Обновление статуса
+      function updateStatus(message, isError = false) {
+        const statusEl = document.getElementById("imageStatus");
+        statusEl.innerHTML = message;
+        statusEl.style.display = "block";
+        statusEl.style.borderLeftColor = isError ? "#e53e3e" : "#667eea";
+        statusEl.style.background = isError ? "#fed7d7" : "#f7fafc";
+      }
+
+      // Основная функция загрузки изображения
+      async function loadImage() {
+        currentParams = getUrlParams();
+        const { width, height, category, text } = currentParams;
+
+        const container = document.getElementById("imageContainer");
+
+        // Показываем загрузку
+        container.innerHTML = `
                 <div class="loading">
                     <div class="spinner"></div>
                     <span>Поиск лучшего источника изображений...</span>
                 </div>
             `;
-            
-            updateStatus(`Запрошено: ${width}×${height}px${category ? ', категория: '+category : ''}`, false);
 
-            // Сортируем источники по надёжности
-            const sortedSources = [...imageSources].sort((a, b) => (b.reliability || 0) - (a.reliability || 0));
+        updateStatus(
+          `Запрошено: ${width}×${height}px${
+            category ? ", категория: " + category : ""
+          }`,
+          false
+        );
 
-            // Пробуем источники по очереди
-            for (let i = 0; i < sortedSources.length; i++) {
-                const source = sortedSources[i];
-                
-                container.innerHTML = `
+        // Сортируем источники по надёжности
+        const sortedSources = [...imageSources].sort(
+          (a, b) => (b.reliability || 0) - (a.reliability || 0)
+        );
+
+        // Пробуем источники по очереди
+        for (let i = 0; i < sortedSources.length; i++) {
+          const source = sortedSources[i];
+
+          container.innerHTML = `
                     <div class="loading">
                         <div class="spinner"></div>
-                        <span>Проверяем ${source.name}... (${i + 1}/${sortedSources.length})</span>
+                        <span>Проверяем ${source.name}... (${i + 1}/${
+            sortedSources.length
+          })</span>
                     </div>
                 `;
-                
-                const testUrl = source.test(width, height);
-                const isAvailable = await testImageSource(testUrl, 6000);
-                
-                if (isAvailable) {
-                    currentImageUrl = source.url(width, height, category, text);
-                    
-                    // Загружаем финальное изображение
-                    const finalImg = new Image();
-                    
-                    finalImg.onload = () => {
-                        container.innerHTML = `
+
+          const testUrl = source.test(width, height);
+          const isAvailable = await testImageSource(testUrl, 6000);
+
+          if (isAvailable) {
+            currentImageUrl = source.url(width, height, category, text);
+
+            // Загружаем финальное изображение
+            const finalImg = new Image();
+
+            finalImg.onload = () => {
+              container.innerHTML = `
                             <img src="${currentImageUrl}" 
                                  alt="Generated image ${width}×${height}" 
                                  loading="lazy"
                                  onerror="handleImageError(this)">
                         `;
-                        
-                        updateStatus(`
+
+              updateStatus(`
                             <strong>✅ Источник:</strong> ${source.name}<br>
                             <strong>🔗 URL:</strong> <a href="${currentImageUrl}" target="_blank">${currentImageUrl}</a><br>
                             <strong>📐 Размер:</strong> ${width}×${height}px<br>
-                            <strong>⏱️ Время загрузки:</strong> ${Date.now() - startTime}ms
+                            <strong>⏱️ Время загрузки:</strong> ${
+                              Date.now() - startTime
+                            }ms
                         `);
-                    };
-                    
-                    finalImg.onerror = () => {
-                        // Если финальная загрузка провалилась, источник недоступен
-                        console.log(`Final load failed for ${source.name}`);
-                    };
-                    
-                    const startTime = Date.now();
-                    finalImg.src = currentImageUrl;
-                    return; // успешно загрузили
-                }
-            }
-            
-            // Если ни один источник не работает
-            currentImageUrl = '';
-            container.innerHTML = `
-                <div class="error">
-                    <h3>😞 Все источники изображений недоступны</h3>
-                    <p>Попробованы все ${sortedSources.length} источников</p>
-                    <ul>
-                        <li>Проверьте интернет-соединение</li>
-                        <li>Попробуйте использовать VPN</li>
-                        <li>Некоторые сервисы могут быть заблокированы в вашем регионе</li>
-                        <li>Обновите страницу через несколько минут</li>
-                    </ul>
-                    <p><strong>Запрошенный размер:</strong> ${width}×${height}px</p>
-                </div>
-            `;
-            
-            updateStatus('❌ Не удалось загрузить изображение из всех доступных источников', true);
+            };
+
+            finalImg.onerror = () => {
+              // Если финальная загрузка провалилась, источник недоступен
+              console.log(`Final load failed for ${source.name}`);
+            };
+
+            const startTime = Date.now();
+            finalImg.src = currentImageUrl;
+            return; // успешно загрузили
+          }
         }
 
-        // Обработка ошибок загрузки изображения
-        function handleImageError(img) {
-            img.style.display = 'none';
-            const errorDiv = document.createElement('div');
-            errorDiv.className = 'error';
-            errorDiv.innerHTML = `
+        // Если ни один внешний источник не работает - используем локальную генерацию
+        container.innerHTML = `
+          <div class="loading">
+            <div class="spinner"></div>
+            <span>Генерируем изображение локально...</span>
+          </div>
+        `;
+
+        try {
+          const startTime = Date.now();
+          currentImageUrl = localGenerator.generateImage(width, height, category, text);
+          
+          container.innerHTML = `
+            <img src="${currentImageUrl}" 
+                 alt="Locally generated image ${width}×${height}" 
+                 loading="lazy">
+          `;
+          
+          updateStatus(`
+            <strong>✅ Источник:</strong> Локальная генерация (Canvas API)<br>
+            <strong>🎨 Тип:</strong> Процедурно сгенерированное изображение<br>
+            <strong>📐 Размер:</strong> ${width}×${height}px<br>
+            <strong>🏷️ Категория:</strong> ${category || 'стандартная'}<br>
+            <strong>⏱️ Время генерации:</strong> ${Date.now() - startTime}ms<br>
+            <strong>💡 Преимущество:</strong> Работает без интернета и обходит любые блокировки
+          `);
+        } catch (error) {
+          // В крайне редком случае ошибки Canvas API
+          currentImageUrl = "";
+          container.innerHTML = `
+            <div class="error">
+              <h3>😅 Не удалось сгенерировать изображение</h3>
+              <p>Ошибка Canvas API: ${error.message}</p>
+              <p>Это очень редкая ситуация - возможно проблема с браузером</p>
+              <p><strong>Размер:</strong> ${width}×${height}px</p>
+              <button class="btn" onclick="loadImage()">🔄 Попробовать снова</button>
+            </div>
+          `;
+          
+          updateStatus("❌ Ошибка локальной генерации изображения", true);
+        }
+      }
+
+      // Обработка ошибок загрузки изображения
+      function handleImageError(img) {
+        img.style.display = "none";
+        const errorDiv = document.createElement("div");
+        errorDiv.className = "error";
+        errorDiv.innerHTML = `
                 <h3>Изображение не загрузилось</h3>
                 <p>Возможно, источник стал недоступен</p>
                 <button class="btn" onclick="loadImage()">🔄 Попробовать снова</button>
             `;
-            img.parentElement.appendChild(errorDiv);
+        img.parentElement.appendChild(errorDiv);
+      }
+
+      // Копирование URL изображения
+      function copyImageUrl() {
+        if (!currentImageUrl) {
+          alert("Сначала нужно загрузить изображение");
+          return;
         }
 
-        // Копирование URL изображения
-        function copyImageUrl() {
-            if (!currentImageUrl) {
-                alert('Сначала нужно загрузить изображение');
-                return;
-            }
-            
-            navigator.clipboard.writeText(currentImageUrl).then(() => {
-                const btn = event.target;
-                const originalText = btn.innerHTML;
-                btn.innerHTML = '✅ Скопировано!';
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                }, 2000);
-            }).catch(() => {
-                prompt('Скопируйте URL:', currentImageUrl);
-            });
+        navigator.clipboard
+          .writeText(currentImageUrl)
+          .then(() => {
+            const btn = event.target;
+            const originalText = btn.innerHTML;
+            btn.innerHTML = "✅ Скопировано!";
+            setTimeout(() => {
+              btn.innerHTML = originalText;
+            }, 2000);
+          })
+          .catch(() => {
+            prompt("Скопируйте URL:", currentImageUrl);
+          });
+      }
+
+      // Скачивание изображения
+      async function downloadImage() {
+        if (!currentImageUrl) {
+          alert("Сначала нужно загрузить изображение");
+          return;
         }
 
-        // Скачивание изображения
-        async function downloadImage() {
-            if (!currentImageUrl) {
-                alert('Сначала нужно загрузить изображение');
-                return;
-            }
-            
-            try {
-                const response = await fetch(currentImageUrl);
-                const blob = await response.blob();
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `image_${currentParams.width}x${currentParams.height}.jpg`;
-                document.body.appendChild(a);
-                a.click();
-                window.URL.revokeObjectURL(url);
-                document.body.removeChild(a);
-            } catch (error) {
-                alert('Не удалось скачать изображение. Попробуйте правой кнопкой мыши -> Сохранить изображение');
-            }
+        try {
+          const response = await fetch(currentImageUrl);
+          const blob = await response.blob();
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = `image_${currentParams.width}x${currentParams.height}.jpg`;
+          document.body.appendChild(a);
+          a.click();
+          window.URL.revokeObjectURL(url);
+          document.body.removeChild(a);
+        } catch (error) {
+          alert(
+            "Не удалось скачать изображение. Попробуйте правой кнопкой мыши -> Сохранить изображение"
+          );
         }
+      }
 
-        // API для внешнего использования
-        window.ImageProxyAPI = {
-            getSources: () => imageSources,
-            testSource: testImageSource,
-            getCurrentUrl: () => currentImageUrl,
-            generateProxyUrl: (width, height, options = {}) => {
-                const params = new URLSearchParams({
-                    width: width,
-                    height: height,
-                    ...options
-                });
-                return `${window.location.origin}${window.location.pathname}?${params.toString()}`;
-            },
-            reload: loadImage
-        };
+      // API для внешнего использования
+      window.ImageProxyAPI = {
+        getSources: () => imageSources,
+        testSource: testImageSource,
+        getCurrentUrl: () => currentImageUrl,
+        generateProxyUrl: (width, height, options = {}) => {
+          const params = new URLSearchParams({
+            width: width,
+            height: height,
+            ...options,
+          });
+          return `${window.location.origin}${
+            window.location.pathname
+          }?${params.toString()}`;
+        },
+        reload: loadImage,
+      };
 
-        // Запускаем при загрузке страницы
-        document.addEventListener('DOMContentLoaded', loadImage);
+      // Запускаем при загрузке страницы
+      document.addEventListener("DOMContentLoaded", loadImage);
 
-        // Обработка изменений в URL (если используется History API)
-        window.addEventListener('popstate', loadImage);
-        
-        // Горячие клавиши
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'r' && (e.ctrlKey || e.metaKey)) {
-                e.preventDefault();
-                loadImage();
-            }
-        });
+      // Обработка изменений в URL (если используется History API)
+      window.addEventListener("popstate", loadImage);
+
+      // Горячие клавиши
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "r" && (e.ctrlKey || e.metaKey)) {
+          e.preventDefault();
+          loadImage();
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
