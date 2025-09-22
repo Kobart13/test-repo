@@ -83,3 +83,4 @@
 - [LookFita/trf_lf_dsh_v1.html](https://Kobart13.github.io/test-repo/LookFita/trf_lf_dsh_v1.html)
 - [RenderHouse/rh_7_oshibok_lm.html](https://Kobart13.github.io/test-repo/RenderHouse/rh_7_oshibok_lm.html)
 - [ImageProxy/image-proxy.html](https://Kobart13.github.io/test-repo/ImageProxy/image-proxy.html)
+- [LocalGeneratorDemo/local-generator-demo.html](https://Kobart13.github.io/test-repo/LocalGeneratorDemo/local-generator-demo.html)
