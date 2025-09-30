@@ -85,3 +85,4 @@
 - [ImageProxy/image-proxy.html](https://Kobart13.github.io/test-repo/ImageProxy/image-proxy.html)
 - [LocalGeneratorDemo/local-generator-demo.html](https://Kobart13.github.io/test-repo/LocalGeneratorDemo/local-generator-demo.html)
 - [KirillovaPsy/trf_psy_nomoney_v4.html](https://Kobart13.github.io/test-repo/KirillovaPsy/trf_psy_nomoney_v4.html)
+- [TGStatExport/](https://Kobart13.github.io/test-repo/TGStatExport/) - folder: TGStatExport
