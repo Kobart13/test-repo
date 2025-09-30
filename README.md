@@ -86,3 +86,4 @@
 - [LocalGeneratorDemo/local-generator-demo.html](https://Kobart13.github.io/test-repo/LocalGeneratorDemo/local-generator-demo.html)
 - [KirillovaPsy/trf_psy_nomoney_v4.html](https://Kobart13.github.io/test-repo/KirillovaPsy/trf_psy_nomoney_v4.html)
 - [TGStatExport/](https://Kobart13.github.io/test-repo/TGStatExport/) - folder: TGStatExport
+- [TestEmpty/](https://Kobart13.github.io/test-repo/TestEmpty/) - folder: test-empty-folder
