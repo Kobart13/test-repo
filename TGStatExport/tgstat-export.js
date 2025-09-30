@@ -1,5 +1,5 @@
 // TGStat Exporter Script v2.0
-window.TGStatExporter = function() {
+window.TGStatExporter = function () {
   try {
     var items = document.querySelectorAll(".card.peer-item-row,.channel-item");
     if (!items.length) return alert("Каналы не найдены!");
@@ -48,7 +48,7 @@ window.TGStatExporter = function() {
         .join("\n");
 
     var blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
-    var a = document.createElement("a");
+    var a = document.createElement("a");н
     a.href = URL.createObjectURL(blob);
     a.download = "tgstat_channels.csv";
     document.body.appendChild(a);
@@ -60,7 +60,7 @@ window.TGStatExporter = function() {
         "CSV выгружен успешно!\n\nХотите открыть канал с полезными материалами по маркетингу?"
       )
     ) {
-      window.open("https://t.me/vkobilinskaya", "_blank");
+      window.open("https://t.me/vkobilinskaya/643", "_blank");
     }
   } catch (e) {
     alert(
