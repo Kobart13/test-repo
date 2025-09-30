@@ -48,7 +48,7 @@ window.TGStatExporter = function () {
         .join("\n");
 
     var blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
-    var a = document.createElement("a");н
+    var a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
     a.download = "tgstat_channels.csv";
     document.body.appendChild(a);
