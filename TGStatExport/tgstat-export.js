@@ -57,10 +57,10 @@ window.TGStatExporter = function () {
 
     if (
       confirm(
-        "CSV выгружен успешно!\n\nХотите открыть канал с полезными материалами по маркетингу?"
+        "CSV выгружен успешно!\n\nХотите открыть канал https://t.me/vkobilinskaya с полезными материалами по маркетингу?"
       )
     ) {
-      window.open("https://t.me/vkobilinskaya/643", "_blank");
+      window.open("https://t.me/vkobilinskaya", "_blank");
     }
   } catch (e) {
     alert(
