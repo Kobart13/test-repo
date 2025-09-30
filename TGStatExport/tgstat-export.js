@@ -1,4 +1,5 @@
-(function () {
+// TGStat Exporter Script v2.0
+window.TGStatExporter = function() {
   try {
     var items = document.querySelectorAll(".card.peer-item-row,.channel-item");
     if (!items.length) return alert("Каналы не найдены!");
@@ -68,4 +69,9 @@
         "\nПерепроверьте страницу или откройте другой список каналов."
     );
   }
-})();
+};
+
+// Автоматический запуск при загрузке скрипта
+if (window.TGStatExporter) {
+  window.TGStatExporter();
+}
