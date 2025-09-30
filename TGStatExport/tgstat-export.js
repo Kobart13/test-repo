@@ -70,8 +70,3 @@ window.TGStatExporter = function () {
     );
   }
 };
-
-// Автоматический запуск при загрузке скрипта
-if (window.TGStatExporter) {
-  window.TGStatExporter();
-}
