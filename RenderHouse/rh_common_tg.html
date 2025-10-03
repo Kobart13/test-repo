@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>
+      Render House — прямой доступ к современным стройкам бизнес-класса
+    </title>
+    <meta
+      name="description"
+      content="Подписывайтесь на Telegram Render House: реальные стройки в Москве и области, планировки под семью, честные сметы и авторский надзор Андрея Тулина." />
+    <meta
+      name="keywords"
+      content="Render House, дом бизнес-класса, современная архитектура, строительство, авторский надзор, Telegram канал" />
+    <link rel="canonical" href="https://renderhouse.ru/telegram" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Render House — дома бизнес-класса без хаоса" />
+    <meta
+      property="og:description"
+      content="Реальные стройки каждую неделю, точные сметы и взгляд основателя Render House. Присоединяйтесь к Telegram-каналу." />
+    <meta property="og:url" content="https://renderhouse.ru/telegram" />
+    <meta
+      property="og:image"
+      content="https://rnd-img.vercel.app/api/1200/630?text=Render%20House%20Telegram" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Render House — дома бизнес-класса без хаоса" />
+    <meta
+      name="twitter:description"
+      content="Реальные стройки, честная экономика, авторский надзор. Следите за Render House в Telegram." />
+    <meta
+      name="twitter:image"
+      content="https://rnd-img.vercel.app/api/1200/630?text=Render%20House%20Telegram" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <style>
+      :root {
+        color-scheme: light;
+        --brand-slate: #101828;
+        --brand-sand: #f5efe6;
+        --brand-clay: #b8865d;
+        --brand-mint: #d9f0e6;
+        --brand-ink: #1d2939;
+        --neutral-ink: rgba(16, 24, 40, 0.74);
+        --surface-soft: rgba(255, 255, 255, 0.85);
+        --surface-strong: rgba(16, 24, 40, 0.06);
+        --shadow-soft: 0 18px 36px rgba(16, 24, 40, 0.12);
+        --shadow-strong: 0 20px 46px rgba(16, 24, 40, 0.16);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        background: var(--brand-sand);
+        color: var(--brand-slate);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        scroll-behavior: smooth;
+      }
+      main {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      figure {
+        margin: 0;
+      }
+      figcaption {
+        font-size: 0.85rem;
+        color: rgba(16, 24, 40, 0.6);
+        margin-top: 0.75rem;
+        padding-left: 1.2rem;
+        padding-bottom: 0.5rem;
+      }
+      a {
+        text-decoration: none;
+      }
+      a:focus-visible {
+        outline: 2px solid var(--brand-clay);
+        outline-offset: 2px;
+      }
+      .section {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: clamp(0.875rem, 1.25vw, 1.25rem) 0;
+      }
+      .section-inner {
+        width: min(1120px, calc(100% - 32px));
+        display: flex;
+        flex-direction: column;
+        gap: clamp(2rem, 4vw, 3rem);
+      }
+      .hero-inner {
+        gap: clamp(2rem, 4vw, 3.5rem);
+      }
+      .hero-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 999px;
+        padding: 0.6rem 1rem;
+        box-shadow: 0 10px 24px rgba(16, 24, 40, 0.08);
+        backdrop-filter: blur(8px);
+      }
+      .hero-meta span:first-child {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--brand-clay);
+        letter-spacing: 0.02em;
+      }
+      .metric-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        background: rgba(16, 24, 40, 0.08);
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--brand-ink);
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(2.1rem, 4vw, 3.2rem);
+        line-height: 1.15;
+        font-weight: 600;
+        color: var(--brand-slate);
+        letter-spacing: -0.01em;
+      }
+      h2 {
+        margin: 0;
+        font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+        line-height: 1.2;
+        font-weight: 600;
+        color: var(--brand-slate);
+      }
+      h3 {
+        margin: 0 0 0.5rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--brand-slate);
+      }
+      p {
+        margin: 0;
+        color: var(--neutral-ink);
+      }
+      .hero-text {
+        font-size: 1.05rem;
+      }
+      .hero-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.65rem;
+        border-radius: 999px;
+        padding: 0.9rem 1.75rem;
+        font-weight: 600;
+        font-size: 1rem;
+        border: none;
+        transition: transform 0.2s ease, box-shadow 0.2s ease,
+          background-color 0.2s ease;
+        box-shadow: 0 10px 20px rgba(16, 24, 40, 0.12);
+      }
+      .btn-primary {
+        background: linear-gradient(140deg, #101828 0%, #1c242e 100%);
+        color: #ffffff;
+      }
+      .btn-primary:hover,
+      .btn-primary:focus-visible {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-strong);
+      }
+      .btn-secondary {
+        margin: 1rem 0rem;
+        background: rgba(16, 24, 40, 0.08);
+        color: var(--brand-ink);
+        box-shadow: none;
+        border: 1px solid rgba(16, 24, 40, 0.16);
+      }
+      .btn-secondary:hover,
+      .btn-secondary:focus-visible {
+        background: rgba(16, 24, 40, 0.12);
+      }
+      .btn-ghost {
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: none;
+      }
+      .hero-media {
+        position: relative;
+        border-radius: 28px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        box-shadow: var(--shadow-strong);
+      }
+      .hero-media::after {
+        content: "";
+        position: absolute;
+        inset: 12% auto auto 10%;
+        width: 56%;
+        height: 56%;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(217, 240, 230, 0.4) 0%,
+          rgba(16, 24, 40, 0) 70%
+        );
+        z-index: -1;
+      }
+      .two-column {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(2rem, 4vw, 3rem);
+      }
+      .column {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.2rem;
+      }
+      .tile-card {
+        background: var(--surface-soft);
+        border: 1px solid rgba(16, 24, 40, 0.08);
+        border-radius: 22px;
+        padding: 1.6rem;
+        box-shadow: 0 14px 28px rgba(16, 24, 40, 0.08);
+        backdrop-filter: blur(10px);
+      }
+      .faq-card,
+      .example-card,
+      .audience-card,
+      .final-box {
+        background: rgba(16, 24, 40, 0.92);
+        color: #ffffff;
+        border-radius: 26px;
+        padding: clamp(1.8rem, 3vw, 2.6rem);
+        box-shadow: var(--shadow-strong);
+      }
+      .faq-card h3,
+      .example-card h3,
+      .audience-card h3,
+      .final-box h2 {
+        color: #ffffff;
+      }
+      .faq-item {
+        margin-bottom: 1rem;
+      }
+      .faq-item:last-child {
+        margin-bottom: 0;
+      }
+      .faq-item dt {
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 0.35rem;
+      }
+      .faq-item dd {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.95rem;
+      }
+      .list-clean {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 0.9rem;
+      }
+      .list-clean li {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 0.75rem;
+        align-items: start;
+        color: var(--neutral-ink);
+      }
+      .list-clean li strong {
+        color: var(--brand-slate);
+      }
+      .badge-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+      .badge-row span {
+        background: rgba(255, 255, 255, 0.14);
+        border-radius: 999px;
+        padding: 0.35rem 0.8rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.88);
+      }
+      .approach-list {
+        counter-reset: step;
+        display: grid;
+        gap: 1.2rem;
+        padding-left: 0;
+        margin: 0;
+        list-style: none;
+      }
+      .approach-list li {
+        background: rgba(255, 255, 255, 0.85);
+        border: 1px solid rgba(16, 24, 40, 0.08);
+        border-radius: 18px;
+        padding: 1.4rem 1.4rem 1.4rem 3.4rem;
+        position: relative;
+        color: var(--neutral-ink);
+        box-shadow: 0 12px 24px rgba(16, 24, 40, 0.06);
+      }
+      .approach-list li::before {
+        counter-increment: step;
+        content: counter(step);
+        position: absolute;
+        left: 1.4rem;
+        top: 1.4rem;
+        width: 1.6rem;
+        height: 1.6rem;
+        border-radius: 999px;
+        background: var(--brand-clay);
+        color: #ffffff;
+        font-size: 0.95rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+      }
+      .final-section {
+        padding-bottom: clamp(4rem, 6vw, 6rem);
+      }
+      .final-box {
+        text-align: center;
+        background: linear-gradient(
+          150deg,
+          #101828 0%,
+          #1c1f25 60%,
+          rgba(16, 24, 40, 0.94) 100%
+        );
+        gap: 1.5rem;
+      }
+      .final-box p {
+        color: rgba(255, 255, 255, 0.82);
+        max-width: 46rem;
+        margin: 0 auto;
+        font-size: 1.05rem;
+      }
+      .final-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: center;
+        justify-content: center;
+      }
+      .floating-cta {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: linear-gradient(140deg, #101828 0%, #1c242e 100%);
+        padding: 0.85rem 1.4rem;
+        border-radius: 999px;
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 0.95rem;
+        box-shadow: var(--shadow-strong);
+        z-index: 40;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .floating-cta:hover,
+      .floating-cta:focus-visible {
+        transform: translateY(-2px);
+        box-shadow: 0 24px 48px rgba(16, 24, 40, 0.26);
+      }
+      @media (min-width: 960px) {
+        .hero-inner {
+          flex-direction: row;
+          align-items: center;
+        }
+        .hero-content,
+        .hero-media {
+          flex: 1 1 0;
+        }
+        .two-column {
+          flex-direction: row;
+        }
+        .column {
+          flex: 1 1 0;
+        }
+        .hero-actions {
+          flex-direction: row;
+        }
+        .final-actions {
+          flex-direction: row;
+        }
+      }
+      @media (max-width: 720px) {
+        .floating-cta {
+          left: 1.2rem;
+          right: 1.2rem;
+          bottom: 1rem;
+          justify-content: center;
+          box-shadow: 0 16px 32px rgba(16, 24, 40, 0.26);
+        }
+        .hero-media::after {
+          inset: auto;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="section" aria-labelledby="hero-title">
+        <div class="section-inner hero-inner">
+          <div class="hero-content">
+            <div class="hero-meta">
+              <span>Современные дома бизнес-класса</span>
+            </div>
+            <h1 id="hero-title">
+              Render House: реальные стройки и честные цифры без хаоса
+            </h1>
+            <p class="hero-text">
+              Подписывайтесь на Telegram Render House. Показываем живые стройки
+              Москвы и области, планировки под ваш распорядок и сметы в трёх
+              уровнях. Авторский надзор Андрея Тулина — в прямом эфире.
+            </p>
+            <div
+              class="hero-actions"
+              role="group"
+              aria-label="Основные действия">
+              <a
+                href="https://t.me/domrnr"
+                class="cta-button btn btn-primary"
+                style="color: #ffffff !important"
+                data-cta="hero-primary">
+                <i class="fa-brands fa-telegram"></i>
+                <span>Подписаться в Telegram</span>
+              </a>
+            </div>
+          </div>
+          <figure class="hero-media">
+            <img
+              src="https://www.domrnr.ru/upload/resize_cache/iblock/8e4/1900_1200_156c72859f0598de4fb8849380c68adbf/w1vwgqn4ofop7g37wr4czxbu736sww43.jpg"
+              alt="Современный дом Render House среди сосен с панорамными окнами"
+              width="640"
+              height="480" />
+            <figcaption>Клязьминский парк</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="section-reasons">
+        <div class="section-inner two-column">
+          <div class="column">
+            <h2 id="section-reasons">
+              Почему подписываются на Render House в Telegram
+            </h2>
+            <div class="cards-grid">
+              <article class="tile-card">
+                <h3>Реальные стройки каждую неделю</h3>
+                <p>
+                  От этапа к этапу — чек-листы контроля качества и типичные
+                  ошибки. Экономите дни на поиске решений на форумах.
+                </p>
+              </article>
+              <article class="tile-card">
+                <h3>Проекты с характером</h3>
+                <p>
+                  Планировки, фасады и сценарии света под вашу семью и участок.
+                  Никаких повторов типовых коттеджей.
+                </p>
+              </article>
+              <article class="tile-card">
+                <h3>Экономика без тумана</h3>
+                <p>
+                  Диапазон бюджета, риски и материалы в трёх сценариях —
+                  принимаете решения без финансового хаоса.
+                </p>
+              </article>
+              <article class="tile-card">
+                <h3>Личный взгляд основателя</h3>
+                <p>
+                  Андрей Тулин делится короткими заметками и видео «почему здесь
+                  так» прямо с площадок и командировок.
+                </p>
+              </article>
+            </div>
+            <a
+              href="https://t.me/domrnr"
+              class="cta-button btn btn-primary"
+              style="color: #ffffff !important"
+              data-cta="reasons">
+              <span>Перейти и посмотреть ленту</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="column">
+            <figure class="tile-card" style="padding: 0; overflow: hidden">
+              <img
+                src="https://www.domrnr.ru/upload/resize_cache/iblock/a9d/1440_1080_156c72859f0598de4fb8849380c68adbf/j3370umqozhyhm8tzhphhhaxamc01h0c.png"
+                alt="Инженер Render House проверяет монолитное перекрытие на стройке"
+                width="560"
+                height="360"
+                loading="lazy" />
+              <figcaption
+                class="tile-caption"
+                style="padding: 1.2rem 1.6rem 1.4rem">
+                Рубрика «Стройка-в-разрезе»: контроль монтажа межэтажного
+                перекрытия и чек-лист надзора.
+              </figcaption>
+            </figure>
+            <!-- Здесь должно быть изображение «Архитектор в каске проверяет монолитное перекрытие современного дома; референс ArchDaily Pro, низкий ракурс, холодный дневной свет.» -->
+            <div class="faq-card">
+              <h3>FAQ без воды</h3>
+              <dl>
+                <div class="faq-item">
+                  <dt>Это реклама?</dt>
+                  <dd>
+                    Нет. Это рабочая кухня бюро: строим, показываем, объясняем.
+                  </dd>
+                </div>
+                <div class="faq-item">
+                  <dt>Как часто посты?</dt>
+                  <dd>3–4 публикации в неделю, лента без спама.</dd>
+                </div>
+                <div class="faq-item">
+                  <dt>Можно задать вопрос?</dt>
+                  <dd>
+                    Да. В шапке канала — быстрый контакт и бот для консультации.
+                  </dd>
+                </div>
+              </dl>
+              <a
+                href="https://t.me/domrnr"
+                class="just-button btn btn-secondary"
+                style="
+                  color: #ffffff !important;
+                  background: rgba(16, 24, 40, 0.08);
+                  border-color: rgba(255, 255, 255, 0.3);
+                "
+                data-cta="faq">
+                <i class="fa-regular fa-message"></i>
+                <span>Задать вопрос в Telegram</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="section-rubrics">
+        <div class="section-inner two-column">
+          <div class="column" style="gap: 1.8rem">
+            <h2 id="section-rubrics">Что вы получите в канале</h2>
+            <p>
+              Системные рубрики помогают держать контекст под контролем.
+              Максимальная информативность в 2–3 абзаца.
+            </p>
+            <ul class="list-clean">
+              <li>
+                <span class="metric-chip">
+                  <i class="fa-solid fa-layer-group"></i>
+                </span>
+                <span>
+                  <strong>Стройка-в-разрезе.</strong>
+                  Короткие апдейты с объектов + чек-листы надзора.
+                </span>
+              </li>
+              <li>
+                <span class="metric-chip">
+                  <i class="fa-solid fa-house-chimney"></i>
+                </span>
+                <span>
+                  <strong>Проект недели.</strong>
+                  Функции семьи, фасады, сценарии жизни.
+                </span>
+              </li>
+              <li>
+                <span class="metric-chip">
+                  <i class="fa-solid fa-compass-drafting"></i>
+                </span>
+                <span>
+                  <strong>Гид по участку.</strong>
+                  Инсоляция, приватность, роза ветров, дренаж.
+                </span>
+              </li>
+              <li>
+                <span class="metric-chip">
+                  <i class="fa-solid fa-flask"></i>
+                </span>
+                <span>
+                  <strong>Материалология.</strong>
+                  Сравнения фасадов, окна, инженерия, эксплуатация.
+                </span>
+              </li>
+              <li>
+                <span class="metric-chip">
+                  <i class="fa-solid fa-chart-pie"></i>
+                </span>
+                <span>
+                  <strong>Экономика стройки.</strong>
+                  Три сценария бюджета — стандарт, комфорт, премиум.
+                </span>
+              </li>
+              <li>
+                <span class="metric-chip">
+                  <i class="fa-solid fa-video"></i>
+                </span>
+                <span>
+                  <strong>Репортажи.</strong>
+                  Производства, выставки, живые инсайты.
+                </span>
+              </li>
+            </ul>
+            <a
+              href="https://t.me/domrnr"
+              class="cta-button btn btn-primary"
+              style="color: #ffffff !important"
+              data-cta="rubrics">
+              <span>Открыть рубрики в Telegram</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="column" style="gap: 1.6rem">
+            <figure class="tile-card" style="padding: 0; overflow: hidden">
+              <img
+                src="https://storage.yandexcloud.net/kobihub/content/renderhouse/rnr_couple.jpg"
+                alt="Супружеская пара изучает планировку дома Render House на планшете"
+                width="620"
+                height="360"
+                loading="lazy" />
+              <figcaption
+                class="tile-caption"
+                style="padding: 1.2rem 1.6rem 1.4rem">
+                «Дом в соснах» — как расписание семьи диктует планировочные
+                сценарии.
+              </figcaption>
+            </figure>
+            <div class="example-card">
+              <h3>Примеры публикаций</h3>
+              <ul
+                style="
+                  margin: 0;
+                  padding-left: 1.1rem;
+                  color: rgba(255, 255, 255, 0.82);
+                  display: grid;
+                  gap: 0.6rem;
+                ">
+                <li>
+                  «Дом в соснах» — монтаж межэтажного перекрытия, чек-лист
+                  надзора.
+                </li>
+                <li>
+                  Проект «Дарьино», ~829 м² — планировка, фасады, контекст
+                  участка.
+                </li>
+                <li>10 находок с северной выставки домов — внедряем сейчас.</li>
+              </ul>
+              <a
+                href="https://t.me/domrnr"
+                class="just-button btn btn-secondary"
+                style="
+                  color: #ffffff !important;
+                  background: rgba(16, 24, 40, 0.08);
+                  border-color: rgba(255, 255, 255, 0.3);
+                "
+                data-cta="examples">
+                <i class="fa-solid fa-book-open"></i>
+                <span>Смотреть примеры в канале</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="section-method">
+        <div class="section-inner two-column">
+          <div class="column" style="gap: 1.8rem">
+            <h2 id="section-method">
+              Как Render House ведёт проект от данных до ввода
+            </h2>
+            <ol class="approach-list">
+              <li>
+                <strong>Данные о семье → ТЗ.</strong>
+                Расписание, хобби, приватность, возраст детей, будущие сценарии.
+              </li>
+              <li>
+                <strong>Планировочная концепция.</strong>
+                2–3 варианта, световые сценарии, видовые точки.
+              </li>
+              <li>
+                <strong>Материалы и инженерия.</strong>
+                Комфорт, долговечность, сервис.
+              </li>
+              <li>
+                <strong>Смета в трёх уровнях.</strong>
+                Стандарт / комфорт / премиум — сроки и риски.
+              </li>
+              <li>
+                <strong>Стройка под авторским надзором.</strong>
+                Качество на каждом этапе.
+              </li>
+            </ol>
+            <p>
+              Каждый шаг разбираем в канале — короткие заметки, видео и
+              чек-листы.
+            </p>
+            <a
+              href="https://t.me/domrnr"
+              class="cta-button btn btn-primary"
+              style="color: #ffffff !important"
+              data-cta="method">
+              <span>Следить за подходом</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="column" style="gap: 1.5rem">
+            <figure class="tile-card" style="padding: 0; overflow: hidden">
+              <img
+                src="https://www.domrnr.ru/upload/resize_cache/iblock/c05/500_320_1/d44yqrmd1h43x7lho5awqo25fbmifewd.jpg"
+                alt="Основатель Render House Андрей Тулин записывает видео на стройке"
+                width="560"
+                height="360"
+                loading="lazy" />
+              <figcaption class="tile-caption">
+                Андрей Тулин. Архитектор-практик, лично присутствует на ключевых
+                этапах стройки.
+              </figcaption>
+            </figure>
+            <!-- Здесь должно быть изображение «Андрей Тулин в тёмной куртке записывает видеозаметку на строительной площадке; драматическое освещение, стиль ArchDaily Live.» -->
+            <div class="audience-card">
+              <h3>Для кого канал</h3>
+              <ul
+                style="
+                  margin: 0;
+                  padding-left: 1.1rem;
+                  display: grid;
+                  gap: 0.6rem;
+                ">
+                <li>
+                  Планируете дом бизнес-класса в Москве и области, цените
+                  современную архитектуру.
+                </li>
+                <li>Нужна прогнозируемость по срокам, бюджету и качеству.</li>
+                <li>
+                  Ищете полный цикл: проектирование → строительство → ввод.
+                </li>
+              </ul>
+              <div class="badge-row">
+                <span>Москва и область</span>
+                <span>Полный цикл</span>
+                <span>Авторский надзор</span>
+              </div>
+              <a
+                href="https://t.me/domrnr"
+                class="cta-button btn btn-secondary"
+                style="
+                  color: #ffffff !important;
+                  background: rgba(16, 24, 40, 0.08);
+                  border-color: rgba(255, 255, 255, 0.3);
+                "
+                data-cta="audience">
+                <span>Это про меня — перейти</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Ссылка на лидеров: https://hypestat.com/info/archdaily.com — акцент на авторском надзоре и живом контенте увеличивает вовлечённость (12.6 стр./визит). -->
+      </section>
+
+      <section class="section final-section" aria-labelledby="section-final">
+        <div class="section-inner">
+          <div class="final-box">
+            <h2 id="section-final">Присоединяйтесь — подписка бесплатна</h2>
+            <p>
+              В ленте Render House — концентрат практики: стройка-в-разрезе,
+              сметы без тумана, видео основателя. Подписка занимает 5 секунд, но
+              экономит десятки часов и ошибок.
+            </p>
+            <div class="final-actions">
+              <a
+                href="https://t.me/domrnr"
+                class="just-button btn btn-ghost"
+                style="
+                  color: #ffffff !important;
+                  background: rgba(16, 24, 40, 0.08);
+                  border-color: rgba(255, 255, 255, 0.3);
+                "
+                data-cta="final-secondary">
+                <i class="fa-solid fa-eye"></i>
+                <span>Смотреть последние кейсы</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <a
+      href="https://t.me/domrnr"
+      class="cta-button floating-cta"
+      style="color: #ffffff !important"
+      data-cta="floating">
+      <i class="fa-brands fa-telegram"></i>
+      <span>Подписаться в Telegram</span>
+    </a>
+    <!-- Практика повторяющегося CTA взята с avaho.ru (HypeStat: ~1K уникальных в день, 2.3 стр./визит) — удерживаем поток лидов на мобильных. -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const trackedButtons = document.querySelectorAll(
+          ".cta-button, .just-button"
+        );
+        trackedButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const { cta } = button.dataset;
+            try {
+              window.localStorage.setItem(
+                `cta_click_${cta || "unknown"}`,
+                new Date().toISOString()
+              );
+            } catch (error) {
+              console.error("CTA tracking blocked", error);
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
