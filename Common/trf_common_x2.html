@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      ТЕЛЕГРАМ - Простая воронка для Телеграм-канала | Набор подписчиков
+    </title>
+    <meta
+      name="description"
+      content="Простая воронка для Телеграм-канала, чтобы набрать подписчиков. Схема роста от 10-50 подписчиков в день через Яндекс и TG Ads без вебинаров и рилсов." />
+    <meta
+      name="keywords"
+      content="телеграм канал, подписчики, воронка, реклама, Яндекс, TG Ads, маркетинг" />
+    <meta name="author" content="Виктория Кобилинская" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta
+      property="og:title"
+      content="ТЕЛЕГРАМ - Простая воронка для Телеграм-канала" />
+    <meta
+      property="og:description"
+      content="Простая воронка для Телеграм-канала, чтобы набрать подписчиков. Схема роста от 10-50 подписчиков в день." />
+    <meta
+      property="og:image"
+      content="https://rnd-img.vercel.app/api/1200/630?text=Telegram+Marketing" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="" />
+    <meta
+      property="twitter:title"
+      content="ТЕЛЕГРАМ - Простая воронка для Телеграм-канала" />
+    <meta
+      property="twitter:description"
+      content="Простая воронка для Телеграм-канала, чтобы набрать подписчиков. Схема роста от 10-50 подписчиков в день." />
+    <meta
+      property="twitter:image"
+      content="https://rnd-img.vercel.app/api/1200/630?text=Telegram+Marketing" />
+
+    <link rel="canonical" href="" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📱%3C/text%3E%3C/svg%3E" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter+Tight:wght@700;800;900&display=swap"
+      rel="stylesheet" />
+    <style>
+      /* Сброс базовых стилей */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Основные цвета и переменные */
+      :root {
+        --hero-bg: #e6e3de;
+        --schema-bg: #ffffff;
+        --content-bg-start: #ffffff;
+        --content-bg-end: #e6e3de;
+        --audience-bg: #e6e3de;
+        --cta-bg: #e6e3de;
+        --text-primary: #2e2e2e;
+        --text-secondary: #4a4a4a;
+        --blue-primary: #3a5e8e;
+        --orange-light: #d98b4e;
+        --orange-dark: #b56a31;
+        --blue-light: #4a90e2;
+        --blue-dark: #357abd;
+        --white: #ffffff;
+        --font-family-body: "Montserrat", -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+        --font-family-title: "Inter Tight", "Montserrat", -apple-system,
+          BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+      }
+
+      body {
+        font-family: var(--font-family-body);
+        color: var(--text-primary);
+        line-height: 1.4;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Контейнер с максимальной шириной 800px, центрирован */
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        width: 100%;
+        position: relative;
+      }
+
+      /* Общие стили для секций */
+      section {
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Секция 1: Главный экран - серый фон */
+      .hero-section {
+        background-color: var(--hero-bg);
+        padding-top: 50px;
+        padding-bottom: 160px;
+        position: relative;
+        min-height: 150px;
+        overflow: hidden;
+      }
+
+      .hero-section::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 800 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0 Q200,80 400,40 T800,0 L800,80 L0,80 Z' fill='%23FFFFFF'/%3E%3C/svg%3E");
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: 10;
+        pointer-events: none;
+      }
+
+      .hero-title {
+        font-family: var(--font-family-title);
+        font-size: clamp(45px, 18vw, 140px);
+        font-weight: 900;
+        color: var(--blue-primary);
+        text-transform: uppercase;
+        letter-spacing: clamp(-6px, -1.5vw, -8px);
+        line-height: 0.7;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform-origin: center;
+      }
+
+      .hero-subtitle {
+        font-size: clamp(18px, 2.9vw, 23px);
+        font-weight: 400;
+        color: var(--text-primary);
+        margin-top: 18px;
+        margin-left: 40px;
+        max-width: 420px;
+        line-height: 1.25;
+      }
+
+      /* Стили для кнопок согласно ТЗ */
+      .standard-button {
+        display: inline-block;
+        background: linear-gradient(
+          to right,
+          var(--orange-light),
+          var(--orange-dark)
+        );
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: clamp(14px, 2vw, 16px);
+        text-transform: uppercase;
+        padding: clamp(12px, 1.8vw, 15px) clamp(24px, 3.7vw, 30px);
+        border-radius: 25px;
+        margin-top: 25px;
+        margin-left: 40px;
+        transition: all 0.3s ease;
+        letter-spacing: 0.5px;
+        z-index: 33;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        line-height: 1.2;
+      }
+
+      .highlight-button {
+        background: linear-gradient(
+          to right,
+          var(--blue-light),
+          var(--blue-dark)
+        );
+        color: var(--white);
+        padding: clamp(8px, 1.2vw, 10px) clamp(16px, 2.5vw, 20px);
+        border-radius: 20px;
+        font-size: clamp(14px, 2vw, 16px);
+        font-weight: 600;
+        text-decoration: none;
+        flex: 0 0 auto;
+        transition: all 0.3s ease;
+      }
+
+      .standard-button:hover,
+      .highlight-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(217, 139, 78, 0.3);
+      }
+
+      .hero-image {
+        position: absolute;
+        top: clamp(70px, 11vw, 90px);
+        right: clamp(-70px, -6.2vw, -50px);
+        width: clamp(350px, 52.5vw, 420px);
+        height: auto;
+        z-index: 2;
+        border-radius: 10px;
+      }
+
+      .hero-name-tag {
+        position: absolute;
+        right: clamp(30px, 6.2vw, 50px);
+        background: linear-gradient(
+          to right,
+          var(--blue-light),
+          var(--blue-dark)
+        );
+        color: var(--white);
+        padding: clamp(6px, 1vw, 8px) clamp(14px, 2.2vw, 18px);
+        border-radius: 15px;
+        font-size: clamp(12px, 1.7vw, 14px);
+        font-weight: 500;
+        z-index: 4;
+      }
+
+      /* Секция 2: Схема - белый фон */
+      .schema-section {
+        background-color: var(--schema-bg);
+        padding: 0 clamp(20px, 5vw, 40px) clamp(80px, 12.5vw, 100px);
+        text-align: center;
+      }
+
+      .schema-section::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 800 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0 Q200,80 400,40 T800,0 L800,80 L0,80 Z' fill='%23e6e3de'/%3E%3C/svg%3E");
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: 10;
+        pointer-events: none;
+      }
+
+      .schema-title {
+        font-size: clamp(20px, 3.2vw, 26px);
+        font-weight: 500;
+        color: var(--text-primary);
+        margin-bottom: clamp(25px, 4.4vw, 35px);
+        max-width: 580px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.25;
+      }
+
+      .schema-image {
+        width: 100%;
+        background: var(--white);
+        border-radius: 10px;
+        margin: 0 auto;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        min-height: 200px;
+      }
+
+      .chart-container {
+        width: 100%;
+        position: relative;
+      }
+
+      .chart-container img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Секция 3: Что в статье */
+      .content-section {
+        background-color: var(--audience-bg);
+        padding: clamp(50px, 8.7vw, 70px) clamp(20px, 5vw, 40px)
+          clamp(30px, 5vw, 40px);
+        text-align: center;
+        position: relative;
+      }
+
+      .content-title {
+        font-family: var(--font-family-title);
+        font-size: clamp(26px, 4.2vw, 34px);
+        font-weight: 700;
+        color: var(--blue-primary);
+        text-transform: uppercase;
+        margin-bottom: clamp(20px, 3.1vw, 25px);
+        letter-spacing: 0.5px;
+      }
+
+      .content-list {
+        max-width: 500px;
+        margin: 0 auto clamp(25px, 4.4vw, 35px);
+        text-align: left;
+      }
+
+      .content-list ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .content-list li {
+        font-size: clamp(17px, 2.5vw, 20px);
+        color: var(--text-primary);
+        margin-bottom: clamp(10px, 1.5vw, 12px);
+        line-height: 1.5;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .content-list li:before {
+        content: "•";
+        color: var(--text-primary);
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+      }
+
+      .content-button {
+        display: inline-block;
+        background: linear-gradient(
+          to right,
+          var(--orange-light),
+          var(--orange-dark)
+        );
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 16px;
+        text-transform: uppercase;
+        padding: 15px 30px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        letter-spacing: 0.5px;
+      }
+
+      /* Секция 4: Целевая аудитория - серый фон */
+      .audience-section {
+        background-color: var(--audience-bg);
+        padding: clamp(50px, 8.7vw, 70px) clamp(20px, 5vw, 40px)
+          clamp(120px, 21.2vw, 170px);
+        position: relative;
+      }
+
+      .audience-section::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 800 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0 Q200,80 400,40 T800,0 L800,80 L0,80 Z' fill='%23FFF'/%3E%3C/svg%3E");
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: 10;
+        pointer-events: none;
+      }
+
+      .audience-title {
+        font-size: clamp(17px, 2.5vw, 20px);
+        font-weight: 500;
+        color: var(--text-primary);
+        margin-bottom: clamp(15px, 2.2vw, 18px);
+        max-width: 380px;
+        line-height: 1.3;
+      }
+
+      .audience-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(10px, 1.5vw, 12px);
+        margin-bottom: clamp(20px, 3.1vw, 25px);
+        max-width: 450px;
+      }
+
+      .audience-tags .tag {
+        background: linear-gradient(
+          to right,
+          var(--blue-light),
+          var(--blue-dark)
+        );
+        color: var(--white);
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+        flex: 0 0 auto;
+      }
+
+      .audience-tags .tag:nth-child(4) {
+        margin-left: 0;
+      }
+
+      .audience-image {
+        position: absolute;
+        bottom: clamp(40px, 7.5vw, 60px);
+        right: 0px;
+        width: clamp(250px, 37.5vw, 300px);
+        height: auto;
+        z-index: 2;
+        border-radius: 10px;
+      }
+
+      /* Секция 5: Финальный CTA - серый фон */
+      .cta-section {
+        background-color: var(--schema-bg);
+        padding: clamp(30px, 5vw, 40px) clamp(20px, 5vw, 40px);
+        text-align: center;
+      }
+
+      .cta-text {
+        font-size: clamp(16px, 2.2vw, 18px);
+        font-weight: 400;
+        color: var(--text-primary);
+        margin-bottom: clamp(20px, 3.1vw, 25px);
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.35;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: linear-gradient(
+          to right,
+          var(--orange-light),
+          var(--orange-dark)
+        );
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: clamp(14px, 2vw, 16px);
+        text-transform: uppercase;
+        padding: clamp(12px, 1.8vw, 15px) clamp(24px, 3.7vw, 30px);
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        letter-spacing: 0.5px;
+      }
+
+      /* Адаптивность для разных устройств */
+
+      /* Планшеты и средние экраны (768px - 1024px) */
+      @media (max-width: 1024px) {
+        .container {
+          max-width: 95%;
+          padding: 0 20px;
+        }
+
+        .hero-section {
+          padding-bottom: 120px;
+        }
+
+        .hero-subtitle {
+          font-size: clamp(20px, 2.8vw, 23px);
+          margin-left: 30px;
+          max-width: 380px;
+        }
+
+        .hero-image {
+          width: clamp(320px, 40vw, 420px);
+          right: clamp(-80px, -8vw, -50px);
+        }
+
+        .schema-title {
+          font-size: clamp(22px, 3.2vw, 26px);
+          max-width: 90%;
+        }
+
+        .content-title {
+          font-size: clamp(28px, 4.2vw, 34px);
+        }
+
+        .content-list li {
+          font-size: clamp(18px, 2.4vw, 20px);
+        }
+
+        .audience-title {
+          font-size: clamp(18px, 2.4vw, 20px);
+        }
+
+        .cta-text {
+          font-size: clamp(16px, 2.2vw, 18px);
+        }
+      }
+
+      /* Мобильные устройства (до 768px) */
+      @media (max-width: 768px) {
+        .container {
+          max-width: 100%;
+          padding: 0 0px;
+        }
+
+        .hero-section {
+          padding-top: 20px;
+          padding-bottom: 80px;
+        }
+
+        .hero-section::after {
+          height: 50px;
+        }
+
+        .hero-title {
+          letter-spacing: clamp(-4px, -1vw, -6px);
+          padding: 0 10px;
+        }
+
+        .hero-subtitle {
+          margin-left: 15px;
+          margin-right: 15px;
+          font-size: clamp(16px, 4vw, 20px);
+          max-width: calc(100% - 60px);
+          line-height: 1.3;
+        }
+
+        .standard-button {
+          margin-left: 15px;
+          margin-right: 15px;
+          font-size: clamp(12px, 3.5vw, 14px);
+          padding: clamp(10px, 2.5vw, 12px) clamp(18px, 5vw, 24px);
+          margin-top: 20px;
+        }
+
+        .hero-image {
+          width: clamp(220px, 60vw, 280px);
+          top: clamp(20px, 5vw, 30px);
+          right: clamp(-120px, -25vw, -100px);
+        }
+
+        .hero-name-tag {
+          display: none;
+        }
+
+        .schema-section {
+          padding: 0 15px 60px;
+        }
+
+        .schema-title {
+          font-size: clamp(18px, 5vw, 24px);
+          margin-bottom: 25px;
+          line-height: 1.3;
+        }
+
+        .schema-image {
+          min-height: clamp(120px, 30vw, 150px);
+          margin: 0 5px;
+        }
+
+        .content-section {
+          padding: 50px 15px 30px;
+        }
+
+        .content-title {
+          font-size: clamp(22px, 6vw, 28px);
+          margin-bottom: 20px;
+        }
+
+        .content-list {
+          padding: 0;
+          margin: 0 auto 25px;
+        }
+
+        .content-list li {
+          font-size: clamp(16px, 4.2vw, 18px);
+          margin-bottom: 10px;
+          line-height: 1.4;
+        }
+
+        .audience-section {
+          padding: 50px 15px 60px;
+        }
+
+        .audience-title {
+          font-size: clamp(16px, 4.5vw, 18px);
+          margin-bottom: 15px;
+          max-width: 90%;
+        }
+
+        .audience-tags {
+          max-width: 80%;
+          gap: clamp(8px, 2vw, 12px);
+        }
+
+        .highlight-button {
+          font-size: clamp(13px, 3.5vw, 15px);
+          padding: clamp(8px, 2vw, 10px) clamp(15px, 4vw, 18px);
+        }
+
+        .audience-image {
+          width: clamp(180px, 45vw, 220px);
+          bottom: clamp(5px, 2vw, 10px);
+          right: clamp(-30px, -8vw, -20px);
+        }
+
+        .cta-section {
+          padding: 30px 15px;
+        }
+
+        .cta-text {
+          font-size: clamp(14px, 4vw, 16px);
+          margin-bottom: 20px;
+          max-width: 100%;
+          line-height: 1.4;
+        }
+      }
+
+      /* Очень маленькие экраны (до 480px) */
+      @media (max-width: 480px) {
+        .hero-section {
+          padding-bottom: 60px;
+        }
+
+        .hero-subtitle {
+          font-size: clamp(14px, 3.5vw, 18px);
+        }
+
+        .standard-button {
+          font-size: clamp(11px, 3vw, 13px);
+          padding: 8px 16px;
+        }
+
+        .hero-image {
+          width: clamp(180px, 60vw, 220px);
+          right: clamp(-100px, -22vw, -80px);
+        }
+
+        .schema-title {
+          font-size: clamp(16px, 4.5vw, 20px);
+        }
+
+        .content-title {
+          font-size: clamp(20px, 5.5vw, 26px);
+        }
+
+        .content-list li {
+          font-size: clamp(14px, 3.8vw, 16px);
+        }
+
+        .audience-title {
+          font-size: clamp(14px, 4vw, 16px);
+        }
+
+        .highlight-button {
+          font-size: clamp(12px, 3.2vw, 14px);
+          padding: 6px 12px;
+        }
+
+        .cta-text {
+          font-size: clamp(13px, 3.5vw, 15px);
+        }
+      }
+
+      /* Очень большие экраны (свыше 1200px) */
+      @media (min-width: 1200px) {
+        .hero-section {
+          padding-bottom: 180px;
+        }
+
+        .hero-image {
+          width: 450px;
+          right: -30px;
+        }
+
+        .audience-image {
+          width: 320px;
+        }
+      }
+
+      /* Дополнительные стили для доступности */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      /* Анимация для улучшения UX */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in-up {
+        animation: fadeInUp 0.6s ease-out;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Контейнер с максимальной шириной 800px, всегда центрирован -->
+    <div class="container">
+      <!-- Секция 1: Главный экран -->
+      <header>
+        <section class="hero-section fade-in-up">
+          <h1 class="hero-title" role="banner">ТЕЛЕГРАМ</h1>
+          <p class="hero-subtitle">
+            Простая воронка для Телеграм-канала, чтобы набрать подписчиков
+          </p>
+          <a
+            href="#"
+            class="cta-button standard-button"
+            style="color: #ffffff !important"
+            aria-label="Читать статью о воронке для Телеграм канала">
+            ЧИТАТЬ СТАТЬЮ
+          </a>
+
+          <!-- Изображение женщины с чипсами -->
+          <img
+            src="https://thumb.cloud.mail.ru/weblink/thumb/xw1/dddu/z1ztGZ1T4"
+            alt="Женщина с чипсами"
+            class="hero-image" />
+
+          <!-- Плашка с именем -->
+          <div class="hero-name-tag">Виктория Кобилинская</div>
+        </section>
+      </header>
+
+      <!-- Основное содержимое -->
+      <main>
+        <!-- Секция 2: Введение со схемой -->
+        <section class="schema-section fade-in-up">
+          <h2 class="schema-title">
+            Схема, которая приводит в мой Телеграм-канал подписчиков каждый день
+            через Яндекс и TG Ads
+          </h2>
+          <div
+            class="schema-image"
+            role="img"
+            aria-label="График роста подписчиков Telegram канала">
+            <div class="chart-container">
+              <img
+                src="https://thumb.cloud.mail.ru/weblink/thumb/xw1/hZcU/zF8Csxd98"
+                alt="График роста подписчиков"
+                loading="lazy" />
+            </div>
+          </div>
+        </section>
+
+        <!-- Секция 3: "Что в статье" -->
+        <section class="content-section fade-in-up">
+          <h2 class="content-title">ЧТО В СТАТЬЕ:</h2>
+          <div class="content-list">
+            <ul role="list">
+              <li>Схема простой воронки для Телеграм-канала</li>
+              <li>Как набирать подписчиков, а не зевак</li>
+              <li>
+                Как сделать из подписчиков покупателей без вебинаров и рилсов
+              </li>
+              <li>Как запустить рост канала от 10-50 подписчиков день</li>
+            </ul>
+          </div>
+          <a
+            href="#"
+            class="just-button standard-button"
+            style="color: #ffffff !important"
+            aria-label="Перейти к чтению статьи">
+            ЧИТАТЬ СТАТЬЮ
+          </a>
+        </section>
+
+        <!-- Секция 4: "Для кого эта статья" -->
+        <section class="audience-section fade-in-up">
+          <h2 class="audience-title">
+            Статья подойдет для авторов таких телеграм каналов:
+          </h2>
+          <div class="audience-tags" role="list">
+            <span class="highlight-button" role="listitem">Экспертных</span>
+            <span class="highlight-button" role="listitem">
+              Развлекательных
+            </span>
+            <span class="highlight-button" role="listitem">Новостных</span>
+            <span class="highlight-button" role="listitem">Бизнес</span>
+          </div>
+
+          <!-- Изображение женщины в пиджаке -->
+          <img
+            src="https://thumb.cloud.mail.ru/weblink/thumb/xw1/JvQk/GPyirgUwA"
+            alt="Бизнес-леди в пиджаке"
+            class="audience-image"
+            loading="lazy" />
+          <!-- Здесь должно быть изображение: Деловая женщина 28-32 лет в стильном темном пиджаке, с уверенной позой и легкой улыбкой. Современный бизнес-портрет на нейтральном фоне, профессиональное освещение, цветовая гамма соответствующая общему стилю страницы. -->
+        </section>
+      </main>
+
+      <!-- Секция 5: Финальный призыв к действию -->
+      <footer>
+        <section class="cta-section fade-in-up">
+          <p class="cta-text">
+            Просто нажмите на кнопку и подпишитесь на мой телеграм-канал. И бот
+            вышлет вам статью
+          </p>
+          <a
+            href="#"
+            class="cta-button standard-button"
+            style="color: #ffffff !important"
+            aria-label="Подписаться на Телеграм канал и получить статью">
+            ЧИТАТЬ СТАТЬЮ
+          </a>
+        </section>
+      </footer>
+    </div>
+
+    <!-- Простые скрипты для улучшения UX -->
+    <script>
+      // Добавление анимаций при прокрутке
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("fade-in-up");
+          }
+        });
+      }, observerOptions);
+
+      // Наблюдение за секциями для анимации
+      document.querySelectorAll("section").forEach((section) => {
+        observer.observe(section);
+      });
+
+      // Улучшение доступности для кнопок
+      document.querySelectorAll('a[class*="button"]').forEach((button) => {
+        button.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            button.click();
+          }
+        });
+      });
+
+      // Lazy loading для изображений
+      if ("loading" in HTMLImageElement.prototype) {
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        images.forEach((img) => {
+          img.src = img.src;
+        });
+      } else {
+        // Fallback для браузеров без поддержки lazy loading
+        const script = document.createElement("script");
+        script.src =
+          "https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js";
+        document.body.appendChild(script);
+      }
+    </script>
+  </body>
+</html>
