@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Система «Клиенты из Telegram» — автоматизация притока заявок</title>
+    <meta
+      name="description"
+      content="Пошаговая система TrafficPulse: запускайте Telegram-воронку, которая каждый день приводит прогретых клиентов с помощью AI-инструментов, автоворонки и точной рекламы." />
+    <meta
+      name="keywords"
+      content="клиенты из telegram, трафик telegram канал, автоворонка telegram, курс по привлечению клиентов, ai ассистенты для маркетинга" />
+    <link
+      rel="canonical"
+      href="https://trafficpulse.ru/clients-from-telegram" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Система «Клиенты из Telegram» — автоматизация притока заявок" />
+    <meta
+      property="og:description"
+      content="Соберите рабочую связку для Telegram-канала: AI-ассистенты, автоворонка и реклама. Пошаговая программа TrafficPulse." />
+    <meta
+      property="og:url"
+      content="https://trafficpulse.ru/clients-from-telegram" />
+    <meta
+      property="og:image"
+      content="https://rnd-img.vercel.app/api/1200/630?text=Telegram+System" />
+    <meta name="theme-color" content="#05040a" />
+    <style>
+      :root {
+        --bg-deep: #05040a;
+        --bg-alt: #0b0c17;
+        --bg-soft: #111322;
+        --accent: #7c5cff;
+        --accent-alt: #19d3a5;
+        --accent-soft: rgba(124, 92, 255, 0.18);
+        --muted: #8f95b2;
+        --text-primary: #f7f8ff;
+        --text-secondary: #c3c6dc;
+        --border-subtle: rgba(255, 255, 255, 0.08);
+        --gradient-cta: linear-gradient(135deg, #7c5cff 0%, #5027ff 100%);
+        --gradient-soft: linear-gradient(
+          135deg,
+          rgba(124, 92, 255, 0.1) 0%,
+          rgba(25, 211, 165, 0.08) 100%
+        );
+        --transition: cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: var(--bg-deep);
+        color: var(--text-primary);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 16px;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page-shell {
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      .section {
+        padding: 72px 5vw;
+        position: relative;
+      }
+
+      .section-tight {
+        padding-top: 48px;
+        padding-bottom: 48px;
+      }
+
+      .section-hero {
+        background: radial-gradient(
+          120% 120% at 10% 10%,
+          rgba(124, 92, 255, 0.25) 0%,
+          rgba(5, 4, 10, 0.9) 55%,
+          rgba(5, 4, 10, 1) 100%
+        );
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.85fr);
+        gap: 48px;
+        align-items: center;
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+
+      .hero-lead {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 8px 18px;
+        border-radius: 999px;
+        background: rgba(124, 92, 255, 0.18);
+        color: var(--text-secondary);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 600;
+        width: fit-content;
+      }
+
+      h1 {
+        font-size: clamp(36px, 4vw, 56px);
+        line-height: 1.1;
+        margin: 0;
+        letter-spacing: -0.02em;
+      }
+
+      h2 {
+        font-size: clamp(26px, 3vw, 36px);
+        margin: 0 0 16px;
+      }
+
+      h3 {
+        font-size: 22px;
+        margin: 0 0 12px;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .hero-lead p {
+        color: var(--text-secondary);
+        font-size: 18px;
+        max-width: 560px;
+      }
+
+      .hero-list {
+        display: grid;
+        gap: 14px;
+      }
+
+      .hero-list li {
+        list-style: none;
+        position: relative;
+        padding-left: 28px;
+        color: var(--text-secondary);
+        font-weight: 500;
+      }
+
+      .hero-list li::before {
+        content: "—";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .primary-cta-style {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 28px;
+        border-radius: 14px;
+        font-weight: 600;
+        background: var(--gradient-cta);
+        box-shadow: 0 16px 32px rgba(124, 92, 255, 0.32);
+        transition: transform 240ms var(--transition),
+          box-shadow 240ms var(--transition);
+      }
+
+      .primary-cta-style:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 24px 44px rgba(124, 92, 255, 0.4);
+      }
+
+      .ghost-button-style {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 26px;
+        border-radius: 14px;
+        border: 1px solid var(--border-subtle);
+        color: var(--text-secondary);
+        transition: background 220ms var(--transition),
+          color 220ms var(--transition), border-color 220ms var(--transition);
+      }
+
+      .ghost-button-style:hover {
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text-primary);
+        border-color: rgba(255, 255, 255, 0.15);
+      }
+
+      .hero-side {
+        display: grid;
+        gap: 28px;
+      }
+
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 16px;
+      }
+
+      .stat-card {
+        padding: 18px 20px;
+        border-radius: 16px;
+        background: rgba(15, 16, 32, 0.8);
+        border: 1px solid rgba(124, 92, 255, 0.14);
+        backdrop-filter: blur(14px);
+      }
+
+      .stat-card strong {
+        display: block;
+        font-size: 20px;
+        margin-bottom: 6px;
+      }
+
+      .stat-card span {
+        color: var(--text-secondary);
+        font-size: 14px;
+      }
+
+      .hero-figure {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        background: var(--gradient-soft);
+        padding: 12px;
+      }
+
+      .hero-figure figcaption {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .section-dark {
+        background: var(--bg-alt);
+      }
+
+      .section-soft {
+        background: var(--bg-soft);
+      }
+
+      .section-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 32px;
+        margin-bottom: 32px;
+      }
+
+      .section-heading p {
+        max-width: 520px;
+        color: var(--text-secondary);
+      }
+
+      .pain-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+      }
+
+      .pain-card {
+        position: relative;
+        padding: 24px;
+        border-radius: 20px;
+        background: rgba(8, 10, 23, 0.85);
+        border: 1px solid var(--border-subtle);
+        transition: transform 240ms var(--transition),
+          border-color 240ms var(--transition);
+      }
+
+      .pain-card::before {
+        content: attr(data-label);
+        position: absolute;
+        top: -12px;
+        left: 24px;
+        padding: 4px 12px;
+        border-radius: 999px;
+        background: rgba(25, 211, 165, 0.18);
+        color: var(--accent-alt);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .pain-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(124, 92, 255, 0.3);
+      }
+
+      .pain-card p {
+        color: var(--text-secondary);
+      }
+
+      .module-grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      details {
+        border-radius: 16px;
+        border: 1px solid rgba(124, 92, 255, 0.2);
+        background: rgba(7, 10, 24, 0.88);
+        padding: 18px 24px;
+        transition: border-color 200ms var(--transition),
+          background 200ms var(--transition);
+      }
+
+      details[open] {
+        background: rgba(16, 20, 40, 0.92);
+        border-color: rgba(124, 92, 255, 0.45);
+      }
+
+      summary {
+        list-style: none;
+        cursor: pointer;
+        position: relative;
+        font-weight: 600;
+      }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+
+      summary::after {
+        content: "↗";
+        position: absolute;
+        right: 0;
+        font-size: 16px;
+        transition: transform 200ms var(--transition);
+      }
+
+      details[open] summary::after {
+        transform: rotate(45deg);
+      }
+
+      .module-list {
+        margin-top: 16px;
+        padding-left: 18px;
+        color: var(--text-secondary);
+      }
+
+      .module-list li {
+        margin-bottom: 8px;
+      }
+
+      .proof-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        gap: 32px;
+        align-items: start;
+      }
+
+      .proof-card {
+        padding: 24px;
+        border-radius: 20px;
+        border: 1px solid rgba(25, 211, 165, 0.22);
+        background: rgba(9, 15, 24, 0.92);
+        margin-bottom: 16px;
+      }
+
+      .proof-card strong {
+        font-size: 18px;
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .proof-card span {
+        color: var(--text-secondary);
+      }
+
+      .quote-box {
+        padding: 24px;
+        border-radius: 20px;
+        border: 1px solid rgba(124, 92, 255, 0.3);
+        background: rgba(5, 7, 18, 0.9);
+        font-style: italic;
+        color: var(--text-secondary);
+      }
+
+      .quote-box span {
+        display: block;
+        margin-top: 12px;
+        font-style: normal;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .final-cta {
+        text-align: center;
+        display: grid;
+        gap: 24px;
+        max-width: 720px;
+        margin: 0 auto;
+      }
+
+      .final-list {
+        display: grid;
+        gap: 12px;
+        color: var(--text-secondary);
+      }
+
+      footer {
+        padding: 32px 5vw 48px;
+        color: var(--muted);
+        font-size: 14px;
+        background: #06050d;
+      }
+
+      .floating-cta-rail {
+        position: fixed;
+        top: 35%;
+        right: -78px;
+        z-index: 40;
+        transform: rotate(-90deg);
+        transform-origin: top right;
+      }
+
+      .floating-cta-rail a {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 32px;
+        border-radius: 18px 18px 0 0;
+        background: var(--gradient-cta);
+        font-weight: 600;
+        box-shadow: 0 18px 36px rgba(124, 92, 255, 0.35);
+      }
+
+      .floating-cta-rail a span {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .floating-cta-rail a strong {
+        font-size: 18px;
+      }
+
+      .nav-chipgroup {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .chip-link-style {
+        padding: 10px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--muted);
+        transition: border-color 200ms var(--transition),
+          color 200ms var(--transition);
+      }
+
+      .chip-link-style:hover {
+        border-color: rgba(124, 92, 255, 0.5);
+        color: var(--text-primary);
+      }
+
+      .info-strip {
+        padding: 18px 24px;
+        border-radius: 18px;
+        background: rgba(124, 92, 255, 0.14);
+        color: var(--text-secondary);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+      }
+
+      @media (max-width: 1100px) {
+        .floating-cta-rail {
+          display: none;
+        }
+      }
+
+      @media (max-width: 960px) {
+        .section {
+          padding: 64px 24px;
+        }
+
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .section {
+          padding: 54px 20px;
+        }
+
+        .section-heading {
+          flex-direction: column;
+        }
+
+        .proof-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .hero-actions a {
+          justify-content: center;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+          animation: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="floating-cta-rail">
+        <a
+          href="#access"
+          class="cta-button primary-cta-style"
+          style="color: #ffffff !important">
+          <!-- Вдохновлено https://mark-barton.com/ фиксированной боковой кнопкой -->
+          <span>Старт в системе</span>
+          <strong>+ бонус AI</strong>
+        </a>
+      </div>
+      <main>
+        <section id="overview" class="section section-hero">
+          <!-- Ассиметричный hero, как на https://3dclub.com/ для пробития слепоты -->
+          <div class="hero-grid">
+            <div class="hero-lead">
+              <span class="hero-badge">Рабочая связка TrafficPulse</span>
+              <h1>Система «Клиенты из Telegram»</h1>
+              <p>
+                От Telegram-канала без движения к стабильному потоку заявок. Вы
+                построите автоворонку, подключите AI-ассистентов и научитесь
+                управлять рекламой без риска слить бюджет.
+              </p>
+              <ul class="hero-list">
+                <li>Эксперты, коучи, продюсеры, авторы онлайн-курсов</li>
+                <li>Фрилансеры и агентства, продающие услуги через Telegram</li>
+                <li>Команды, которым нужен прогнозируемый входящий поток</li>
+              </ul>
+              <div class="hero-actions">
+                <a
+                  href="#program"
+                  class="cta-button primary-cta-style"
+                  style="color: #ffffff !important">
+                  Посмотреть программу курса
+                </a>
+                <a
+                  href="#proof"
+                  class="just-button ghost-button-style"
+                  style="color: #c3c6dc !important">
+                  Кейсы выпускников
+                </a>
+              </div>
+            </div>
+            <div class="hero-side">
+              <div class="stat-grid">
+                <div class="stat-card">
+                  <strong>AI-разбор ЦА за 20 минут</strong>
+                  <span>Фреймворк из курса дает кристально чистые инсайты</span>
+                </div>
+                <div class="stat-card">
+                  <strong>3 сценария автоворонок</strong>
+                  <span>Общение через чат-боты, рассылки и ретаргет</span>
+                </div>
+                <div class="stat-card">
+                  <strong>Контроль рекламного бюджета</strong>
+                  <span>Чек-листы и дашборды для отслеживания ROI</span>
+                </div>
+              </div>
+              <figure class="hero-figure">
+                <img
+                  src="https://rnd-img.vercel.app/api/720/520?text=Telegram+Operations"
+                  alt="Интерфейс рабочей связки: бот, контент-план и рекламные кампании"
+                  width="720"
+                  height="520" />
+                <!-- Здесь должно быть изображение: операционная панель и визуал в духе 3dclub.com с диаграммой результатов студентов -->
+                <figcaption>
+                  Сборка из дашборда, чат-бота и аналитики — в курсе покажем,
+                  как объединить строки сценариев в единую систему.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section id="pain" class="section section-dark section-tight">
+          <!-- Мультекран с диагональным чтением, опирается на https://formagiclife.ru/ -->
+          <div class="section-heading">
+            <div>
+              <h2>Узнаете себя?</h2>
+              <p>
+                Мы собрали повторяющиеся провалы из сотен Telegram-каналов.
+                Каждый пункт — причина, почему продажи идут только «когда
+                повезет».
+              </p>
+            </div>
+            <div class="nav-chipgroup">
+              <a
+                href="#program"
+                class="just-button chip-link-style"
+                style="color: #8f95b2 !important">
+                Маршрут решения
+              </a>
+              <a
+                href="#access"
+                class="cta-button chip-link-style"
+                style="color: #8f95b2 !important">
+                Стоимость и форматы
+              </a>
+            </div>
+          </div>
+          <div class="pain-grid">
+            <article class="pain-card" data-label="Слабое вовлечение">
+              <h3>«Мертвые души»</h3>
+              <p>
+                Подписчики есть, но они не реагируют и не покупают. Канал
+                превращается в витрину безживого контента, а охваты только
+                падают.
+              </p>
+            </article>
+            <article class="pain-card" data-label="Контент кризис">
+              <h3>Синдром самозванца</h3>
+              <p>
+                Каждый пост — испытание, темы кончаются, а уверенность в
+                продукте тает. Нужна система быстрых инсайтов и внятный
+                контент-план.
+              </p>
+            </article>
+            <article class="pain-card" data-label="Страх трафика">
+              <h3>Хаос в рекламе</h3>
+              <p>
+                Непонятно, куда запускать таргет и как не слить деньги.
+                Отсутствуют проверенные связки, сквозные метрики и шаблоны
+                объявлений.
+              </p>
+            </article>
+            <article class="pain-card" data-label="Нет системы">
+              <h3>Прогрев в ноль</h3>
+              <p>
+                Продажи случаются только «вручную». Диалог с аудиторией не
+                автоматизирован, нет маршрута, который ведет от подписки до
+                сделки.
+              </p>
+            </article>
+          </div>
+          <figure style="margin-top: 36px">
+            <img
+              src="https://rnd-img.vercel.app/api/860/400?text=Telegram+Pain+Map"
+              alt="Диаграмма основных провалов в ведении Telegram-канала: охваты, рекламный бюджет и контент"
+              width="860"
+              height="400"
+              loading="lazy" />
+            <!-- Здесь должно быть изображение: инфографика в стиле formagiclife.ru, показывающая распределение проблем аудитории -->
+            <figcaption style="margin-top: 12px; color: var(--muted)">
+              Маппинг проблем — дифференцируем стратегию по сегментам ЦА.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section id="value" class="section section-soft">
+          <!-- Ленточная секция со смещением блоков по Z-паттерну, как на https://3dclub.com/ -->
+          <div class="section-heading">
+            <div>
+              <h2>Готовая система, которая работает как часы</h2>
+              <p>
+                Вместо разрозненных советов вы получите структурированную
+                связку: от диагностики аудитории до продвижения через рекламу и
+                чат-бота.
+              </p>
+            </div>
+            <div class="info-strip">
+              <span>
+                Внутри — AI-ассистенты, сценарии прогрева и чек-листы.
+              </span>
+              <span>
+                Все инструменты протестированы на проектах TrafficPulse.
+              </span>
+            </div>
+          </div>
+          <div class="stat-grid">
+            <div class="proof-card">
+              <strong>Понимание ЦА глубже, чем у конкурентов</strong>
+              <span>
+                Запускаем AI-ассистента, собираем боли и триггеры для продаж.
+              </span>
+            </div>
+            <div class="proof-card">
+              <strong>Упаковка, от которой хотят подписаться</strong>
+              <span>Стратегия брендинга, визуальная матрица, тональность.</span>
+            </div>
+            <div class="proof-card">
+              <strong>Простая автоворонка</strong>
+              <span>Сценарии чат-бота, приветственные цепочки, прогрев.</span>
+            </div>
+            <div class="proof-card">
+              <strong>Уверенный запуск рекламы</strong>
+              <span>Шаблоны объявлений, настройка кабинета, метрики ROI.</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="program" class="section section-dark">
+          <!-- Аккордеон модулей, основанный на структуре https://mark-barton.com/ с подробными раскладками -->
+          <div class="section-heading">
+            <div>
+              <h2>Что внутри? Пошаговый маршрут к результату</h2>
+              <p>
+                Четыре модуля, которые накладываются друг на друга, создавая
+                единую воронку. Каждый шаг закрепляется домашними заданиями и
+                шаблонами.
+              </p>
+            </div>
+            <div class="hero-actions" style="gap: 12px">
+              <a
+                href="#access"
+                class="cta-button primary-cta-style"
+                style="color: #ffffff !important">
+                Выбрать формат
+              </a>
+              <a
+                href="#access"
+                class="just-button ghost-button-style"
+                style="color: #c3c6dc !important">
+                Скачать чек-лист
+              </a>
+            </div>
+          </div>
+          <div class="module-grid">
+            <details>
+              <summary>
+                Модуль 1. Фундамент: рабочая связка и позиционирование
+              </summary>
+              <ul class="module-list">
+                <li>Диагностика текущего состояния канала и аудитории</li>
+                <li>AI-ассистент для формулировки боли, выгод, возражений</li>
+                <li>Создание названия, описания и контент-рамок канала</li>
+                <li>Визуальные паттерны: обложки, медиа, шрифтовая система</li>
+              </ul>
+            </details>
+            <details>
+              <summary>Модуль 2. Контент и прогрев: механика доверия</summary>
+              <ul class="module-list">
+                <li>Контент-календарь с форматами под разные сегменты ЦА</li>
+                <li>Скрипты прогрева: лид-магниты, экспертные рубрики</li>
+                <li>Интерактивы и опросы для удержания и вовлечения</li>
+                <li>Майнд-карты и шаблоны быстрых публикаций</li>
+              </ul>
+            </details>
+            <details>
+              <summary>Модуль 3. Автоворонка и чат-боты</summary>
+              <ul class="module-list">
+                <li>Построение простой автоворонки без сложных интеграций</li>
+                <li>
+                  Сценарии чат-бота: знакомство, прогрев, переход к сделке
+                </li>
+                <li>Паузы, сегменты, персональные предложения</li>
+                <li>Подключение сервисов и настройка аналитики</li>
+              </ul>
+            </details>
+            <details>
+              <summary>Модуль 4. Реклама и контроль бюджета</summary>
+              <ul class="module-list">
+                <li>Настройка рекламных связок и сегментация офферов</li>
+                <li>Чек-листы кабинетов Telegram Ads и смежных площадок</li>
+                <li>Формулы для расчета CPL, CPA, ROI в дашборде</li>
+                <li>Шаблоны объявлений и креативов, контроль частоты</li>
+              </ul>
+            </details>
+          </div>
+          <figure style="margin-top: 36px">
+            <img
+              src="https://rnd-img.vercel.app/api/880/420?text=Program+Timeline"
+              alt="Линейка модулей курса с контрольными точками и результатом"
+              width="880"
+              height="420"
+              loading="lazy" />
+            <!-- Здесь должно быть изображение: дорожная карта модулей, как на презентационных блоках mark-barton.com -->
+            <figcaption style="margin-top: 12px; color: var(--muted)">
+              Каждый модуль закрывает один блок воронки и усиливает предыдущий.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section id="proof" class="section section-soft">
+          <!-- Двухколоночный блок доверия с отзывами, вдохновлен https://evgeniiafedoseeva.ru/ -->
+          <div class="section-heading">
+            <div>
+              <h2>Доказательства и поддержка</h2>
+              <p>
+                Система создана практиками. Вы получите наставничество, обратную
+                связь и проверенные инструменты, чтобы быстро выйти к первым
+                заявкам.
+              </p>
+            </div>
+            <div
+              class="ghost-button-style"
+              style="color: #c3c6dc; border: 1px solid rgba(124, 92, 255, 0.3)">
+              <span style="opacity: 0.7">
+                Поддержка 24/7 и сообщество выпускников
+              </span>
+            </div>
+          </div>
+          <div class="proof-grid">
+            <div>
+              <div class="proof-card">
+                <strong>4 модуля + ХХ видеоуроков</strong>
+                <span>
+                  Концентрированная практика без воды. Формула внедрения «сделал
+                  → проверил → внедрил».
+                </span>
+              </div>
+              <div class="proof-card">
+                <strong>2 AI-ассистента внутри программы</strong>
+                <span>
+                  Для анализа ЦА и генерации лид-магнитов — экономят часы
+                  рутины.
+                </span>
+              </div>
+              <div class="proof-card">
+                <strong>Готовые шаблоны и майнд-карты</strong>
+                <span>
+                  Сценарии прогрева, чек-листы рекламы, карты контента.
+                </span>
+              </div>
+              <div class="proof-card">
+                <strong>Практическая проверка</strong>
+                <span>
+                  Домашние задания с обратной связью, чтобы не застревать.
+                </span>
+              </div>
+            </div>
+            <div class="quote-box">
+              «Запустили канал в нише консультаций, получили 31 заявку за первый
+              месяц с окупаемостью рекламного бюджета 170%. Логика автоворонки и
+              AI-ассистенты сильно ускорили производство контента.»
+              <span>Мария Степанова, эксперт по финансовому планированию</span>
+            </div>
+          </div>
+          <figure style="margin-top: 36px">
+            <img
+              src="https://rnd-img.vercel.app/api/820/360?text=Community+Dashboard"
+              alt="Дашборд с заявками и отзыв участника программы"
+              width="820"
+              height="360"
+              loading="lazy" />
+            <!-- Здесь должно быть изображение: снимок экрана комьюнити и аналитики, вдохновленный разделом отзывов на evgeniiafedoseeva.ru -->
+            <figcaption style="margin-top: 12px; color: var(--muted)">
+              Живые кейсы и скриншоты результатов закрепляют технологию.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section id="access" class="section section-dark">
+          <!-- Финальный CTA с многошаговым блоком, вдохновлен https://mark-barton.com/ -->
+          <div class="final-cta">
+            <h2>Готовы выстроить поток клиентов?</h2>
+            <p style="color: var(--text-secondary)">
+              Выберите формат участия и получите доступ к системе, которая
+              окупается с первых 1–2 клиентов, пришедших из вашего Telegram.
+            </p>
+            <div class="final-list">
+              <span>4 модуля, ХХ подробных видеоуроков</span>
+              <span>Пожизненный доступ ко всем обновлениям</span>
+              <span>Два AI-ассистента для ЦА и лид-магнитов</span>
+              <span>Шаблоны, майнд-карты, памятки</span>
+              <span>Домашние задания с проверкой</span>
+            </div>
+            <div class="hero-actions" style="justify-content: center">
+              <a
+                href="https://trafficpulse.ru/form"
+                class="cta-button primary-cta-style"
+                style="color: #ffffff !important">
+                Получить доступ к курсу
+              </a>
+              <a
+                href="https://t.me/trafficpulse_support"
+                class="just-button ghost-button-style"
+                style="color: #c3c6dc !important">
+                Задать вопрос в поддержку
+              </a>
+            </div>
+            <p style="color: var(--muted); font-size: 14px">
+              Вы ничем не рискуете. Начните применять знания и отследите
+              результат на своем дашборде.
+            </p>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <div>TrafficPulse · Система «Клиенты из Telegram»</div>
+        <div>© 2024. Все права защищены.</div>
+      </footer>
+    </div>
+    <script>
+      (function () {
+        const clickLog = [];
+        function trackClick(event) {
+          const target = event.currentTarget;
+          clickLog.push({
+            classList: Array.from(target.classList),
+            text: target.textContent.trim(),
+            href: target.getAttribute("href"),
+            ts: Date.now(),
+          });
+          if (clickLog.length > 20) {
+            clickLog.shift();
+          }
+          window.__ctaClicks = clickLog;
+        }
+        document
+          .querySelectorAll(".cta-button")
+          .forEach((btn) => btn.addEventListener("click", trackClick));
+        document
+          .querySelectorAll(".just-button")
+          .forEach((btn) => btn.addEventListener("click", trackClick));
+      })();
+    </script>
+  </body>
+</html>
