@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Система «Клиенты из Telegram» — пошаговый план TrafficPulse</title>
+    <meta
+      name="description"
+      content="Пошаговый план: от пустого Telegram-канала до автоматического потока заявок. Рабочая связка, автоворонка, ИИ-ассистенты и запуск рекламы без хаоса."
+    />
+    <meta
+      name="keywords"
+      content="клиенты из telegram, курс по telegram, автоворонка, ai ассистенты, trafficpulse"
+    />
+    <link
+      rel="canonical"
+      href="https://trafficpulse.ru/clients-from-telegram/v2"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Система «Клиенты из Telegram» — пошаговый план TrafficPulse"
+    />
+    <meta
+      property="og:description"
+      content="Хватит постить в пустоту. Соберите систему, которая привлекает, прогревает и приводит клиентов из Telegram 24/7."
+    />
+    <meta
+      property="og:url"
+      content="https://trafficpulse.ru/clients-from-telegram/v2"
+    />
+    <meta
+      property="og:image"
+      content="https://rnd-img.vercel.app/api/1200/630?text=Telegram+System+V2"
+    />
+    <meta name="theme-color" content="#05040a" />
+    <style>
+      :root {
+        --bg-deep: #05040a;
+        --bg-alt: #0b0c17;
+        --bg-soft: #111322;
+        --accent: #7c5cff;
+        --accent-alt: #19d3a5;
+        --accent-soft: rgba(124, 92, 255, 0.18);
+        --muted: #8f95b2;
+        --text-primary: #f7f8ff;
+        --text-secondary: #c3c6dc;
+        --border-subtle: rgba(255, 255, 255, 0.08);
+        --gradient-cta: linear-gradient(135deg, #7c5cff 0%, #5027ff 100%);
+        --gradient-soft: linear-gradient(135deg, rgba(124, 92, 255, 0.1) 0%, rgba(25, 211, 165, 0.08) 100%);
+        --transition: cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: var(--bg-deep);
+        color: var(--text-primary);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 16px;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page-shell {
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      .section {
+        padding: 72px 5vw;
+        position: relative;
+      }
+
+      .section-tight {
+        padding-top: 48px;
+        padding-bottom: 48px;
+      }
+
+      .section-hero {
+        background: radial-gradient(120% 120% at 10% 10%, rgba(124, 92, 255, 0.25) 0%, rgba(5, 4, 10, 0.9) 55%, rgba(5, 4, 10, 1) 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.85fr);
+        gap: 48px;
+        align-items: center;
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+
+      .hero-lead {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 8px 18px;
+        border-radius: 999px;
+        background: rgba(124, 92, 255, 0.18);
+        color: var(--text-secondary);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 600;
+        width: fit-content;
+      }
+
+      h1 {
+        font-size: clamp(36px, 4vw, 56px);
+        line-height: 1.1;
+        margin: 0;
+        letter-spacing: -0.02em;
+      }
+
+      h2 {
+        font-size: clamp(26px, 3vw, 36px);
+        margin: 0 0 16px;
+      }
+
+      h3 {
+        font-size: 22px;
+        margin: 0 0 12px;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .hero-lead p {
+        color: var(--text-secondary);
+        font-size: 18px;
+        max-width: 560px;
+      }
+
+      .hero-subhead {
+        font-size: 20px;
+        font-weight: 500;
+        color: var(--text-primary);
+        max-width: 620px;
+      }
+
+      .hero-list {
+        display: grid;
+        gap: 14px;
+      }
+
+      .hero-list li {
+        list-style: none;
+        position: relative;
+        padding-left: 28px;
+        color: var(--text-secondary);
+        font-weight: 500;
+      }
+
+      .hero-list li::before {
+        content: "—";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .primary-cta-style {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 28px;
+        border-radius: 14px;
+        font-weight: 600;
+        background: var(--gradient-cta);
+        box-shadow: 0 16px 32px rgba(124, 92, 255, 0.32);
+        transition: transform 240ms var(--transition), box-shadow 240ms var(--transition);
+      }
+
+      .primary-cta-style:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 24px 44px rgba(124, 92, 255, 0.4);
+      }
+
+      .ghost-button-style {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 26px;
+        border-radius: 14px;
+        border: 1px solid var(--border-subtle);
+        color: var(--text-secondary);
+        transition: background 220ms var(--transition), color 220ms var(--transition), border-color 220ms var(--transition);
+      }
+
+      .ghost-button-style:hover {
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text-primary);
+        border-color: rgba(255, 255, 255, 0.15);
+      }
+
+      .hero-side {
+        display: grid;
+        gap: 28px;
+      }
+
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 16px;
+      }
+
+      .stat-card {
+        padding: 18px 20px;
+        border-radius: 16px;
+        background: rgba(15, 16, 32, 0.8);
+        border: 1px solid rgba(124, 92, 255, 0.14);
+        backdrop-filter: blur(14px);
+      }
+
+      .stat-card strong {
+        display: block;
+        font-size: 20px;
+        margin-bottom: 6px;
+      }
+
+      .stat-card span {
+        color: var(--text-secondary);
+        font-size: 14px;
+      }
+
+      .hero-figure {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        background: var(--gradient-soft);
+        padding: 12px;
+      }
+
+      .hero-figure figcaption {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .section-dark {
+        background: var(--bg-alt);
+      }
+
+      .section-soft {
+        background: var(--bg-soft);
+      }
+
+      .section-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 32px;
+        margin-bottom: 32px;
+      }
+
+      .section-heading p {
+        max-width: 520px;
+        color: var(--text-secondary);
+      }
+
+      .pain-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+      }
+
+      .pain-card {
+        position: relative;
+        padding: 24px;
+        border-radius: 20px;
+        background: rgba(8, 10, 23, 0.85);
+        border: 1px solid var(--border-subtle);
+        transition: transform 240ms var(--transition), border-color 240ms var(--transition);
+      }
+
+      .pain-card::before {
+        content: attr(data-label);
+        position: absolute;
+        top: -12px;
+        left: 24px;
+        padding: 4px 12px;
+        border-radius: 999px;
+        background: rgba(25, 211, 165, 0.18);
+        color: var(--accent-alt);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .pain-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(124, 92, 255, 0.3);
+      }
+
+      .pain-card p {
+        color: var(--text-secondary);
+      }
+
+      .module-grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      details {
+        border-radius: 16px;
+        border: 1px solid rgba(124, 92, 255, 0.2);
+        background: rgba(7, 10, 24, 0.88);
+        padding: 18px 24px;
+        transition: border-color 200ms var(--transition), background 200ms var(--transition);
+      }
+
+      details[open] {
+        background: rgba(16, 20, 40, 0.92);
+        border-color: rgba(124, 92, 255, 0.45);
+      }
+
+      summary {
+        list-style: none;
+        cursor: pointer;
+        position: relative;
+        font-weight: 600;
+      }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+
+      summary::after {
+        content: "↗";
+        position: absolute;
+        right: 0;
+        font-size: 16px;
+        transition: transform 200ms var(--transition);
+      }
+
+      details[open] summary::after {
+        transform: rotate(45deg);
+      }
+
+      details p {
+        color: var(--text-secondary);
+        margin-top: 12px;
+      }
+
+      .module-list {
+        margin-top: 16px;
+        padding-left: 18px;
+        color: var(--text-secondary);
+      }
+
+      .module-list li {
+        margin-bottom: 8px;
+      }
+
+      .proof-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+        gap: 32px;
+        align-items: start;
+      }
+
+      .proof-card {
+        padding: 24px;
+        border-radius: 20px;
+        border: 1px solid rgba(25, 211, 165, 0.22);
+        background: rgba(9, 15, 24, 0.92);
+        margin-bottom: 16px;
+      }
+
+      .author-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
+        gap: 36px;
+        align-items: center;
+      }
+
+      .author-photo {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        background: rgba(12, 14, 26, 0.95);
+        padding: 16px;
+        border: 1px solid rgba(124, 92, 255, 0.25);
+      }
+
+      .author-photo figcaption {
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .author-ribbon {
+        position: absolute;
+        top: 22px;
+        left: -42px;
+        transform: rotate(-32deg);
+        background: rgba(124, 92, 255, 0.8);
+        color: #fff;
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        padding: 6px 48px;
+        text-transform: uppercase;
+      }
+
+      .author-copy {
+        padding: 26px;
+        border-radius: 20px;
+        border: 1px solid rgba(124, 92, 255, 0.25);
+        background: rgba(7, 10, 22, 0.92);
+        display: grid;
+        gap: 20px;
+      }
+
+      .quote-box {
+        padding: 24px;
+        border-radius: 20px;
+        border: 1px solid rgba(124, 92, 255, 0.3);
+        background: rgba(5, 7, 18, 0.9);
+        color: var(--text-secondary);
+      }
+
+      .final-cta {
+        text-align: center;
+        display: grid;
+        gap: 24px;
+        max-width: 720px;
+        margin: 0 auto;
+      }
+
+      .final-list {
+        display: grid;
+        gap: 12px;
+        color: var(--text-secondary);
+      }
+
+      footer {
+        padding: 32px 5vw 48px;
+        color: var(--muted);
+        font-size: 14px;
+        background: #06050d;
+      }
+
+      .floating-cta-rail {
+        position: fixed;
+        top: 35%;
+        right: -78px;
+        z-index: 40;
+        transform: rotate(-90deg);
+        transform-origin: top right;
+      }
+
+      .floating-cta-rail a {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 32px;
+        border-radius: 18px 18px 0 0;
+        background: var(--gradient-cta);
+        font-weight: 600;
+        box-shadow: 0 18px 36px rgba(124, 92, 255, 0.35);
+      }
+
+      .floating-cta-rail a span {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .floating-cta-rail a strong {
+        font-size: 18px;
+      }
+
+      .nav-chipgroup {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .chip-link-style {
+        padding: 10px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--muted);
+        transition: border-color 200ms var(--transition), color 200ms var(--transition);
+      }
+
+      .chip-link-style:hover {
+        border-color: rgba(124, 92, 255, 0.5);
+        color: var(--text-primary);
+      }
+
+      .info-strip {
+        padding: 18px 24px;
+        border-radius: 18px;
+        background: rgba(124, 92, 255, 0.14);
+        color: var(--text-secondary);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+      }
+
+      @media (max-width: 1100px) {
+        .floating-cta-rail {
+          display: none;
+        }
+      }
+
+      @media (max-width: 960px) {
+        .section {
+          padding: 64px 24px;
+        }
+
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .proof-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .author-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 540px) {
+        .author-photo {
+          padding: 12px;
+        }
+
+        .author-ribbon {
+          top: 18px;
+          left: -36px;
+          font-size: 11px;
+          padding: 6px 38px;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .section {
+          padding: 54px 20px;
+        }
+
+        .section-heading {
+          flex-direction: column;
+        }
+
+        .hero-actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .hero-actions a {
+          justify-content: center;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+          animation: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="floating-cta-rail">
+        <a
+          href="#cta"
+          class="cta-button primary-cta-style"
+          style="color: #ffffff !important;"
+          ><!-- Вдохновлено https://mark-barton.com/ фиксированной боковой кнопкой -->
+          <span>Получить систему</span>
+          <strong>+ бонус AI</strong>
+        </a>
+      </div>
+      <main>
+        <section id="overview" class="section section-hero">
+          <!-- Ассиметричный hero, как на https://3dclub.com/ для пробития слепоты -->
+          <div class="hero-grid">
+            <div class="hero-lead">
+              <span class="hero-badge">Рабочая связка TrafficPulse</span>
+              <h1>Система «Клиенты из Telegram»</h1>
+              <p class="hero-subhead">
+                Ваш пошаговый план: от пустого канала до автоматического потока
+                заявок с помощью рабочей связки и ИИ.
+              </p>
+              <p>
+                Хватит постить в пустоту и ждать, когда клиенты сами вас найдут.
+                Постройте систему, которая будет привлекать, прогревать и
+                приводить целевую аудиторию в ваш Telegram-канал 24/7, даже
+                когда вы отдыхаете.
+              </p>
+              <div>
+                <strong>Этот курс для вас, если вы:</strong>
+                <ul class="hero-list">
+                  <li>Эксперт, коуч или консультант</li>
+                  <li>Владелец онлайн-школы или автор курсов</li>
+                  <li>Фрилансер или специалист, продающий свои услуги</li>
+                </ul>
+              </div>
+              <div class="hero-actions">
+                <a
+                  href="#program"
+                  class="cta-button primary-cta-style"
+                  style="color: #ffffff !important;"
+                  >Посмотреть программу курса</a
+                >
+                <a
+                  href="#cta"
+                  class="just-button ghost-button-style"
+                  style="color: #c3c6dc !important;"
+                  >Хочу получить систему!</a
+                >
+              </div>
+            </div>
+            <div class="hero-side">
+              <div class="stat-grid">
+                <div class="stat-card">
+                  <strong>Система «лид-магнит → воронка → канал»</strong>
+                  <span>Полная схема продвижения Telegram-канала</span>
+                </div>
+                <div class="stat-card">
+                  <strong>ИИ-ассистенты внутри курса</strong>
+                  <span>Анализ ЦА и лид-магниты за минуты</span>
+                </div>
+                <div class="stat-card">
+                  <strong>Автоворонка и реклама</strong>
+                  <span>Чат-бот, BotHelp, Яндекс.Директ и Метрика</span>
+                </div>
+              </div>
+              <figure class="hero-figure">
+                <img
+                  src="https://rnd-img.vercel.app/api/720/520?text=Telegram+Blueprint"
+                  alt="Пошаговая схема связки: лид-магнит, воронка, канал, реклама"
+                  width="720"
+                  height="520"
+                />
+                <!-- Здесь должно быть изображение: графическая схема из лучших практик 3dclub.com с выделением шагов системы -->
+                <figcaption>
+                  Вся система в одном кадре: диагностика, связанность этапов и
+                  контроль цифр.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section id="pain" class="section section-dark section-tight">
+          <!-- Мультекран с диагональным чтением, опирается на https://formagiclife.ru/ -->
+          <div class="section-heading">
+            <div>
+              <h2>Узнаете себя?</h2>
+              <p>
+                Вы ведете свой Telegram-канал, вкладываете время и силы, но
+                что-то идет не так...
+              </p>
+            </div>
+            <div class="nav-chipgroup">
+              <span class="chip-link-style" style="color: #8f95b2 !important;"
+                >Маркетинг — это технология</span
+              >
+              <a
+                href="#program"
+                class="just-button chip-link-style"
+                style="color: #8f95b2 !important;"
+                >Посмотреть программу курса</a
+              >
+            </div>
+          </div>
+          <div class="pain-grid">
+            <article class="pain-card" data-label="Мертвые души">
+              <h3>Подписчики есть, но они не читают</h3>
+              <p>
+                Подписчики не реагируют и, конечно, не покупают. Канал похож на
+                тихое болото.
+              </p>
+            </article>
+            <article class="pain-card" data-label="Синдром самозванца">
+              <h3>Мысли о контенте вызывают муку</h3>
+              <p>
+                Вы не понимаете, о чем писать, чтобы было интересно. Идеи быстро
+                заканчиваются.
+              </p>
+            </article>
+            <article class="pain-card" data-label="Страх рекламы">
+              <h3>Запуск трафика парализует</h3>
+              <p>
+                Куда нажимать? Как не слить бюджет? А что, если придут «не те»
+                люди?
+              </p>
+            </article>
+            <article class="pain-card" data-label="Нет системы">
+              <h3>Продажи случаются хаотично</h3>
+              <p>
+                Нет предсказуемого потока клиентов, и непонятно, что делать
+                завтра, чтобы получить заявки.
+              </p>
+            </article>
+          </div>
+          <div class="quote-box" style="margin-top: 32px;">
+            Перестаньте работать вслепую. Маркетинг — это не магия, а
+            технология.
+          </div>
+          <figure style="margin-top: 36px;">
+            <img
+              src="https://rnd-img.vercel.app/api/860/400?text=Pain+Signals"
+              alt="Диаграмма проблем Telegram-каналов: вовлечение, контент, реклама, система"
+              width="860"
+              height="400"
+              loading="lazy"
+            />
+            <!-- Здесь должно быть изображение: инфографика с болями пользователей, вдохновленная форматом formagiclife.ru -->
+            <figcaption style="margin-top: 12px; color: var(--muted);">
+              Типовые сбои воронки фиксируются на этапе диагностики.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section id="value" class="section section-soft">
+          <!-- Ленточная секция с Z-паттерном, как на https://3dclub.com/ -->
+          <div class="section-heading">
+            <div>
+              <h2>Представьте, что у вас есть готовая система</h2>
+              <p>
+                Этот курс — не набор разрозненных лекций, а полная схема сборки
+                вашей машины по привлечению клиентов из Telegram. Мы пройдем с
+                вами весь путь, шаг за шагом: от идеи до первых результатов с
+                платной рекламы.
+              </p>
+            </div>
+            <div class="info-strip">
+              <span>Вы получите готовую, работающую связку.</span>
+              <span>Ее можно повторять снова и снова.</span>
+            </div>
+          </div>
+          <div class="proof-grid">
+            <div class="proof-card">
+              <h3>Поймете свою ЦА лучше, чем они сами себя</h3>
+              <p>
+                С помощью наших ИИ-ассистентов вы за 20 минут вытащите такие
+                боли и потребности, на поиск которых у других уходят недели.
+              </p>
+            </div>
+            <div class="proof-card">
+              <h3>Упакуете канал так, что на него захочется подписаться</h3>
+              <p>
+                Создадите цепляющее название, описание и контент, который будет
+                работать на вас.
+              </p>
+            </div>
+            <div class="proof-card">
+              <h3>Соберете простую, но эффективную автоворонку</h3>
+              <p>
+                Ваш чат-бот будет сам знакомить аудиторию с вами, выдавать пользу
+                и подводить к покупке.
+              </p>
+            </div>
+            <div class="proof-card">
+              <h3>Уверенно запустите свою первую рекламу</h3>
+              <p>
+                Освоите техническую базу, напишете убойные объявления и
+                научитесь отслеживать эффективность, контролируя каждый рубль.
+              </p>
+            </div>
+          </div>
+          <div class="hero-actions" style="margin-top: 28px;">
+            <a
+              href="#cta"
+              class="cta-button primary-cta-style"
+              style="color: #ffffff !important;"
+              >Хочу получить систему!</a
+            >
+          </div>
+        </section>
+
+        <section id="program" class="section section-dark">
+          <!-- Аккордеон модулей, основанный на структуре https://mark-barton.com/ -->
+          <div class="section-heading">
+            <div>
+              <h2>Что внутри? Ваш пошаговый маршрут к результату</h2>
+              <p>
+                Курс состоит из 4 практических модулей. Никакой воды — только
+                конкретные действия, инструменты и готовые шаблоны.
+              </p>
+            </div>
+            <div class="hero-actions" style="gap: 12px;">
+              <a
+                href="#cta"
+                class="cta-button primary-cta-style"
+                style="color: #ffffff !important;"
+                >Получить доступ</a
+              >
+              <a
+                href="#author"
+                class="just-button ghost-button-style"
+                style="color: #c3c6dc !important;"
+                >Познакомиться с автором</a
+              >
+            </div>
+          </div>
+          <div class="module-grid">
+            <details>
+              <summary>
+                Модуль 1. Фундамент: Рабочая связка и глубокий анализ ЦА с
+                помощью ИИ
+              </summary>
+              <p>
+                Здесь мы заложим основу всей системы. Вы поймете, как работает
+                связка «лид-магнит → воронка → канал», и глубоко проанализируете
+                свою аудиторию, чтобы бить рекламой точно в цель.
+              </p>
+              <ul class="module-list">
+                <li>
+                  <strong>Урок 1.</strong> Полная схема продвижения
+                  Telegram-канала. Разбираем всю связку от А до Я.
+                </li>
+                <li>
+                  <strong>Урок 2.</strong> Глубокий анализ ЦА с помощью ИИ.
+                  Используем ChatGPT-ассистента, чтобы выявить боли, страхи и
+                  возражения аудитории без дорогих исследований.
+                </li>
+                <li>
+                  <strong>Урок 3.</strong> Создание взрывного лид-магнита.
+                  Выбираем тему и формат подарка с помощью второго
+                  ИИ-ассистента.
+                </li>
+              </ul>
+            </details>
+            <details>
+              <summary>
+                Модуль 2. Упаковка: Превращаем ваш канал в магнит для клиентов
+              </summary>
+              <p>
+                Прежде чем звать гостей, нужно навести порядок в доме. Мы
+                подготовим ваш канал к приему платного трафика так, чтобы каждый
+                новый подписчик оставался с вами надолго.
+              </p>
+              <ul class="module-list">
+                <li>
+                  <strong>Урок 1.</strong> 7 видов Telegram-каналов и их
+                  монетизация. Выбираем стратегию, которая подходит именно вам.
+                </li>
+                <li>
+                  <strong>Урок 2.</strong> Упаковка «под ключ». Создаем
+                  цепляющее название, описание и аватар.
+                </li>
+                <li>
+                  <strong>Урок 3.</strong> Контент, который продает. Разрабатываем
+                  рубрикатор и пишем пост-знакомство по готовой структуре.
+                </li>
+              </ul>
+            </details>
+            <details>
+              <summary>
+                Модуль 3. Автоматизация: Собираем простую автоворонку в
+                чат-боте
+              </summary>
+              <p>
+                Создаем автоматического помощника, который будет работать 24/7:
+                выдавать лид-магнит, знакомить с вами и вашим продуктом,
+                прогревать аудиторию.
+              </p>
+              <ul class="module-list">
+                <li>
+                  <strong>Урок 1.</strong> Техническая подготовка. Регистрируемся
+                  в сервисе BotHelp и создаем своего первого чат-бота в Telegram.
+                </li>
+                <li>
+                  <strong>Урок 2.</strong> Сборка микро-воронки. Собираем по
+                  шаблону простую воронку, которая выдает подарок за подписку и
+                  ведет человека дальше.
+                </li>
+              </ul>
+            </details>
+            <details>
+              <summary>
+                Модуль 4. Трафик: Уверенный запуск рекламы в Яндекс.Директ
+              </summary>
+              <p>
+                Самый ответственный этап. Проходим всю техническую часть за
+                руку: от настройки аналитики до запуска кампании. Никаких «черных
+                ящиков» — вы будете понимать каждый свой шаг.
+              </p>
+              <ul class="module-list">
+                <li>
+                  <strong>Урок 1.</strong> Подключение технической части.
+                  Настраиваем сервисы для отслеживания рекламы.
+                </li>
+                <li>
+                  <strong>Урок 2.</strong> Создание посадочного поста. Пишем
+                  пост, на который будем вести трафик.
+                </li>
+                <li>
+                  <strong>Урок 3.</strong> Сборка сайта-прокладки за 15 минут.
+                  Делаем простой сайт на Tilda или Taplink.
+                </li>
+                <li>
+                  <strong>Урок 4.</strong> Настройка Яндекс.Метрики. Создаем
+                  счетчики и цели.
+                </li>
+                <li>
+                  <strong>Урок 5.</strong> Написание рекламных объявлений.
+                  Создаем креативы, которые привлекают внимание.
+                </li>
+                <li>
+                  <strong>Урок 6.</strong> Запуск рекламной кампании. Собираем
+                  кампанию и готовимся получать первых подписчиков!
+                </li>
+              </ul>
+            </details>
+          </div>
+          <figure style="margin-top: 36px;">
+            <img
+              src="https://rnd-img.vercel.app/api/880/420?text=Course+Roadmap"
+              alt="Дорожная карта курса с четырьмя модулями и контрольными точками"
+              width="880"
+              height="420"
+              loading="lazy"
+            />
+            <!-- Здесь должно быть изображение: дорожная карта модулей в стиле mark-barton.com -->
+            <figcaption style="margin-top: 12px; color: var(--muted);">
+              Каждый модуль усиливает предыдущий и закрывает свой блок воронки.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section id="author" class="section section-soft">
+          <!-- Двухколоночная структура доверия, вдохновлено https://evgeniiafedoseeva.ru/ и визуальным решением с бейджем, как на https://mark-barton.com -->
+          <div class="section-heading">
+            <div>
+              <h2>Кто будет вашим проводником?</h2>
+              <p>
+                Привет, я <strong>(Ваше Имя Фамилия)</strong> —
+                <strong>(Ваша ключевая регалия, например, маркетолог-практик,
+                  эксперт по автоворонкам)</strong>.
+              </p>
+            </div>
+            <div class="ghost-button-style" style="color: #c3c6dc; border: 1px solid rgba(124, 92, 255, 0.3);">
+              <span style="opacity: 0.7;"
+                >Вся система проверена на личных и клиентских проектах</span
+              >
+            </div>
+          </div>
+          <div class="author-layout">
+            <figure class="author-photo">
+              <!-- Вдохновлено https://mark-barton.com блоком с фото эксперта и диагональным бейджем -->
+              <span class="author-ribbon">TrafficPulse</span>
+              <img
+                src="https://rnd-img.vercel.app/api/620/720?text=Author+Workspace"
+                alt="Автор курса с ноутбуком, рабочая среда и открытый Telegram-канал"
+                width="620"
+                height="720"
+                loading="lazy"
+              />
+              <!-- Здесь должно быть изображение: студийный портрет автора с рабочей зоной, как у mark-barton.com -->
+              <figcaption>
+                Замените на собственное фото: живое окружение и интерфейсы
+                Telegram усиливают доверие.
+              </figcaption>
+            </figure>
+            <div class="author-copy">
+              <p>
+                Я не теоретик, а играющий тренер. Всю систему, которую вы изучите
+                на курсе, я сама использую в своих и клиентских проектах для
+                привлечения платящих клиентов из Telegram.
+              </p>
+              <ul class="module-list" style="margin-top: 0;">
+                <li>
+                  За последние (X) лет я помогла (количество) экспертам запускать
+                  каналы, которые зарабатывают.
+                </li>
+                <li>
+                  Мои ученики смогли системно привлекать подписчиков и
+                  монетизировать аудиторию.
+                </li>
+                <li>
+                  Я верю, что маркетинг должен быть понятным, системным и
+                  приносить измеримый результат в деньгах.
+                </li>
+              </ul>
+              <div class="info-strip" style="background: rgba(25, 211, 165, 0.16); color: var(--text-primary);">
+                <span>Именно этому я и учу. Внутри курса — обратная связь и поддержка.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="cta" class="section section-dark">
+          <!-- Финальный CTA с многоступенчатой подачей, вдохновлено https://mark-barton.com/ -->
+          <div class="final-cta">
+            <h2>Готовы построить свою систему привлечения клиентов?</h2>
+            <p style="color: var(--text-secondary);">
+              Выберите свой формат участия и получите доступ к знаниям, которые
+              окупятся уже с первых 1–2 клиентов, пришедших из вашего
+              Telegram-канала.
+            </p>
+            <div>
+              <strong>Что вы получаете:</strong>
+              <div class="final-list">
+                <span>4 модуля, ХХ подробных видеоуроков</span>
+                <span>Пожизненный доступ к материалам курса и всем обновлениям</span>
+                <span>2 эксклюзивных ИИ-ассистента для анализа ЦА и лид-магнитов</span>
+                <span>Готовые шаблоны, майнд-карты и памятки</span>
+                <span>Практические домашние задания для внедрения каждого шага</span>
+              </div>
+            </div>
+            <div class="hero-actions" style="justify-content: center;">
+              <a
+                href="https://trafficpulse.ru/form"
+                class="cta-button primary-cta-style"
+                style="color: #ffffff !important;"
+                >Получить доступ к курсу</a
+              >
+              <a
+                href="https://t.me/trafficpulse_support"
+                class="just-button ghost-button-style"
+                style="color: #c3c6dc !important;"
+                >Задать вопрос в поддержку</a
+              >
+            </div>
+            <div>
+              <h3 style="margin-bottom: 8px;">Полный доступ к системе «Клиенты из Telegram»</h3>
+              <p style="color: var(--text-secondary);">
+                (Здесь можно указать цену, например, 19 990 ₽)
+              </p>
+            </div>
+            <p style="color: var(--muted); font-size: 14px;">
+              Вы ничем не рискуете. Начните применять знания, и вы увидите
+              результат.
+            </p>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <div>TrafficPulse · Система «Клиенты из Telegram» · версия V2</div>
+        <div>© 2024. Все права защищены.</div>
+      </footer>
+    </div>
+    <script>
+      (function () {
+        const clickLog = [];
+        function trackClick(event) {
+          const target = event.currentTarget;
+          clickLog.push({
+            classList: Array.from(target.classList),
+            text: target.textContent.trim(),
+            href: target.getAttribute("href"),
+            ts: Date.now(),
+          });
+          if (clickLog.length > 20) {
+            clickLog.shift();
+          }
+          window.__ctaClicks = clickLog;
+        }
+        document
+          .querySelectorAll(".cta-button")
+          .forEach((btn) => btn.addEventListener("click", trackClick));
+        document
+          .querySelectorAll(".just-button")
+          .forEach((btn) => btn.addEventListener("click", trackClick));
+      })();
+    </script>
+  </body>
+</html>
