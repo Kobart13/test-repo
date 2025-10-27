@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Pomodoro Timer</h1>
+
+      <div class="timer-display" id="timerDisplay">25:00</div>
+
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+
+      <div class="controls">
+        <button class="btn btn-primary" id="startBtn">Старт</button>
+        <button class="btn btn-secondary" id="pauseBtn" disabled>Пауза</button>
+        <button class="btn btn-secondary" id="resetBtn">Сброс</button>
+      </div>
+
+      <div class="presets">
+        <button class="preset-btn" data-minutes="25">25 мин</button>
+        <button class="preset-btn" data-minutes="5">5 мин</button>
+        <button class="preset-btn" data-minutes="15">15 мин</button>
+        <button class="preset-btn" data-minutes="30">30 мин</button>
+      </div>
+
+      <div class="custom-time">
+        <label for="customMinutes">Установить время (мин):</label>
+        <input type="number" id="customMinutes" min="1" max="180" value="25" />
+        <button class="btn btn-small" id="setCustomBtn">Установить</button>
+      </div>
+
+      <div class="status" id="status">Готов к работе</div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
