@@ -91,3 +91,4 @@
 - [TrafficPulse/lm_trfpulse_a1_v2.html](https://Kobart13.github.io/test-repo/TrafficPulse/lm_trfpulse_a1_v2.html)
 - [pomodoro/index.html](https://Kobart13.github.io/test-repo/pomodoro/index.html)
 - [trf_old55_v1/trf_old55_v1.html](https://Kobart13.github.io/test-repo/trf_old55_v1/trf_old55_v1.html)
+- [trf_old55_v2/trf_old55_v2.html](https://Kobart13.github.io/test-repo/trf_old55_v2/trf_old55_v2.html)
