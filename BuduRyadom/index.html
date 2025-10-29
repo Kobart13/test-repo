@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Буду Рядом | Психолог для выгоревших профессионалов</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Chosen Palette: Tech Neutral (Calm neutrals: bg-slate-50, text-slate-900; Intelligent accents: bg-indigo-600, text-indigo-700) -->
+    <!-- Application Structure Plan: A linear, single-page landing page designed to build trust with a skeptical, high-intellect audience. The flow logically moves from 1. Acknowledging the specific pain (burnout) -> 2. Highlighting unique benefits (no video, async, anon) -> 3. Validating the condition (it's not laziness) -> 4. Explaining the logical process -> 5. Building trust via expert credentials (CBT, ACT) -> 6. Relatable social proof -> 7. Logical objection handling (FAQ). A sticky header CTA and an interactive accordion for the FAQ are the key interactions, providing constant access and clean information delivery. -->
+    <!-- Visualization & Content Choices: The source (`landing_professionals.md`) is a content plan, not a data report, so no charts are required. 1. Benefits (Report Info: 4 benefits for introverts, etc.) -> Goal: Address core anxieties (no video, async) -> Viz/Method: 4-column grid with clear Unicode icons (🎧, ⌨️, 🔒, 🔋) and text -> Interaction: None (static, scannable) -> Justification: High-clarity, logical grouping of USPs. 2. Process (Report Info: 3 steps) -> Goal: Show a logical, "non-fluffy" process -> Viz/Method: 3-column step cards with prominent numbers -> Interaction: None (static) -> Justification: Breaks down the service into a clear, debug-like process. 3. FAQ (Report Info: 3 questions) -> Goal: Handle key logical objections (anonymity, "just talk") -> Viz/Method: HTML/CSS/JS Accordion -> Interaction: Click-to-reveal -> Justification: Critical for this skeptical audience to find answers without clutter. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .faq-answer {
+        transition: max-height 0.5s ease-in-out;
+      }
+      .hero-background {
+        position: relative;
+        background-image: url("img/019a2afc-f1e1-7d9b-b8c7-6712d74fabfc.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #f8fafc;
+      }
+      .hero-background::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.56);
+      }
+      .hero-background > * {
+        position: relative;
+        z-index: 1;
+      }
+      .neural-network-bg {
+        position: relative;
+        background-color: #4338ca;
+        background-image: url("img/Gemini_Generated_Image_jkgum3jkgum3jkgu (1).png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        overflow: hidden;
+      }
+      .neural-network-bg::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(67, 56, 202, 0.85);
+      }
+      .neural-network-bg > * {
+        position: relative;
+        z-index: 1;
+      }
+      .cta-bg {
+        position: relative;
+        background-color: #0f172a;
+        background-image: url("img/Gemini_Generated_Image_jkgum3jkgum3jkgu (1).png");
+        background-size: cover;
+
+        background-repeat: no-repeat;
+        overflow: hidden;
+      }
+      .cta-bg::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.88);
+      }
+      .cta-bg > * {
+        position: relative;
+        z-index: 1;
+      }
+      .our-psy-bg {
+        position: relative;
+        background-color: #f1f5f9;
+        background-image: url("img/Gemini_Generated_Image_5hy8iv5hy8iv5hy8.jpeg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+      }
+      .our-psy-bg::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(241, 245, 249, 0.6);
+      }
+      .our-psy-bg > * {
+        position: relative;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50 text-slate-800 antialiased">
+    <header
+      class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm shadow-sm border-b border-slate-200"
+    >
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-4">
+          <a href="#" class="text-2xl font-bold text-indigo-700">
+            <img
+              src="https://static.tildacdn.com/tild6366-3266-4266-b532-383834646331/Frame_359.svg"
+              alt="Logo"
+            />
+          </a>
+          <a
+            href="#cta"
+            class="px-6 py-3 bg-indigo-600 text-white text-base font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors duration-300 hidden sm:block"
+          >
+            Начать анонимную сессию
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-background py-24 md:py-32 text-center">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1
+            class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900"
+          >
+            На работе все считают вас успешным. А у вас нет сил даже ответить на
+            сообщение
+          </h1>
+          <p class="mt-6 text-xl md:text-2xl text-slate-900">
+            Это профессиональное выгорание. И вам не нужно говорить об этом
+            вслух, чтобы получить помощь. Психолог в чате — анонимное
+            пространство для тех, кто устал от людей.
+          </p>
+          <a
+            href="#cta"
+            class="mt-12 inline-block px-10 py-5 bg-indigo-600 text-white text-xl font-semibold rounded-xl shadow-lg hover:bg-indigo-700 transition-colors duration-300 transform hover:scale-105"
+          >
+            Начать анонимную сессию
+          </a>
+        </div>
+      </section>
+
+      <section class="py-24 md:py-32 bg-slate-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-3xl mx-auto">
+            <h2
+              class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900"
+            >
+              Никаких видеозвонков. Никаких "расскажите о своем детстве"
+            </h2>
+            <p class="mt-6 text-xl md:text-2xl text-slate-600">
+              Мы знаем, что последний ресурс, который у вас остался, — это
+              социальный. Терапия не должна быть еще одним "созвоном, который
+              выматывает".
+            </p>
+          </div>
+
+          <div
+            class="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12"
+          >
+            <div
+              class="text-center p-6 bg-white rounded-2xl shadow-sm border border-slate-200"
+            >
+              <span class="text-6xl" role="img" aria-label="Наушники"
+                >&#127911;</span
+              >
+              <h3 class="mt-6 text-2xl font-semibold text-slate-800">
+                Для Интровертов
+              </h3>
+              <p class="mt-4 text-lg text-slate-600">
+                Вам не нужно "включать" камеру, улыбаться и смотреть в глаза.
+                Это не созвон. Это асинхронный чат.
+              </p>
+            </div>
+
+            <div
+              class="text-center p-6 bg-white rounded-2xl shadow-sm border border-slate-200"
+            >
+              <span class="text-6xl" role="img" aria-label="Клавиатура"
+                >&#9000;&#65039;</span
+              >
+              <h3 class="mt-6 text-2xl font-semibold text-slate-800">
+                Для Тревожных
+              </h3>
+              <p class="mt-4 text-lg text-slate-600">
+                Не нужно подбирать слова в реальном времени. У вас есть время
+                подумать над ответом и сформулировать мысль.
+              </p>
+            </div>
+
+            <div
+              class="text-center p-6 bg-white rounded-2xl shadow-sm border border-slate-200"
+            >
+              <span class="text-6xl" role="img" aria-label="Замок"
+                >&#128274;</span
+              >
+              <h3 class="mt-6 text-2xl font-semibold text-slate-800">
+                Для Скептиков
+              </h3>
+              <p class="mt-4 text-lg text-slate-600">
+                100% анонимно. Никто из коллег, руководства или HR никогда не
+                узнает. Это абсолютно безопасно.
+              </p>
+            </div>
+
+            <div
+              class="text-center p-6 bg-white rounded-2xl shadow-sm border border-slate-200"
+            >
+              <span class="text-6xl" role="img" aria-label="Батарея"
+                >&#128267;</span
+              >
+              <h3 class="mt-6 text-2xl font-semibold text-slate-800">
+                Для Выгоревших
+              </h3>
+              <p class="mt-4 text-lg text-slate-600">
+                Не нужно никуда ехать и тратить энергию на дорогу. Помощь
+                доступна с того же устройства, на котором вы работаете.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="zero-lazy"
+        class="neural-network-bg py-24 md:py-32 text-white"
+      >
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold">
+            Вы не 'обленились'. <br />
+            Вы — на нуле.
+          </h2>
+          <p class="mt-8 text-xl md:text-2xl text-indigo-100 leading-relaxed">
+            Профессиональное выгорание — это не выдумка. Это цинизм по отношению
+            к задачам, которые раньше нравились. Это чувство собственной
+            неэффективности, сколько бы вы ни работали. Это состояние, из
+            которого нельзя выйти усилием воли или "просто взяв отпуск". Вы не
+            "зажрались". У вашей нервной системы кончился ресурс.
+          </p>
+        </div>
+      </section>
+
+      <section id="how-it-works" class="py-24 md:py-32 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-slate-900"
+          >
+            Четкий подход к вашему состоянию
+          </h2>
+          <div
+            class="mt-20 flex flex-col md:flex-row justify-center items-stretch gap-8 md:gap-10"
+          >
+            <div
+              class="flex-1 bg-slate-50 p-8 md:p-10 rounded-2xl shadow-lg border border-slate-200"
+            >
+              <span class="text-7xl font-bold text-indigo-200">1</span>
+              <h3
+                class="mt-5 text-2xl md:text-3xl font-semibold text-slate-800"
+              >
+                Анонимная диагностика
+              </h3>
+              <p class="mt-5 text-lg md:text-xl text-slate-600">
+                Вы описываете ситуацию в чате. Психолог задает уточняющие
+                вопросы, чтобы понять *корень* проблемы, а не симптомы. Никакой
+                "воды".
+              </p>
+            </div>
+
+            <div
+              class="flex-1 bg-slate-50 p-8 md:p-10 rounded-2xl shadow-lg border border-slate-200"
+            >
+              <span class="text-7xl font-bold text-indigo-200">2</span>
+              <h3
+                class="mt-5 text-2xl md:text-3xl font-semibold text-slate-800"
+              >
+                Подбор специалиста
+              </h3>
+              <p class="mt-5 text-lg md:text-xl text-slate-600">
+                Мы подберем психолога, который специализируется на выгорании,
+                синдроме самозванца и работе с профессионалами в вашей сфере.
+              </p>
+            </div>
+
+            <div
+              class="flex-1 bg-slate-50 p-8 md:p-10 rounded-2xl shadow-lg border border-slate-200"
+            >
+              <span class="text-7xl font-bold text-indigo-200">3</span>
+              <h3
+                class="mt-5 text-2xl md:text-3xl font-semibold text-slate-800"
+              >
+                Начало работы
+              </h3>
+              <p class="mt-5 text-lg md:text-xl text-slate-600">
+                Вы начинаете регулярную терапию в асинхронном режиме. Это как
+                дебаггинг собственных мыслительных паттернов.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="our-psy" class="our-psy-bg py-24 md:py-32">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900">
+            Наши психологи говорят на вашем языке
+          </h2>
+          <p class="mt-8 text-xl md:text-2xl text-slate-600">
+            Они понимают разницу между дедлайном и депрессией и не будут
+            предлагать вам "подышать маткой". Только доказательные методы.
+          </p>
+          <!-- <div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+            <div
+              class="bg-white p-8 rounded-2xl shadow-md border border-slate-200"
+            >
+              <img
+                src="https://placehold.co/400x400/c7d2fe/3730a3?text=Анна"
+                alt="Фото психолога Анны"
+                class="w-48 h-48 rounded-full mx-auto object-cover border-4 border-white shadow-lg"
+                onerror="this.onerror=null; this.src='https://placehold.co/400x400/c7d2fe/3730a3?text=Фото';"
+              />
+              <h3 class="mt-8 text-3xl font-semibold text-slate-800">
+                Анна, 38 лет
+              </h3>
+              <p class="mt-2 text-xl font-medium text-indigo-700">
+                Методы: КПТ, ACT
+              </p>
+              <p class="mt-5 text-lg text-slate-600">
+                Специализация: Профессиональное выгорание, синдром самозванца,
+                тревожные расстройства, работа с IT-специалистами.
+              </p>
+              <blockquote
+                class="mt-6 text-lg italic text-slate-700 border-l-4 border-indigo-300 pl-6 text-left"
+              >
+                "Мы не будем 'копаться в прошлом'. Мы найдем неработающие
+                мыслительные паттерны и заменим их на те, что вернут вам ресурс
+                и контроль."
+              </blockquote>
+            </div>
+
+            <div
+              class="bg-white p-8 rounded-2xl shadow-md border border-slate-200"
+            >
+              <img
+                src="https://placehold.co/400x400/c7d2fe/3730a3?text=Дмитрий"
+                alt="Фото психолога Дмитрия"
+                class="w-48 h-48 rounded-full mx-auto object-cover border-4 border-white shadow-lg"
+                onerror="this.onerror=null; this.src='https://placehold.co/400x400/c7d2fe/3730a3?text=Фото';"
+              />
+              <h3 class="mt-8 text-3xl font-semibold text-slate-800">
+                Дмитрий, 45 лет
+              </h3>
+              <p class="mt-2 text-xl font-medium text-indigo-700">
+                Методы: Краткосрочная стратегическая терапия
+              </p>
+              <p class="mt-5 text-lg text-slate-600">
+                Специализация: Управление стрессом в корпорациях,
+                прокрастинация, апатия, "потолок" в карьере.
+              </p>
+              <blockquote
+                class="mt-6 text-lg italic text-slate-700 border-l-4 border-indigo-300 pl-6 text-left"
+              >
+                "Моя цель — дать вам конкретные, работающие инструменты. Быстро,
+                четко и по делу."
+              </blockquote>
+            </div>
+          </div> -->
+        </div>
+      </section>
+
+      <section id="testimonial" class="py-24 md:py-32 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            class="bg-slate-50 p-10 md:p-16 rounded-3xl shadow-xl border border-slate-200"
+          >
+            <h2
+              class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 leading-snug"
+            >
+              "Я тимлид. Я думал, что психология — это для слабаков..."
+            </h2>
+            <p class="mt-8 text-xl md:text-2xl text-slate-700 leading-relaxed">
+              "Я дошел до точки, когда код вызывал тошноту. Спал по 4 часа, пил
+              10 чашек кофе, ненавидел стендапы. Жена заставила попробовать
+              'хотя бы чат'. Я был настроен максимально скептически. Но мой
+              психолог (Дмитрий) не лил воду. Мы сразу начали разбирать мои
+              'должен', 'обязан'. Это было похоже на рефакторинг собственного
+              мозга. Через 3 недели я перестал просыпаться с мыслью, что все
+              бессмысленно. Это... работает."
+            </p>
+            <p class="mt-10 text-2xl font-semibold text-indigo-700">
+              — Павел, 34 года, Тимлид
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="py-24 md:py-32 bg-slate-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-slate-900"
+          >
+            Вопросы, которые вы, скорее всего, уже гуглили
+          </h2>
+          <div class="mt-16 space-y-6">
+            <div
+              class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden"
+            >
+              <button
+                class="faq-toggle w-full flex justify-between items-center text-left p-6 md:p-8 focus:outline-none"
+              >
+                <span class="text-xl md:text-2xl font-semibold text-slate-800"
+                  >А это точно анонимно? Мой работодатель не узнает?</span
+                >
+                <span
+                  class="faq-icon text-4xl font-light text-indigo-600 transition-transform duration-300"
+                  >+</span
+                >
+              </button>
+              <div class="faq-answer max-h-0 overflow-hidden">
+                <p
+                  class="p-6 md:p-8 pt-0 text-lg md:text-xl text-slate-600 leading-relaxed"
+                >
+                  Абсолютно. Это профессиональная тайна. Мы не передаем данные
+                  третьим лицам, и вы можете использовать псевдоним. Безопаснее,
+                  чем корпоративный психолог от HR.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden"
+            >
+              <button
+                class="faq-toggle w-full flex justify-between items-center text-left p-6 md:p-8 focus:outline-none"
+              >
+                <span class="text-xl md:text-2xl font-semibold text-slate-800"
+                  >Это не "поболтать"? Мне нужны реальные техники.</span
+                >
+                <span
+                  class="faq-icon text-4xl font-light text-indigo-600 transition-transform duration-300"
+                  >+</span
+                >
+              </button>
+              <div class="faq-answer max-h-0 overflow-hidden">
+                <p
+                  class="p-6 md:p-8 pt-0 text-lg md:text-xl text-slate-600 leading-relaxed"
+                >
+                  Это не "поболтать". Наши специалисты используют доказательные
+                  методы (КПТ, ACT), которые фокусируются на решении конкретных
+                  проблем через изменение ваших реакций и мышления.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden"
+            >
+              <button
+                class="faq-toggle w-full flex justify-between items-center text-left p-6 md:p-8 focus:outline-none"
+              >
+                <span class="text-xl md:text-2xl font-semibold text-slate-800"
+                  >Что, если я не смогу четко сформулировать проблему?</span
+                >
+                <span
+                  class="faq-icon text-4xl font-light text-indigo-600 transition-transform duration-300"
+                  >+</span
+                >
+              </button>
+              <div class="faq-answer max-h-0 overflow-hidden">
+                <p
+                  class="p-6 md:p-8 pt-0 text-lg md:text-xl text-slate-600 leading-relaxed"
+                >
+                  Вам и не нужно. Это работа психолога. Просто начните писать,
+                  как есть ("Устал, все бесит, не знаю, что делать"). Специалист
+                  задаст правильные вопросы, чтобы структурировать хаос.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cta" class="cta-bg py-24 md:py-32 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold">
+            Перестаньте "дебажить" себя в одиночку
+          </h2>
+          <p class="mt-8 text-xl md:text-2xl text-slate-300">
+            Потратьте 60 минут не на еще один "срочный" таск, а на себя.
+          </p>
+          <a
+            href="#"
+            class="mt-12 inline-block px-12 py-5 bg-indigo-600 text-white text-xl font-semibold rounded-xl shadow-lg hover:bg-indigo-500 transition-colors duration-300 transform hover:scale-105"
+          >
+            Попробовать от 1490 ₽ за сессию
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="py-16 bg-slate-100 border-t border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Предупреждение для экстренных случаев -->
+        <div class="mb-12 p-6 bg-indigo-50 rounded-xl border border-indigo-200">
+          <p class="text-base text-slate-700 leading-relaxed">
+            Если вы находитесь в серьёзной или угрожающей жизни ситуации —
+            обратитесь на горячую линию экстренной психологической помощи МЧС
+            России
+          </p>
+          <a
+            href="https://buduryadom.ru/free_help"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center mt-4 text-indigo-700 font-semibold hover:text-indigo-800 transition-colors"
+          >
+            <span class="underline">Бесплатная психологическая помощь</span>
+            <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+          </a>
+        </div>
+
+        <!-- Основная сетка футера -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+          <!-- Колонка 1: Документы -->
+          <div>
+            <h3 class="text-lg font-semibold text-slate-800 mb-4">Документы</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="https://docs.google.com/document/d/1yJXHMvXj7KxE1Sjdky55U4gotNYe5-9a7gO2R9xDANc/edit?tab=t.0"
+                  target="_blank"
+                  rel="noopener"
+                  class="text-slate-600 hover:text-indigo-700 transition-colors underline"
+                >
+                  Обработка персональных данных
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://beingclose.1der.link/privacy-policy"
+                  target="_blank"
+                  rel="noopener"
+                  class="text-slate-600 hover:text-indigo-700 transition-colors underline"
+                >
+                  Политика обработки персональных данных
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://beingclose.1der.link/publicoffer"
+                  target="_blank"
+                  rel="noopener"
+                  class="text-slate-600 hover:text-indigo-700 transition-colors underline"
+                >
+                  Публичная оферта
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://buduryadom.ru/requisites"
+                  target="_blank"
+                  rel="noopener"
+                  class="text-slate-600 hover:text-indigo-700 transition-colors underline"
+                >
+                  Реквизиты компании и порядок оплаты
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Колонка 2: Навигация -->
+          <div>
+            <h3 class="text-lg font-semibold text-slate-800 mb-4">Навигация</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="https://buduryadom.ru/"
+                  class="text-slate-600 hover:text-indigo-700 transition-colors"
+                >
+                  Главная
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://buduryadom.ru/for_psychologists"
+                  class="text-slate-600 hover:text-indigo-700 transition-colors"
+                >
+                  Психологам
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://buduryadom.ru/business"
+                  class="text-slate-600 hover:text-indigo-700 transition-colors"
+                >
+                  Для бизнеса
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://buduryadom.ru/our_blog"
+                  class="text-slate-600 hover:text-indigo-700 transition-colors"
+                >
+                  Наш блог
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Колонка 3: Контакты -->
+          <div>
+            <h3 class="text-lg font-semibold text-slate-800 mb-4">Контакты</h3>
+            <ul class="space-y-4">
+              <li class="flex items-center">
+                <i class="fas fa-phone text-indigo-600 mr-3"></i>
+                <a
+                  href="tel:+79041509898"
+                  class="text-slate-600 hover:text-indigo-700 transition-colors"
+                >
+                  +7 (904) 150-98-98
+                </a>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope text-indigo-600 mr-3"></i>
+                <a
+                  href="mailto:help@buduryadom.ru"
+                  class="text-slate-600 hover:text-indigo-700 transition-colors"
+                >
+                  help@buduryadom.ru
+                </a>
+              </li>
+              <li class="flex items-center">
+                <i class="fab fa-telegram text-indigo-600 mr-3"></i>
+                <a
+                  href="https://t.me/BuduRyadomPsy_Admin"
+                  target="_blank"
+                  rel="noopener"
+                  class="text-slate-600 hover:text-indigo-700 transition-colors"
+                >
+                  Служба поддержки в Telegram
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Дисклеймер -->
+        <div class="pt-8 border-t border-slate-300">
+          <p class="text-sm text-slate-500 leading-relaxed mb-6">
+            Термин «психотерапия» на сайте подразумевает психологическое
+            консультирование. Психологи и психотерапевты «Буду рядом» не
+            оказывают медицинских услуг.
+          </p>
+          <p class="text-sm text-slate-600">© 2021-2025 Буду рядом</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const faqToggles = document.querySelectorAll(".faq-toggle");
+
+        faqToggles.forEach((toggle) => {
+          toggle.addEventListener("click", function () {
+            const answer = this.nextElementSibling;
+            const icon = this.querySelector(".faq-icon");
+
+            const isOpening =
+              !answer.style.maxHeight || answer.style.maxHeight === "0px";
+
+            document.querySelectorAll(".faq-answer").forEach((otherAnswer) => {
+              otherAnswer.style.maxHeight = "0px";
+              const otherIcon =
+                otherAnswer.previousElementSibling.querySelector(".faq-icon");
+              if (otherIcon) {
+                otherIcon.textContent = "+";
+                otherIcon.classList.remove("rotate-45");
+              }
+            });
+
+            if (isOpening) {
+              answer.style.maxHeight = answer.scrollHeight + "px";
+              icon.textContent = "−";
+              icon.classList.add("rotate-45");
+            } else {
+              answer.style.maxHeight = "0px";
+              icon.textContent = "+";
+              icon.classList.remove("rotate-45");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

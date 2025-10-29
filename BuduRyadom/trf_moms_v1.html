@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Буду Рядом | Психолог для мам в декрете</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Chosen Palette: Warm Comfort (Soft neutrals: bg-orange-50/bg-white, text-stone-800; Gentle accents: bg-orange-500, text-orange-700) -->
+    <!-- Application Structure Plan: A linear, emotionally validating structure designed to create a "safe space" for mothers. The flow is: 1. Hero (Validate core feeling) -> 2. Pain Points ("Groundhog Day") -> 3. Solution (Why chat is perfect: Async, No Video, Secret) -> 4. Guilt Reframing ("Not selfish") -> 5. Trust (Expert Psychologists) -> 6. Trust (Testimonial) -> 7. Objection Handling (Interactive FAQ). A sticky header CTA provides constant access, and the FAQ accordion cleanly addresses key fears (time, cost, privacy). -->
+    <!-- Visualization & Content Choices: Source `landing_moms.md` is content-driven. 1. Pain Points (Report Info: Coffee, Toilet, Rage, Guilt) -> Goal: Deep emotional validation -> Viz/Method: 4-column grid with relatable Unicode icons (☕, 🚽, 😠, 😢) -> Interaction: None (static) -> Justification: Quick, scannable validation of "forbidden" feelings. 2. Key Benefits (Report Info: Async, No Video, Secret) -> Goal: Address logistical & emotional barriers -> Viz/Method: 3-column grid with clear Unicode icons (⏰, 📹, 🔒) -> Interaction: None (static) -> Justification: Highlights the *asynchronous* nature as the primary benefit. 3. FAQ (Report Info: 3 questions) -> Goal: Overcome final fears -> Viz/Method: HTML/CSS/JS Accordion -> Interaction: Click-to-reveal -> Justification: Crucial for addressing fears about time, money-guilt, and privacy. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .faq-answer {
+        transition: max-height 0.5s ease-in-out;
+      }
+    </style>
+  </head>
+  <body class="bg-orange-50 text-stone-800 antialiased">
+    <header
+      class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm shadow-sm border-b border-orange-100"
+    >
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-4">
+          <a href="#" class="text-2xl font-bold text-orange-700">
+            <img
+              src="https://static.tildacdn.com/tild6366-3266-4266-b532-383834646331/Frame_359.svg"
+              alt="Logo"
+            />
+          </a>
+          <a
+            href="#cta"
+            class="px-6 py-3 bg-orange-500 text-white text-base font-semibold rounded-lg shadow-md hover:bg-orange-600 transition-colors duration-300 hidden sm:block"
+          >
+            Поговорить с тем, кто поймет
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section
+        class="relative py-24 md:py-32 text-center bg-white overflow-hidden"
+      >
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+          <img
+            src="img/019a2b35-d3dd-7e48-baf9-8c692e8b5c8f.jpg"
+            alt="Фон главного экрана"
+            class="w-full h-full object-cover"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-b from-white/70 via-white/60 to-white/80"
+          ></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1
+            class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-stone-900"
+          >
+            Я люблю своего ребенка. <br />
+            Но почему мне тогда так плохо?
+          </h1>
+          <p class="mt-6 text-xl md:text-2xl text-stone-700">
+            Вы не "плохая мать". Вы — женщина, у которой кончился ресурс. Вам не
+            нужно "держаться" и "улыбаться", когда хочется плакать.
+          </p>
+          <a
+            href="#cta"
+            class="mt-12 inline-block px-10 py-5 bg-orange-500 text-white text-xl font-semibold rounded-xl shadow-lg hover:bg-orange-600 transition-colors duration-300 transform hover:scale-105"
+          >
+            Поговорить (пока ребенок спит)
+          </a>
+        </div>
+      </section>
+
+      <section
+        id="not-happiness"
+        class="relative py-24 md:py-32 bg-orange-100 overflow-hidden"
+      >
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+          <img
+            src="img/019a2b44-f7a2-7d61-b87f-74f0da971872.jpg"
+            alt="Фон секции день сурка"
+            class="w-full h-full object-cover opacity-90"
+          />
+          <div class="absolute inset-0 bg-orange-100/70"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-3xl mx-auto">
+            <h2
+              class="text-3xl sm:text-4xl md:text-5xl font-bold text-stone-900"
+            >
+              Это не "счастье материнства". Это — день сурка.
+            </h2>
+            <p class="mt-6 text-xl md:text-2xl text-stone-600">
+              Если вы узнали себя хотя бы в одном пункте — вы не одиноки.
+            </p>
+          </div>
+
+          <div
+            class="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12"
+          >
+            <div
+              class="text-center p-6 bg-white rounded-2xl shadow-sm border border-orange-200"
+            >
+              <i
+                class="fa-solid fa-mug-hot text-6xl text-orange-600"
+                aria-label="Кофе"
+              ></i>
+              <h3 class="mt-6 text-2xl font-semibold text-stone-800">
+                Кофе, который остыл
+              </h3>
+              <p class="mt-4 text-lg text-stone-600">
+                Потому что вас дернули 10 раз, пока вы пытались его выпить.
+              </p>
+            </div>
+
+            <div
+              class="text-center p-6 bg-white rounded-2xl shadow-sm border border-orange-200"
+            >
+              <i
+                class="fa-solid fa-door-closed text-6xl text-orange-600"
+                aria-label="Туалет"
+              ></i>
+              <h3 class="mt-6 text-2xl font-semibold text-stone-800">
+                5 минут в туалете
+              </h3>
+              <p class="mt-4 text-lg text-stone-600">
+                Которые кажутся единственным "личным временем" за день.
+              </p>
+            </div>
+
+            <div
+              class="text-center p-6 bg-white rounded-2xl shadow-sm border border-orange-200"
+            >
+              <i
+                class="fa-solid fa-face-angry text-6xl text-orange-600"
+                aria-label="Злость"
+              ></i>
+              <h3 class="mt-6 text-2xl font-semibold text-stone-800">
+                Внезапная ярость
+              </h3>
+              <p class="mt-4 text-lg text-stone-600">
+                На мужа, который просто "ушел на работу", оставив вас одну в
+                этом хаосе.
+              </p>
+            </div>
+
+            <div
+              class="text-center p-6 bg-white rounded-2xl shadow-sm border border-orange-200"
+            >
+              <i
+                class="fa-solid fa-face-sad-tear text-6xl text-orange-600"
+                aria-label="Слезы"
+              ></i>
+              <h3 class="mt-6 text-2xl font-semibold text-stone-800">
+                Чувство вины
+              </h3>
+              <p class="mt-4 text-lg text-stone-600">
+                Потому что вы снова накричали на малыша, а потом плакали от
+                бессилия.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="how-it-works" class="py-24 md:py-32 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-3xl mx-auto">
+            <h2
+              class="text-3xl sm:text-4xl md:text-5xl font-bold text-stone-900"
+            >
+              Вам не нужна "еще одна" задача в списке дел. <br />
+              Вам нужна поддержка.
+            </h2>
+            <p class="mt-6 text-xl md:text-2xl text-stone-600">
+              Наш сервис создан специально для тех, у кого нет ни минуты
+              свободного времени.
+            </p>
+          </div>
+          <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+            <div
+              class="bg-orange-50 p-8 md:p-10 rounded-2xl shadow-lg border border-orange-200"
+            >
+              <i
+                class="fa-solid fa-clock text-6xl text-orange-600"
+                aria-label="Часы"
+              ></i>
+              <h3
+                class="mt-5 text-2xl md:text-3xl font-semibold text-stone-800"
+              >
+                Это АСИНХРОННО
+              </h3>
+              <p class="mt-5 text-lg md:text-xl text-stone-600">
+                Это главное. Вам не нужно "выделять час". Пишите, пока кормите.
+                Пишите, пока ребенок спит.
+              </p>
+            </div>
+
+            <div
+              class="bg-orange-50 p-8 md:p-10 rounded-2xl shadow-lg border border-orange-200"
+            >
+              <i
+                class="fa-solid fa-video-slash text-6xl text-orange-600"
+                aria-label="Видеокамера"
+              ></i>
+              <h3
+                class="mt-5 text-2xl md:text-3xl font-semibold text-stone-800"
+              >
+                Это БЕЗ ВИДЕО
+              </h3>
+              <p class="mt-5 text-lg md:text-xl text-stone-600">
+                Вам не нужно краситься, одеваться или искать тихую комнату. Вы
+                можете быть в халате, с пучком на голове и уставшими глазами.
+              </p>
+            </div>
+
+            <div
+              class="bg-orange-50 p-8 md:p-10 rounded-2xl shadow-lg border border-orange-200"
+            >
+              <i
+                class="fa-solid fa-lock text-6xl text-orange-600"
+                aria-label="Замок"
+              ></i>
+              <h3
+                class="mt-5 text-2xl md:text-3xl font-semibold text-stone-800"
+              >
+                Это "ТАЙНОЕ МЕСТО"
+              </h3>
+              <p class="mt-5 text-lg md:text-xl text-stone-600">
+                Можно анонимно сказать: "Я устала. Я злюсь на ребенка". Здесь
+                вас не осудят, а поймут и поддержат.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="calm-mom"
+        class="relative py-24 md:py-32 bg-orange-600 text-white overflow-hidden"
+      >
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+          <img
+            src="img/019a2b3e-9e72-7e36-a106-9f771bb829ab.jpg"
+            alt="Фон секции Спокойная мама"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-orange-600/70"></div>
+        </div>
+
+        <!-- Content -->
+        <div
+          class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        >
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold">
+            "Спокойная мама — счастливый малыш"
+          </h2>
+          <p class="mt-8 text-xl md:text-2xl text-orange-100 leading-relaxed">
+            Психолог в декрете — это не эгоизм. Это не "блажь" от скуки. Это
+            такая же необходимость, как подгузники или детская смесь.
+            <br /><br />
+            Вы не можете дать ресурс ребенку, если у вас самой его нет. Чтобы
+            заботиться о нем, вы *обязаны* сначала позаботиться о себе.
+          </p>
+        </div>
+      </section>
+
+      <section class="py-24 md:py-32 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-stone-900">
+            С вами говорят те, кто понимает
+          </h2>
+          <p class="mt-8 text-xl md:text-2xl text-stone-600">
+            Они знают, что такое послеродовая депрессия и "день сурка". Они не
+            будут говорить вам "соберись, тряпка".
+          </p>
+          <!-- <div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+            <div
+              class="bg-orange-50 p-8 rounded-2xl shadow-md border border-orange-200"
+            >
+              <img
+                src="https://placehold.co/400x400/fed7aa/8c2d04?text=Ольга"
+                alt="Фото психолога Ольги"
+                class="w-48 h-48 rounded-full mx-auto object-cover border-4 border-white shadow-lg"
+                onerror="this.onerror=null; this.src='https://placehold.co/400x400/fed7aa/8c2d04?text=Фото';"
+              />
+              <h3 class="mt-8 text-3xl font-semibold text-stone-800">
+                Ольга, 42 года
+              </h3>
+              <p class="mt-2 text-xl font-medium text-orange-700">
+                Мама двоих. Методы: ACT
+              </p>
+              <p class="mt-5 text-lg text-stone-600">
+                Специализация: Послеродовая депрессия, выгорание, "синдром
+                плохой матери", вина и стыд.
+              </p>
+              <blockquote
+                class="mt-6 text-lg italic text-stone-700 border-l-4 border-orange-300 pl-6 text-left"
+              >
+                "Я знаю, каково это. Моя работа — не 'оценить' вас, а помочь вам
+                выдохнуть и вернуть *себя*."
+              </blockquote>
+            </div>
+
+            <div
+              class="bg-orange-50 p-8 rounded-2xl shadow-md border border-orange-200"
+            >
+              <img
+                src="https://placehold.co/400x400/fed7aa/8c2d04?text=Ирина"
+                alt="Фото психолога Ирины"
+                class="w-48 h-48 rounded-full mx-auto object-cover border-4 border-white shadow-lg"
+                onerror="this.onerror=null; this.src='https://placehold.co/400x400/fed7aa/8c2d04?text=Фото';"
+              />
+              <h3 class="mt-8 text-3xl font-semibold text-stone-800">
+                Ирина, 35 лет
+              </h3>
+              <p class="mt-2 text-xl font-medium text-orange-700">
+                Методы: КПТ
+              </p>
+              <p class="mt-5 text-lg text-stone-600">
+                Специализация: Тревожность, вспышки гнева, отношения с партнером
+                после родов.
+              </p>
+              <blockquote
+                class="mt-6 text-lg italic text-stone-700 border-l-4 border-orange-300 pl-6 text-left"
+              >
+                "Ваша злость — это сигнал о нарушенных границах. Мы не будем ее
+                'подавлять'. Мы найдем ее причину."
+              </blockquote>
+            </div>
+          </div> -->
+        </div>
+      </section>
+
+      <section
+        id="testimonial"
+        class="relative py-24 md:py-32 bg-orange-100 overflow-hidden"
+      >
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+          <img
+            src="img/019a2b44-f7a2-7d61-b87f-74f0da971872.jpg"
+            alt="Фон секции отзывов"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-orange-100/60"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            class="bg-white/40 backdrop-blur-sm p-10 md:p-16 rounded-3xl shadow-xl border border-orange-200"
+          >
+            <h2
+              class="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-900 leading-snug"
+            >
+              "Я пряталась в ванной и плакала, чтобы никто не видел..."
+            </h2>
+            <p class="mt-8 text-xl md:text-2xl text-stone-700 leading-relaxed">
+              "Муж говорил 'ты же дома сидишь, от чего ты устала?'. Подруги в
+              соцсетях постили идеальных малышей. А я ненавидела себя за то, что
+              не чувствую этого 'счастья'. Чат стал моим спасением. Я могла в 2
+              ночи написать 'мне ужасно', и утром получить ответ. Не совет
+              'попей валерьянки', а реальную поддержку. Я просто... выдохнула."
+            </p>
+            <p class="mt-10 text-2xl font-semibold text-orange-700">
+              — Алина, 29 лет, мама (8 месяцев)
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="py-24 md:py-32 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-stone-900"
+          >
+            Отвечаем на главные страхи
+          </h2>
+          <div class="mt-16 space-y-6">
+            <div
+              class="bg-orange-50 rounded-2xl shadow-sm border border-orange-200 overflow-hidden"
+            >
+              <button
+                class="faq-toggle w-full flex justify-between items-center text-left p-6 md:p-8 focus:outline-none"
+              >
+                <span class="text-xl md:text-2xl font-semibold text-stone-800"
+                  >У меня совсем нет времени. Ребенок почти не спит.</span
+                >
+                <span
+                  class="faq-icon text-4xl font-light text-orange-600 transition-transform duration-300"
+                  >+</span
+                >
+              </button>
+              <div class="faq-answer max-h-0 overflow-hidden">
+                <p
+                  class="p-6 md:p-8 pt-0 text-lg md:text-xl text-stone-600 leading-relaxed"
+                >
+                  В этом и смысл. Это АСИНХРОННЫЙ чат. Вам не нужно "выделять
+                  час". Вы пишете, пока пьете чай. Вы читаете, когда уложили
+                  ребенка. Это терапия, вписанная в *ваш* хаос.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="bg-orange-50 rounded-2xl shadow-sm border border-orange-200 overflow-hidden"
+            >
+              <button
+                class="faq-toggle w-full flex justify-between items-center text-left p-6 md:p-8 focus:outline-none"
+              >
+                <span class="text-xl md:text-2xl font-semibold text-stone-800"
+                  >Это дорого? Мне стыдно тратить деньги "на себя".</span
+                >
+                <span
+                  class="faq-icon text-4xl font-light text-orange-600 transition-transform duration-300"
+                  >+</span
+                >
+              </button>
+              <div class="faq-answer max-h-0 overflow-hidden">
+                <p
+                  class="p-6 md:p-8 pt-0 text-lg md:text-xl text-stone-600 leading-relaxed"
+                >
+                  Первая сессия (30 минут) бесплатная. Дальнейшая сессия (от
+                  1990₽) — это инвестиция в ваше состояние, а значит — в
+                  спокойствие вашего ребенка. Это дешевле, чем одна закупка в
+                  "Детском мире".
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="bg-orange-50 rounded-2xl shadow-sm border border-orange-200 overflow-hidden"
+            >
+              <button
+                class="faq-toggle w-full flex justify-between items-center text-left p-6 md:p-8 focus:outline-none"
+              >
+                <span class="text-xl md:text-2xl font-semibold text-stone-800"
+                  >А вдруг муж/мама увидят переписку?</span
+                >
+                <span
+                  class="faq-icon text-4xl font-light text-orange-600 transition-transform duration-300"
+                  >+</span
+                >
+              </button>
+              <div class="faq-answer max-h-0 overflow-hidden">
+                <p
+                  class="p-6 md:p-8 pt-0 text-lg md:text-xl text-stone-600 leading-relaxed"
+                >
+                  Чат полностью анонимен. Это безопаснее, чем переписка в
+                  обычном мессенджере. Никто ничего не узнает.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cta" class="py-24 md:py-32 bg-stone-800 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <img
+            src="img/tg_image_2588390953.png"
+            alt="Иллюстрация спокойной мамы"
+            class="mx-auto mb-8 w-48 h-48 object-contain"
+          />
+
+          <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold">
+            Вы уже отличная мама.
+          </h2>
+          <p class="mt-8 text-xl md:text-2xl text-stone-300">
+            Позвольте себе быть еще и *спокойной* мамой. Первая 30-минутная
+            сессия в чате — бесплатно. Начните прямо сейчас, пока у вас есть 5
+            минут.
+          </p>
+          <a
+            href="#"
+            class="mt-12 inline-block px-12 py-5 bg-orange-500 text-white text-xl font-semibold rounded-xl shadow-lg hover:bg-orange-400 transition-colors duration-300 transform hover:scale-105"
+          >
+            Попробовать бесплатно и анонимно
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="py-16 bg-orange-50 border-t border-orange-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Предупреждение для экстренных случаев -->
+        <div
+          class="mb-12 p-6 bg-orange-100 rounded-xl border border-orange-300"
+        >
+          <p class="text-base text-stone-700 leading-relaxed">
+            Если вы находитесь в серьёзной или угрожающей жизни ситуации —
+            обратитесь на горячую линию экстренной психологической помощи МЧС
+            России
+          </p>
+          <a
+            href="https://buduryadom.ru/free_help"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center mt-4 text-orange-700 font-semibold hover:text-orange-800 transition-colors"
+          >
+            <span class="underline">Бесплатная психологическая помощь</span>
+            <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+          </a>
+        </div>
+
+        <!-- Основная сетка футера -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+          <!-- Колонка 1: Документы -->
+          <div>
+            <h3 class="text-lg font-semibold text-stone-800 mb-4">Документы</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="https://docs.google.com/document/d/1yJXHMvXj7KxE1Sjdky55U4gotNYe5-9a7gO2R9xDANc/edit?tab=t.0"
+                  target="_blank"
+                  rel="noopener"
+                  class="text-stone-600 hover:text-orange-700 transition-colors underline"
+                >
+                  Обработка персональных данных
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://beingclose.1der.link/privacy-policy"
+                  target="_blank"
+                  rel="noopener"
+                  class="text-stone-600 hover:text-orange-700 transition-colors underline"
+                >
+                  Политика обработки персональных данных
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://beingclose.1der.link/publicoffer"
+                  target="_blank"
+                  rel="noopener"
+                  class="text-stone-600 hover:text-orange-700 transition-colors underline"
+                >
+                  Публичная оферта
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://buduryadom.ru/requisites"
+                  target="_blank"
+                  rel="noopener"
+                  class="text-stone-600 hover:text-orange-700 transition-colors underline"
+                >
+                  Реквизиты компании и порядок оплаты
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Колонка 2: Навигация -->
+          <div>
+            <h3 class="text-lg font-semibold text-stone-800 mb-4">Навигация</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="https://buduryadom.ru/"
+                  class="text-stone-600 hover:text-orange-700 transition-colors"
+                >
+                  Главная
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://buduryadom.ru/for_psychologists"
+                  class="text-stone-600 hover:text-orange-700 transition-colors"
+                >
+                  Психологам
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://buduryadom.ru/business"
+                  class="text-stone-600 hover:text-orange-700 transition-colors"
+                >
+                  Для бизнеса
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://buduryadom.ru/our_blog"
+                  class="text-stone-600 hover:text-orange-700 transition-colors"
+                >
+                  Наш блог
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Колонка 3: Контакты -->
+          <div>
+            <h3 class="text-lg font-semibold text-stone-800 mb-4">Контакты</h3>
+            <ul class="space-y-4">
+              <li class="flex items-center">
+                <i class="fas fa-phone text-orange-600 mr-3"></i>
+                <a
+                  href="tel:+79041509898"
+                  class="text-stone-600 hover:text-orange-700 transition-colors"
+                >
+                  +7 (904) 150-98-98
+                </a>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope text-orange-600 mr-3"></i>
+                <a
+                  href="mailto:help@buduryadom.ru"
+                  class="text-stone-600 hover:text-orange-700 transition-colors"
+                >
+                  help@buduryadom.ru
+                </a>
+              </li>
+              <li class="flex items-center">
+                <i class="fab fa-telegram text-orange-600 mr-3"></i>
+                <a
+                  href="https://t.me/BuduRyadomPsy_Admin"
+                  target="_blank"
+                  rel="noopener"
+                  class="text-stone-600 hover:text-orange-700 transition-colors"
+                >
+                  Служба поддержки в Telegram
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Дисклеймер -->
+        <div class="pt-8 border-t border-orange-300">
+          <p class="text-sm text-stone-500 leading-relaxed mb-6">
+            Термин «психотерапия» на сайте подразумевает психологическое
+            консультирование. Психологи и психотерапевты «Буду рядом» не
+            оказывают медицинских услуг.
+          </p>
+          <p class="text-sm text-stone-600">© 2021-2025 Буду рядом</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const faqToggles = document.querySelectorAll(".faq-toggle");
+
+        faqToggles.forEach((toggle) => {
+          toggle.addEventListener("click", function () {
+            const answer = this.nextElementSibling;
+            const icon = this.querySelector(".faq-icon");
+
+            const isOpening =
+              !answer.style.maxHeight || answer.style.maxHeight === "0px";
+
+            document.querySelectorAll(".faq-answer").forEach((otherAnswer) => {
+              otherAnswer.style.maxHeight = "0px";
+              const otherIcon =
+                otherAnswer.previousElementSibling.querySelector(".faq-icon");
+              if (otherIcon) {
+                otherIcon.textContent = "+";
+                otherIcon.classList.remove("rotate-45");
+              }
+            });
+
+            if (isOpening) {
+              answer.style.maxHeight = answer.scrollHeight + "px";
+              icon.textContent = "−";
+              icon.classList.add("rotate-45");
+            } else {
+              answer.style.maxHeight = "0px";
+              icon.textContent = "+";
+              icon.classList.remove("rotate-45");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
