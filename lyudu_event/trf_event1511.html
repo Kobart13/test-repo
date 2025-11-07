@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Раскрываем секреты красоты - Клиника Люди</title>
+    <!-- Подключаем Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Подключаем шрифты, чтобы соответствовать референсу (элегантный с засечками и чистый без) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@700;900&display=swap"
+      rel="stylesheet" />
+
+    <script>
+      // Конфигурация Tailwind, чтобы добавить кастомные цвета и шрифты из референса
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              // Основной розовый фон, как в референсе
+              "brand-pink": "#FBE0E8",
+              // Акцентный темный розовый/ягодный для заголовков и кнопок
+              "brand-dark": "#B65E8A",
+              // Текстовый цвет
+              "brand-text": "#4F3842",
+            },
+            fontFamily: {
+              // Шрифт без засечек для основного текста
+              sans: ["Inter", "sans-serif"],
+              // Шрифт с засечками для заголовков, как в референсе
+              serif: ["Merriweather", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Дополнительные стили, чтобы применить шрифты */
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #fff;
+        color: #4f3842;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Merriweather", serif;
+        color: #b65e8a; /* brand-dark */
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <!-- 1. Герой-секция (Hero Section) -->
+    <header class="bg-brand-pink text-center py-16 px-6">
+      <div class="max-w-4xl mx-auto">
+        <!-- Логотип или название -->
+        <h2 class="text-2xl font-bold text-brand-dark mb-4">Клиника «Люди»</h2>
+
+        <!-- Главный заголовок (из референса и ТЗ) -->
+        <h1
+          class="font-serif text-4xl md:text-6xl font-black uppercase tracking-wide">
+          Раскрываем
+        </h1>
+        <h1
+          class="font-serif text-5xl md:text-7xl font-black uppercase tracking-wide text-white"
+          style="text-shadow: 0 0 5px #b65e8a, 0 0 10px #b65e8a">
+          Секреты Красоты
+        </h1>
+        <p class="text-xl md:text-2xl mt-6 text-brand-text max-w-2xl mx-auto">
+          Эксклюзивный бранч с ведущими экспертами в трихологии, дерматологии и
+          косметологии.
+        </p>
+
+        <!-- Ключевая информация (как в референсе) -->
+        <div class="flex flex-wrap justify-center gap-4 mt-10 mb-10">
+          <span
+            class="bg-white rounded-full px-6 py-3 text-lg font-bold text-brand-dark shadow-md">
+            15 Ноября
+          </span>
+          <span
+            class="bg-white rounded-full px-6 py-3 text-lg font-bold text-brand-dark shadow-md">
+            Начало в 12:00
+          </span>
+          <span
+            class="bg-white rounded-full px-6 py-3 text-lg font-bold text-brand-dark shadow-md">
+            <!-- Плейсхолдер для адреса -->
+            [Адрес клиники]
+          </span>
+        </div>
+
+        <!-- Главный призыв к действию (CTA) -->
+        <a
+          href="#register"
+          class="bg-brand-dark text-white font-bold text-xl uppercase px-12 py-4 rounded-full shadow-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
+          Участвовать за 900₽
+        </a>
+      </div>
+    </header>
+
+    <!-- 2. Что вас ждет? (Benefits) -->
+    <section class="py-16 bg-white">
+      <div class="max-w-5xl mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold mb-12">Что вас ждет на бранче?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Бенефит 1 -->
+          <div class="bg-brand-pink bg-opacity-30 p-8 rounded-2xl shadow-lg">
+            <h3 class="text-2xl font-bold mb-3">Лекции от топов</h3>
+            <p class="text-brand-text">
+              Только проверенная информация и ответы на ваши вопросы от ведущих
+              врачей клиники.
+            </p>
+          </div>
+          <!-- Бенефит 2 -->
+          <div class="bg-brand-pink bg-opacity-30 p-8 rounded-2xl shadow-lg">
+            <h3 class="text-2xl font-bold mb-3">Ценные подарки</h3>
+            <p class="text-brand-text">
+              Каждый гость получит подарки от клиники «Люди» и наших партнеров.
+            </p>
+          </div>
+          <!-- Бенефит 3 -->
+          <div class="bg-brand-pink bg-opacity-30 p-8 rounded-2xl shadow-lg">
+            <h3 class="text-2xl font-bold mb-3">Фуршет и Нетворкинг</h3>
+            <p class="text-brand-text">
+              Приятное общение, изысканные закуски и возможность задать вопросы
+              экспертам.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Изображение-разделитель (как в референсе) -->
+    <section>
+      <!-- Плейсхолдер, имитирующий изображение из референса -->
+      <img
+        src="https://placehold.co/1600x600/FBE0E8/B65E8A?text=Красота+и+Забота+о+Коже"
+        alt="Изображение на тему косметологии"
+        class="w-full h-64 md:h-96 object-cover" />
+    </section>
+
+    <!-- 4. Эксперты и Темы (Вместо расписания) -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-4">
+          Что вы узнаете: Темы и Эксперты
+        </h2>
+        <p class="text-lg text-center max-w-3xl mx-auto mb-12 text-brand-text">
+          Мы собрали ведущих специалистов, чтобы вы получили самую актуальную
+          информацию о здоровье кожи и волос из первых уст. (Встреча начнется с
+          краткой презентации о клинике и возможностях отделения).
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Карточка Спикера: Теона Паатовна -->
+          <div
+            class="bg-white p-6 rounded-2xl shadow-xl flex items-start gap-5 hover:shadow-2xl transition-shadow">
+            <img
+              src="https://placehold.co/100x100/FBE0E8/B65E8A?text=Фото"
+              alt="Фото Теона Хатюшина"
+              class="rounded-full w-24 h-24 border-4 border-white flex-shrink-0" />
+            <div>
+              <h3 class="text-2xl font-bold">Теона Паатовна Хатюшина</h3>
+              <p class="font-bold text-brand-text text-lg mt-2">
+                "ANTI-AGE мифы в косметологии: Что на самом деле работает?"
+              </p>
+            </div>
+          </div>
+
+          <!-- Карточка Спикера: Валентина Агоповна -->
+          <div
+            class="bg-white p-6 rounded-2xl shadow-xl flex items-start gap-5 hover:shadow-2xl transition-shadow">
+            <img
+              src="https://placehold.co/100x100/FBE0E8/B65E8A?text=Фото"
+              alt="Фото Валентина Барлаухова"
+              class="rounded-full w-24 h-24 border-4 border-white flex-shrink-0" />
+            <div>
+              <h3 class="text-2xl font-bold">Валентина Агоповна Барлаухова</h3>
+              <p class="font-bold text-brand-text text-lg mt-2">
+                "Новообразования кожи: диагностика и профилактика. Современные
+                методы эстетических удалений.”
+              </p>
+            </div>
+          </div>
+
+          <!-- Карточка Спикера: Маргарита Александровна -->
+          <div
+            class="bg-white p-6 rounded-2xl shadow-xl flex items-start gap-5 hover:shadow-2xl transition-shadow">
+            <img
+              src="https://placehold.co/100x100/FBE0E8/B65E8A?text=Фото"
+              alt="Фото Маргарита Зазьян"
+              class="rounded-full w-24 h-24 border-4 border-white flex-shrink-0" />
+            <div>
+              <h3 class="text-2xl font-bold">Маргарита Александровна Зазьян</h3>
+              <p class="font-bold text-brand-text text-lg mt-2">
+                «Управление розацеа: стратегии лечения и ухода за чувствительной
+                кожей».
+              </p>
+            </div>
+          </div>
+
+          <!-- Карточка Спикера: Ангелина Николаевна -->
+          <div
+            class="bg-white p-6 rounded-2xl shadow-xl flex items-start gap-5 hover:shadow-2xl transition-shadow">
+            <img
+              src="https://placehold.co/100x100/FBE0E8/B65E8A?text=Фото"
+              alt="Фото Ангелина Новикова"
+              class="rounded-full w-24 h-24 border-4 border-white flex-shrink-0" />
+            <div>
+              <h3 class="text-2xl font-bold">Ангелина Николаевна Новикова</h3>
+              <p class="font-bold text-brand-text text-lg mt-2">
+                «Методы коррекции пигментации и как сохранить ровный тон кожи?»
+              </p>
+            </div>
+          </div>
+
+          <!-- Карточка Спикера: Екатерина Викторовна -->
+          <div
+            class="bg-white p-6 rounded-2xl shadow-xl flex items-start gap-5 hover:shadow-2xl transition-shadow md:col-span-2 md:max-w-xl md:mx-auto">
+            <img
+              src="https://placehold.co/100x100/FBE0E8/B65E8A?text=Фото"
+              alt="Фото Екатерина Пешкова"
+              class="rounded-full w-24 h-24 border-4 border-white flex-shrink-0" />
+            <div>
+              <h3 class="text-2xl font-bold">Екатерина Викторовна Пешкова</h3>
+              <p class="font-bold text-brand-text text-lg mt-2">
+                «Возможности современной трихологии и трихотрансплантологии».
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Финальный CTA (Call to Action) -->
+    <section id="register" class="bg-brand-dark py-16 text-white">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="font-serif text-5xl font-bold mb-6 text-white">
+          Стоимость участия: 900₽
+        </h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto">
+          В эту стоимость входит полный доступ ко всем лекциям, подарки от
+          клиники и партнеров, а также изысканный фуршет и нетворкинг с
+          экспертами.
+        </p>
+        <!-- Элемент срочности (Scarcity) -->
+        <h3
+          class="text-2xl font-bold mb-8 bg-white text-brand-dark rounded-full py-3 px-6 inline-block shadow-lg">
+          Осталось всего [15] мест!
+        </h3>
+        <br />
+        <a
+          href="#"
+          class="bg-white text-brand-dark font-bold text-xl uppercase px-12 py-4 rounded-full shadow-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-105">
+          Забронировать место
+        </a>
+      </div>
+    </section>
+
+    <!-- 6. Футер -->
+    <footer
+      class="bg-brand-pink bg-opacity-40 text-brand-text py-8 text-center">
+      <p class="font-bold">&copy; 2025 Клиника «Люди».</p>
+      <p>[Ваш адрес: ул. Примерная, 123]</p>
+      <p>[Телефон: +7 (XXX) XXX-XX-XX]</p>
+    </footer>
+  </body>
+</html>
