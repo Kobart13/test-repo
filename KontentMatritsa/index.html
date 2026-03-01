@@ -1,0 +1,471 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="styles.css" />
+
+<!-- ==================== БЛОК УРОКА: Контент-Матрица ==================== -->
+<div class="km-lesson-wrapper">
+  <!-- Заголовок урока -->
+  <div class="lesson-hero">
+    <p class="lesson-eyebrow">📚 Урок</p>
+    <h1 class="lesson-title">1000+ идей для продающего блога</h1>
+    <p class="lesson-subtitle">Контент-матрица для вашего блога</p>
+  </div>
+
+  <!-- Видео-инструкция -->
+  <div class="lesson-video-intro">
+    <p class="lesson-video-hint">
+      <span class="hint-arrow">👇</span>
+      Перед тем, как работать с матрицей — посмотрите это видео
+    </p>
+    <div class="video-section">
+      <div class="video-container">
+        <video
+          src="https://fs.getcourse.ru/fileservice/file/download/a/280201/sc/276/h/09b16726b3efbfd16a5a60d5b5a3f52b.mp4"
+          controls></video>
+      </div>
+    </div>
+  </div>
+
+  <!-- Бонус: 3 формулы заголовков -->
+  <div class="formulas-section">
+    <div class="formulas-header">
+      <span class="formulas-badge">🎁 Бонус-шпаргалка</span>
+      <h2 class="formulas-title">3 безотказные формулы заголовков</h2>
+      <p class="formulas-intro">
+        Даже самая крутая идея из матрицы умрёт, если заголовок поста скучный.
+        <br />
+        Используй эти 3 формулы, чтобы аудитория открывала твои посты за секунду:
+      </p>
+    </div>
+
+    <div class="formula-cards">
+      <!-- Формула 1 -->
+      <div class="formula-card formula-card--paradox">
+        <div class="formula-number">1</div>
+        <h3 class="formula-name">Формула «Парадокс»</h3>
+        <p class="formula-pattern">[Общепринятый миф] + [Реальность]</p>
+        <div class="formula-details">
+          <p class="formula-mechanic">
+            <strong>Механика:</strong>
+            Бьём по стереотипам. Люди обожают, когда им ломают шаблоны.
+          </p>
+          <div class="formula-example">
+            <span class="formula-example-label">Пример:</span>
+            <p>Почему домашние маски из огурца не уберут морщины? Спойлер: вы кормите бактерии, а не кожу</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Формула 2 -->
+      <div class="formula-card formula-card--path">
+        <div class="formula-number">2</div>
+        <h3 class="formula-name">Формула «Оцифрованный путь»</h3>
+        <p class="formula-pattern">Как я [Действие] и получил [Результат в цифрах]</p>
+        <div class="formula-details">
+          <p class="formula-mechanic">
+            <strong>Механика:</strong>
+            Конкретика работает лучше воды. Цифры — главный триггер доверия.
+          </p>
+          <div class="formula-example">
+            <span class="formula-example-label">Пример:</span>
+            <p>Как я слила 50 000 рублей бюджета и нашла связку, которая принесла первый миллион</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Формула 3 -->
+      <div class="formula-card formula-card--pain">
+        <div class="formula-number">3</div>
+        <h3 class="formula-name">Формула «Боль + Избавление»</h3>
+        <p class="formula-pattern">[Устали от Х?] + Вот [Количество] способов решить это навсегда</p>
+        <div class="formula-details">
+          <p class="formula-mechanic">
+            <strong>Механика:</strong>
+            Показываем, что мы понимаем проблему, и сразу даём «обезболивающее».
+          </p>
+          <div class="formula-example">
+            <span class="formula-example-label">Пример:</span>
+            <p>Устали тратить выходные на уборку? Моя система освободит вам субботу навсегда. Читайте как</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ИНТЕРАКТИВНАЯ КОНТЕНТ-МАТРИЦА ==================== -->
+  <div class="matrix-section">
+    <div class="matrix-header">
+      <h2 class="matrix-title">🗂 Контент-Матрица</h2>
+      <p class="matrix-description">
+        Более 1000 готовых идей для постов, разбитых по 4 категориям. Фильтруйте, ищите и отмечайте идеи, которые уже
+        использовали.
+      </p>
+    </div>
+
+    <!-- Панель управления -->
+    <div class="matrix-controls">
+      <div class="matrix-search-row">
+        <div class="matrix-search-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="matrixSearch" class="matrix-search" placeholder="Поиск по идеям..." />
+          <button id="clearSearch" class="clear-search-btn" style="display: none">✕</button>
+        </div>
+        <button id="randomIdeaBtn" class="matrix-btn matrix-btn--random">🎲 Случайная идея</button>
+      </div>
+
+      <div class="matrix-mode-row">
+        <label class="workbook-toggle">
+          <input type="checkbox" id="workbookMode" />
+          <span class="toggle-slider"></span>
+          <span class="toggle-label">📝 Рабочий режим</span>
+        </label>
+        <div class="matrix-stats" id="matrixStats"></div>
+      </div>
+    </div>
+
+    <!-- Заголовок вкладок -->
+    <div class="matrix-tabs-heading">
+      <span class="matrix-tabs-heading__title">Раздел матрицы</span>
+    </div>
+
+    <!-- Вкладки -->
+    <div class="matrix-tabs" id="matrixTabs">
+      <button class="matrix-tab matrix-tab--ideology active" data-tab="Идеалогия">
+        <span class="tab-icon">🎯</span>
+        <span class="tab-name">Идеология</span>
+        <span class="tab-count" data-tab-count="Идеалогия"></span>
+      </button>
+      <button class="matrix-tab matrix-tab--lifestyle" data-tab="Контекстный Лайфстайл">
+        <span class="tab-icon">✨</span>
+        <span class="tab-name">Лайфстайл</span>
+        <span class="tab-count" data-tab-count="Контекстный Лайфстайл"></span>
+      </button>
+      <button class="matrix-tab matrix-tab--expertise" data-tab="Мета экспетность">
+        <span class="tab-icon">🧠</span>
+        <span class="tab-name">Экспертность</span>
+        <span class="tab-count" data-tab-count="Мета экспетность"></span>
+      </button>
+      <button class="matrix-tab matrix-tab--conversion" data-tab="Конверсия">
+        <span class="tab-icon">💰</span>
+        <span class="tab-name">Конверсия</span>
+        <span class="tab-count" data-tab-count="Конверсия"></span>
+      </button>
+    </div>
+    <!-- Заголовок Фильтров -->
+    <div class="matrix-tabs-heading">
+      <span class="matrix-tabs-heading__title">Категория</span>
+    </div>
+
+    <!-- Фильтр по категориям -->
+    <div class="matrix-categories" id="matrixCategories"></div>
+
+    <!-- Счётчик результатов -->
+    <div class="matrix-results-info" id="matrixResultsInfo"></div>
+
+    <!-- Контейнер карточек -->
+    <div class="matrix-cards" id="matrixCards"></div>
+
+    <!-- Кнопка "Показать ещё" -->
+    <div class="matrix-load-more" id="matrixLoadMore" style="display: none">
+      <button class="matrix-btn matrix-btn--load-more" id="loadMoreBtn">Показать ещё</button>
+    </div>
+
+    <!-- Подсказка по рабочему режиму -->
+    <div class="matrix-workbook-hint" id="workbookHint" style="display: none">
+      <p>
+        📌
+        <strong>Рабочий режим включён.</strong>
+        Отмечайте идеи, которые уже использовали, дописывайте свои идеи для постов. Прогресс сохраняется в вашем
+        браузере.
+      </p>
+    </div>
+
+    <!-- Кнопка экспорта (видна только в рабочем режиме) -->
+    <div class="matrix-export" id="exportSection" style="display: none">
+      <button class="matrix-btn matrix-btn--export" id="exportBtn">📥 Скачать мой контент-план</button>
+      <span class="export-hint">Выгрузит отмеченные и дополненные карточки в PDF-файл</span>
+    </div>
+
+    <!-- Ссылка на Google-таблицу -->
+    <div class="matrix-source-link">
+      <a
+        href="https://docs.google.com/spreadsheets/d/1dscotJ5jWWIW2ICeP1ltHwK4uMfQF0zhg_Ug5Vs2ZnM/edit?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="google-sheet-link">
+        📊 Открыть полную таблицу в Google Sheets
+      </a>
+    </div>
+  </div>
+
+  <!-- Переход к продающей части -->
+  <div class="lesson-transition">
+    <div class="transition-content">
+      <h2 class="transition-title">Идеи для контента — это только 50% успеха</h2>
+      <p class="transition-subtitle">Почему матрица не сработает, если канал не готов к продажам?</p>
+    </div>
+    <div class="video-section">
+      <div class="video-container">
+        <video
+          src="https://fs.getcourse.ru/fileservice/file/download/a/280201/sc/57/h/92273a6b43da56079456b9e4a5e48a34.mp4"
+          controls></video>
+      </div>
+    </div>
+    <div class="transition-cta">
+      <h3 class="transition-cta-title">
+        Превратите свой канал в автоматическую воронку
+        <br />
+        с Системой Нативных Продаж за выходные
+      </h3>
+      <p class="transition-cta-subtitle"><em>Контент-Матрица даёт идеи. Эта система даёт деньги.</em></p>
+    </div>
+  </div>
+</div>
+<!-- ==================== КОНЕЦ БЛОКА УРОКА ==================== -->
+
+<!-- ==================== ПРОДАЮЩАЯ ЧАСТЬ ==================== -->
+<div class="section-title-wrapper">
+  <h2 class="section-title">Посмотрите, как работает эта система изнутри</h2>
+</div>
+
+<div class="video-section">
+  <div class="video-container">
+    <video
+      src="https://fs.getcourse.ru/fileservice/file/download/a/280201/sc/202/h/5ccc7b9a3f19d24ff06e058556ad7651.mp4"
+      controls=""></video>
+  </div>
+</div>
+
+<div
+  class="intro-text"
+  style="
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background: var(--bg-light);
+    padding: 30px;
+    border-radius: var(--border-radius);
+  ">
+  <h2 class="section-title" style="text-align: center; margin-bottom: 20px">БЛОК 3: Вы устали вести блог в пустоту?</h2>
+  <ul class="intro-list" style="max-width: 600px; margin: 0 auto">
+    <li style="font-size: 18px">✅ Боитесь продавать, чтобы не выглядеть "барыгой"?</li>
+    <li style="font-size: 18px">✅ Нет времени на "кружочки" и ежедневные посты по 3 часа?</li>
+  </ul>
+
+  <p
+    class="intro-highlight"
+    style="font-weight: bold; font-size: 22px; text-align: center; color: var(--primary-color); margin-top: 30px">
+    Вам не нужно быть гуру маркетинга.
+    <br />
+    Я создала систему "Скопировал-Внедрил"
+  </p>
+</div>
+
+<div class="section-title-wrapper">
+  <h2 class="section-title">Что вы сделаете за эти выходные</h2>
+</div>
+
+<div class="content-card">
+  <h3 class="card-title">Продающая упаковка Телеграм: как превратить канал в магнит для клиентов</h3>
+  <p class="card-subtitle">(Оформление + Настройки)</p>
+  <p class="card-desc">
+    Как оформить канал, чтобы он продавал вашу экспертность дорого и вызывал доверие с первой секунды.
+  </p>
+  <ul class="card-list">
+    <li>
+      • Настроите «техничку» канала (комментарии, реакции, защита контента) так, чтобы вам было удобно, а подписчикам —
+      комфортно.
+    </li>
+    <li>
+      • Составите описание профиля по готовым формулам, которое сразу объясняет: кто вы, для кого вы и почему на вас
+      нужно подписаться.
+    </li>
+    <li>
+      • Создадите визуальный стиль (аватар + оформление), который выделит вас среди «серых» каналов, даже без дизайнера.
+    </li>
+  </ul>
+  <p class="result-box">
+    <strong>Результат:</strong>
+    Ваш канал выглядит как дорогой бутик, а не как «черновик». У подписчика исчезает страх, что здесь
+    «непрофессионально», и появляется доверие к автору.
+  </p>
+  <p class="old-module-price">Обычная цена: 5 000 ₽</p>
+
+  <div style="margin-top: 30px">
+    <p style="font-weight: bold; font-size: 18px; margin-bottom: 10px">До:</p>
+    <img
+      src="https://storage.yandexcloud.net/kobihub/content/snp/image2.png"
+      alt="До"
+      style="max-width: 100%; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)"
+      loading="lazy" />
+
+    <p style="font-weight: bold; font-size: 18px; margin-bottom: 10px">После:</p>
+    <img
+      src="https://storage.yandexcloud.net/kobihub/content/snp/image1.png"
+      alt="После"
+      style="max-width: 100%; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)"
+      loading="lazy" />
+
+    <p style="font-weight: bold; font-size: 18px; margin-bottom: 10px">После внедрения упаковки, пошел рост канала:</p>
+    <img
+      src="https://storage.yandexcloud.net/kobihub/content/snp/image5.png"
+      alt="Рост канала"
+      style="max-width: 100%; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)"
+      loading="lazy" />
+  </div>
+</div>
+
+<div class="content-card">
+  <h3 class="card-title">Кнопка 'Купить' в голове клиента: 4 триггера нативной продажи.</h3>
+  <p class="card-desc">Как включить у подписчика желание купить, не используя манипуляции и агрессивный маркетинг.</p>
+  <ul class="card-list">
+    <li>
+      • Узнаете 4 главных триггера, которые заставляют мозг клиента говорить «хочу», даже если вы еще не открыли
+      продажи.
+    </li>
+    <li>
+      • Поймете, как продавать «экологично» (без впаривания), чтобы клиенты благодарили вас за возможность купить, а вы
+      не чувствовали стыда.
+    </li>
+    <li>• Внедрите «Кнопку Купить» в смыслы своего блога, чтобы прогрев шел фоном к любому вашему контенту.</li>
+  </ul>
+  <p class="result-box">
+    <strong>Результат:</strong>
+    Вы перестанете бояться продавать. Вы поймете механику, как превращать читателей в покупателей, используя только силу
+    текста и психологию.
+  </p>
+  <p class="old-module-price">Обычная цена: 5 000 ₽</p>
+  <div style="margin-top: 30px; text-align: center">
+    <img
+      src="https://storage.yandexcloud.net/kobihub/content/snp/image3.jpg"
+      alt="Триггеры продаж"
+      style="max-width: 100%; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)"
+      loading="lazy" />
+  </div>
+</div>
+
+<div class="content-card">
+  <h3 class="card-title">Анатомия Идеального Закрепа (Как сделать навигацию, которая продает за вас).</h3>
+  <p class="card-desc">Превращаем один пост в автоматического продавца, который работает 24/7 вместо вас.</p>
+  <ul class="card-list">
+    <li>
+      • Соберете структуру поста-навигации, который за 2 минуты объясняет новому подписчику всю ценность вашего канала.
+    </li>
+    <li>
+      • Свяжете свои лучшие посты в единую логическую цепочку, чтобы клиент «проваливался» в ваш контент и прогревался
+      сам.
+    </li>
+    <li>• Напишете призыв к действию, который будет генерировать заявки или регистрации, пока вы спите.</li>
+  </ul>
+  <p class="result-box">
+    <strong>Результат:</strong>
+    У вас настроена «авто-витрина». Теперь каждый новый подписчик не теряется в ленте, а сразу идет по нужному вам
+    маршруту к покупке.
+  </p>
+  <p class="old-module-price">Обычная цена: 5 000 ₽</p>
+</div>
+
+<div class="content-card">
+  <h3 class="card-title">Конструктор Прогрева (Сценарий на 7 дней + Таблица).</h3>
+  <p class="card-desc">Сценарий на 7 дней: как вести канал тратя 15 минут в день и получать заявки.</p>
+  <ul class="card-list">
+    <li>
+      • Получите готовую таблицу-конструктор: просто выбираете тему дня, накладываете на свой продукт и пост готов.
+    </li>
+    <li>
+      • Внедрите сценарий прогрева на неделю, который мягко подводит аудиторию к мысли, что ваш продукт им жизненно
+      необходим.
+    </li>
+    <li>• Освоите формат «быстрого контента», чтобы блог перестал быть второй работой и каторгой.</li>
+  </ul>
+  <p class="result-box">
+    <strong>Результат:</strong>
+    У вас закрыт вопрос «о чем писать» на неделю вперед. Канал живой, посты выходят регулярно, аудитория вовлечена, а вы
+    свободны от мук творчества.
+  </p>
+  <p class="old-module-price">Обычная цена: 5 000 ₽</p>
+</div>
+
+<div class="bonus-section">
+  <h2 class="bonus-title-main">🎁 БОНУС</h2>
+
+  <div class="bonus-content">
+    <h3 class="bonus-item-title">Первые подписчики: Как набрать первых подписчиков</h3>
+    <p class="bonus-item-desc">Как набрать первых 100 целевых подписчиков бесплатно и безопасно.</p>
+    <ul class="bonus-list">
+      <li>📍 Узнаете, где в вашей записной книжке и соцсетях прячутся лояльные клиенты, о которых вы забыли.</li>
+      <li>📍 Получите скрипт экологичного приглашения, за которое вас не заблокируют и не отправят в спам.</li>
+      <li>
+        📍 Наберете первую базу подписчиков, которые уже вас знают и готовы покупать, не вложив ни рубля в рекламу.
+      </li>
+    </ul>
+    <p class="bonus-result-box">
+      Результат: В вашем канале появились первые 50–100 живых людей. Цифра «0 подписчиков» больше не давит на психику,
+      есть для кого писать и кому продавать.
+    </p>
+    <p class="old-module-price">Обычная цена: 5 000 ₽</p>
+
+    <hr class="bonus-separator" />
+
+    <h3 class="bonus-item-title">Личный профиль Телеграм, как способ продвижения</h3>
+    <p class="bonus-item-desc">Как превратить вашу «личку» в бесплатный источник трафика для канала.</p>
+    <ul class="bonus-list">
+      <li>📍 Как сделать из личного профиля инструмент автоматических продаж</li>
+      <li>📍 Секреты оформления профиля, чтобы люди шли в ваш канал</li>
+    </ul>
+    <p class="bonus-result-box">
+      Результат: Ваш личный профиль перестает быть просто «анкетой» и становится инструментом привлечения клиентов.
+      Каждое ваше сообщение в Telegram теперь работает на привлечение новой аудитории в ваш бизнес.
+    </p>
+    <p class="old-module-price">Обычная цена: 5 000 ₽</p>
+  </div>
+</div>
+
+<div class="content-card" style="background: var(--bg-light); text-align: center">
+  <h2 class="section-title" style="margin-bottom: 30px">Кто я такая и почему моя система работает?</h2>
+  <div style="margin-bottom: 20px">
+    <img
+      src="https://storage.yandexcloud.net/kobihub/content/trf_common/vika_Ava_.jpg"
+      alt="Виктрия Кобилинская"
+      style="max-width: 250px; border-radius: 50%; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15)"
+      loading="lazy" />
+  </div>
+  <p style="font-size: 18px; font-weight: bold; max-width: 600px; margin: 0 auto">
+    14 лет в маркетинге, делаю подписчика от 30руб в 2026 году. Я знаю, как получать заявки автоматом из
+    Телеграм-канала.
+  </p>
+  <br />
+  <img
+    src="https://storage.yandexcloud.net/kobihub/content/snp/image4.png"
+    alt="После"
+    style="max-width: 100%; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)"
+    loading="lazy" />
+</div>
+
+<div class="pricing-section">
+  <h2 class="pricing-title">Итоговая ценность системы: 30 000 ₽</h2>
+
+  <p class="pricing-text" style="font-size: 22px; margin-bottom: 10px">Моя цена за готовую систему:</p>
+  <p style="margin-bottom: 20px">
+    <span
+      class="pricing-highlight"
+      style="font-size: 36px; background: var(--primary-color); color: white; padding: 5px 15px; border-radius: 8px">
+      9 990 руб
+    </span>
+    (вместо 30 000 ₽)
+  </p>
+  <p style="font-size: 18px; font-weight: bold; color: var(--text-color); max-width: 600px; margin: 0 auto">
+    Вы берете модули в пятницу вечером, а в понедельник у вас готовый бизнес-актив.
+  </p>
+</div>
+
+<div class="guarantee-section">
+  <h2 class="guarantee-title">100% защита от риска</h2>
+  <p class="guarantee-text">
+    Если вы откроете первый модуль и поймете, что вам не подходит мой формат объяснений — напишите мне в течение 48
+    часов, и я верну деньги без лишних вопросов.
+  </p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.10/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.10/vfs_fonts.min.js"></script>
+<script src="matrix-data.js"></script>
+<script src="matrix-app.js?v=20260301-2"></script>

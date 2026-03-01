@@ -1,0 +1,49 @@
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script>
+  // Script to handle Telegram Mini App integration
+  (function () {
+    var tg = window.Telegram.WebApp;
+    tg.ready();
+
+    var tgUserId = null;
+
+    // 1. Try to get ID from Telegram WebApp
+    if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
+      tgUserId = tg.initDataUnsafe.user.id;
+    }
+
+    // 2. Fallback: Try to get ID from localStorage
+    if (!tgUserId) {
+      tgUserId = localStorage.getItem("sid");
+    }
+
+    // Check if we have a user ID from either source
+    if (tgUserId) {
+      // 3. Set the ID in the hidden field using jQuery (or fallback just in case)
+      if (typeof $ !== "undefined") {
+        $(".bothelp_id input").val(tgUserId);
+      } else {
+        var input = document.querySelector(".bothelp_id input");
+        if (input) {
+          input.value = tgUserId;
+        }
+      }
+
+      // 4. Send API request to TargetHunter
+      var apiUrl =
+        "https://smm.targethunter.ru/api/bots/addUser?channel=TG&bot_id=69904af456581459350febe2&uid=" +
+        tgUserId +
+        "&api_key=3af5fed1cc930dbf23e0a738de034c401ec02b41de973b0642a0fc52435b779b&force=1&step_id=699426f66134c866de6dc0b1";
+
+      // Using fetch to send the request. Note: This might be subject to CORS if executed in a browser.
+      // If the API supports CORS or JSONP, it will work. Otherwise, it might need proxy or server-side handling.
+      fetch(apiUrl)
+        .then(function (response) {
+          console.log("API request sent successfully", response);
+        })
+        .catch(function (error) {
+          console.error("API request failed:", error);
+        });
+    }
+  })();
+</script>
