@@ -377,7 +377,7 @@
     if (isNicheTab) {
       displayItems = groupByNiche(filtered);
       if (state.hideUsed) {
-        displayItems = displayItems.filter(function(group) {
+        displayItems = displayItems.filter(function (group) {
           var k = getGroupKey(state.activeTab, group.category, group.trigger, group.topic);
           return !state.usedIdeas[k];
         });
@@ -385,7 +385,7 @@
     } else {
       displayItems = filtered;
       if (state.hideUsed) {
-        displayItems = displayItems.filter(function(entry) {
+        displayItems = displayItems.filter(function (entry) {
           var k = getIdeaKey(state.activeTab, entry.originalIndex);
           return !state.usedIdeas[k];
         });
@@ -702,14 +702,14 @@
           if (it.note) totalNotes++;
 
           var cardBody = [];
-          
+
           var metaArr = [];
           if (it.trigger) metaArr.push(it.trigger);
           if (it.category) metaArr.push(it.category);
           if (it.used) metaArr.push("✅ Использовано");
-          
+
           var meta = metaArr.join("  ·  ");
-          
+
           if (meta) cardBody.push({ text: meta, style: "meta" });
           if (it.topic) cardBody.push({ text: it.topic, style: "topic" });
 
@@ -737,20 +737,36 @@
                   {
                     fillColor: "#fafafa",
                     stack: cardBody,
-                  }
-                ]
-              ]
+                  },
+                ],
+              ],
             },
             layout: {
-              hLineWidth: function() { return 1; },
-              vLineWidth: function(i) { return i === 0 ? 3 : 1; },
-              hLineColor: function() { return '#eeeeee'; },
-              vLineColor: function(i) { return i === 0 ? '#ff0080' : '#eeeeee'; },
-              paddingLeft: function() { return 12; },
-              paddingRight: function() { return 12; },
-              paddingTop: function() { return 10; },
-              paddingBottom: function() { return 10; }
-            }
+              hLineWidth: function () {
+                return 1;
+              },
+              vLineWidth: function (i) {
+                return i === 0 ? 3 : 1;
+              },
+              hLineColor: function () {
+                return "#eeeeee";
+              },
+              vLineColor: function (i) {
+                return i === 0 ? "#ff0080" : "#eeeeee";
+              },
+              paddingLeft: function () {
+                return 12;
+              },
+              paddingRight: function () {
+                return 12;
+              },
+              paddingTop: function () {
+                return 10;
+              },
+              paddingBottom: function () {
+                return 10;
+              },
+            },
           });
         }
       }
@@ -978,7 +994,7 @@
       card.classList.toggle("matrix-card--used", e.target.checked);
     }
     renderStats();
-    
+
     if (state.hideUsed) {
       renderCards(); // Hide card if "hide used" is enabled
     }
