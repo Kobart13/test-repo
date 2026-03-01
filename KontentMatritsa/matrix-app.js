@@ -13,6 +13,7 @@
     activeCategory: null,
     searchQuery: "",
     workbookMode: false,
+    hideUsed: false,
     usedIdeas: {},
     userNotes: {},
     displayedCount: 0,
@@ -268,7 +269,7 @@
       html += '<div class="matrix-card__idea-wrapper">';
       html += '<p class="matrix-card__field-label">Идея о чём писать</p>';
       html += '<p class="matrix-card__idea">' + escapeHtml(item.idea) + "</p>";
-      html += '</div>';
+      html += "</div>";
     }
 
     // User note (workbook mode)
@@ -375,8 +376,20 @@
 
     if (isNicheTab) {
       displayItems = groupByNiche(filtered);
+      if (state.hideUsed) {
+        displayItems = displayItems.filter(function(group) {
+          var k = getGroupKey(state.activeTab, group.category, group.trigger, group.topic);
+          return !state.usedIdeas[k];
+        });
+      }
     } else {
       displayItems = filtered;
+      if (state.hideUsed) {
+        displayItems = displayItems.filter(function(entry) {
+          var k = getIdeaKey(state.activeTab, entry.originalIndex);
+          return !state.usedIdeas[k];
+        });
+      }
     }
 
     state.filteredData = displayItems;
@@ -689,7 +702,14 @@
           if (it.note) totalNotes++;
 
           var cardBody = [];
-          var meta = [it.trigger || "", it.category || "", it.used ? "Использовано" : ""].filter(Boolean).join(" · ");
+          
+          var metaArr = [];
+          if (it.trigger) metaArr.push(it.trigger);
+          if (it.category) metaArr.push(it.category);
+          if (it.used) metaArr.push("✅ Использовано");
+          
+          var meta = metaArr.join("  ·  ");
+          
           if (meta) cardBody.push({ text: meta, style: "meta" });
           if (it.topic) cardBody.push({ text: it.topic, style: "topic" });
 
@@ -707,9 +727,30 @@
           }
 
           content.push({
-            margin: [0, 0, 0, 8],
-            stack: cardBody,
-            unbreakable: false,
+            margin: [0, 4, 0, 10],
+            unbreakable: true,
+            table: {
+              headerRows: 0,
+              widths: ["*"],
+              body: [
+                [
+                  {
+                    fillColor: "#fafafa",
+                    stack: cardBody,
+                  }
+                ]
+              ]
+            },
+            layout: {
+              hLineWidth: function() { return 1; },
+              vLineWidth: function(i) { return i === 0 ? 3 : 1; },
+              hLineColor: function() { return '#eeeeee'; },
+              vLineColor: function(i) { return i === 0 ? '#ff0080' : '#eeeeee'; },
+              paddingLeft: function() { return 12; },
+              paddingRight: function() { return 12; },
+              paddingTop: function() { return 10; },
+              paddingBottom: function() { return 10; }
+            }
           });
         }
       }
@@ -732,12 +773,12 @@
         styles: {
           title: { fontSize: 18, bold: true, margin: [0, 0, 0, 4] },
           subtitle: { fontSize: 10, color: "#666666", margin: [0, 0, 0, 10] },
-          tabHeader: { fontSize: 13, bold: true, color: "#111111", margin: [0, 8, 0, 6] },
-          meta: { fontSize: 10, bold: true, color: "#333333", margin: [0, 0, 0, 2] },
-          topic: { fontSize: 10, bold: false, color: "#111111", margin: [0, 0, 0, 2] },
-          nicheTitle: { fontSize: 10, bold: true, color: "#0d47a1", margin: [0, 1, 0, 0] },
-          idea: { fontSize: 10, color: "#222222", margin: [0, 0, 0, 1] },
-          note: { fontSize: 10, italics: true, color: "#a15c00", margin: [0, 2, 0, 0] },
+          tabHeader: { fontSize: 14, bold: true, color: "#ff0080", margin: [0, 12, 0, 8] },
+          meta: { fontSize: 9, bold: true, color: "#7b7b7b", margin: [0, 0, 0, 4] },
+          topic: { fontSize: 11, bold: true, color: "#222222", margin: [0, 0, 0, 6] },
+          nicheTitle: { fontSize: 10, bold: true, color: "#0d47a1", margin: [0, 2, 0, 1] },
+          idea: { fontSize: 10, color: "#333333", margin: [0, 0, 0, 4] },
+          note: { fontSize: 10, italics: true, color: "#d81b60", margin: [0, 4, 0, 0] },
           footer: { fontSize: 10, bold: true, color: "#444444", margin: [0, 10, 0, 0] },
         },
       };
@@ -913,6 +954,12 @@
     state.workbookMode = $("workbookMode").checked;
     $("workbookHint").style.display = state.workbookMode ? "block" : "none";
     $("exportSection").style.display = state.workbookMode ? "flex" : "none";
+    $("hideUsedWrapper").style.display = state.workbookMode ? "flex" : "none";
+    renderCards();
+  }
+
+  function onHideUsedToggle() {
+    state.hideUsed = $("hideUsedBtn").checked;
     renderCards();
   }
 
@@ -931,6 +978,10 @@
       card.classList.toggle("matrix-card--used", e.target.checked);
     }
     renderStats();
+    
+    if (state.hideUsed) {
+      renderCards(); // Hide card if "hide used" is enabled
+    }
   }
 
   function onNoteToggle(e) {
@@ -990,6 +1041,7 @@
     $("matrixSearch").addEventListener("input", debounce(onSearchInput, 250));
     $("clearSearch").addEventListener("click", onClearSearch);
     $("workbookMode").addEventListener("change", onWorkbookToggle);
+    $("hideUsedBtn").addEventListener("change", onHideUsedToggle);
     els.cards.addEventListener("change", onCardCheckbox);
     els.cards.addEventListener("click", onNoteToggle);
     els.cards.addEventListener("input", debounce(onNoteChange, 500));
