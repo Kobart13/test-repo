@@ -1,0 +1,1246 @@
+<style>
+  /* Scoped GetCourse Styles */
+  .vk-landing {
+    font-family: "Inter", sans-serif;
+    color: #1f2937;
+    background-color: #f9fafb;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .vk-landing * {
+    box-sizing: border-box;
+  }
+
+  /* Typography & Utilities */
+  .vk-text-center {
+    text-align: center;
+  }
+  .vk-text-yaRed {
+    color: #f04235;
+  }
+  .vk-text-yaYellow {
+    color: #ffcc00;
+  }
+  .vk-bg-yaYellow {
+    background-color: #ffcc00;
+  }
+  .vk-text-darkBg {
+    color: #111827;
+  }
+  .vk-bg-darkBg {
+    background-color: #111827;
+  }
+
+  /* Header / Hero */
+  .vk-hero {
+    background-color: #111827;
+    color: #fff;
+    padding: 80px 16px 96px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .vk-hero-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.2;
+    background: radial-gradient(circle at top right, #ffcc00, #111827, #111827);
+  }
+  .vk-hero-content {
+    max-width: 1024px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+  }
+  .vk-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffcc00;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid rgba(255, 204, 0, 0.3);
+  }
+  .vk-hero h1 {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+  @media (min-width: 768px) {
+    .vk-hero h1 {
+      font-size: 60px;
+    }
+  }
+  .vk-hero p {
+    font-size: 18px;
+    color: #d1d5db;
+    max-width: 768px;
+    margin: 0 auto 40px;
+  }
+  .vk-video-placeholder {
+    position: relative;
+    max-width: 768px;
+    margin: 0 auto 40px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    background-color: #1f2937;
+    aspect-ratio: 16/9;
+    border: 1px solid #374151;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .vk-video-placeholder video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+  }
+  .vk-video-placeholder:hover video {
+    opacity: 0.4;
+  }
+  
+  @keyframes vkPulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.7); }
+    70% { box-shadow: 0 0 0 20px rgba(255, 204, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 204, 0, 0); }
+  }
+
+  @keyframes vkPulseDark {
+    0% { box-shadow: 0 0 0 0 rgba(17, 24, 39, 0.4); }
+    70% { box-shadow: 0 0 0 20px rgba(17, 24, 39, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(17, 24, 39, 0); }
+  }
+
+  .vk-btn {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #000;
+    font-weight: 900;
+    font-size: 20px;
+    padding: 24px 48px;
+    border-radius: 999px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s transform;
+    animation: vkPulse 2s infinite;
+  }
+  .vk-btn:hover {
+    background-color: #facc15;
+    box-shadow: 0 0 30px rgba(255, 204, 0, 0.4);
+    transform: translateY(-4px);
+    animation: none;
+  }
+  .vk-btn-dark {
+    background-color: #111827;
+    color: #fff;
+    animation: vkPulseDark 2s infinite;
+  }
+  .vk-btn-dark:hover {
+    background-color: #1f2937;
+    box-shadow: none;
+    animation: none;
+  }
+
+  /* Sections */
+  .vk-section {
+    padding: 80px 16px;
+  }
+  .vk-section-white {
+    background-color: #fff;
+  }
+  .vk-container {
+    max-width: 1152px;
+    margin: 0 auto;
+  }
+  .vk-container-sm {
+    max-width: 896px;
+    margin: 0 auto;
+  }
+  .vk-h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  @media (min-width: 768px) {
+    .vk-h2 {
+      font-size: 40px;
+    }
+  }
+
+  /* Problem Section */
+  .vk-problem-box {
+    background-color: #fef2f2;
+    border-radius: 16px;
+    padding: 32px;
+    border: 1px solid #fee2e2;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+  .vk-problem-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ef4444;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 16px;
+    border-bottom-left-radius: 8px;
+  }
+  .vk-problem-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px;
+  }
+  .vk-problem-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #fee2e2;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+  .vk-problem-total {
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #fecaca;
+  }
+  .vk-problem-total p {
+    margin: 0;
+  }
+  .vk-problem-total-num {
+    font-size: 36px;
+    font-weight: 900;
+    color: #dc2626;
+    margin: 8px 0;
+  }
+  .vk-solution-box {
+    background-color: #f0fdf4;
+    border-radius: 16px;
+    padding: 32px;
+    border: 1px solid #bbf7d0;
+  }
+  .vk-solution-box h3 {
+    font-size: 20px;
+    color: #166534;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Modules */
+  .vk-modules-grid {
+    display: grid;
+    gap: 32px;
+  }
+  @media (min-width: 768px) {
+    .vk-modules-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1024px) {
+    .vk-modules-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .vk-module-card {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    border: 1px solid #f3f4f6;
+    position: relative;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+  }
+  .vk-module-card:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  .vk-module-save {
+    position: absolute;
+    top: -20px;
+    right: 16px;
+    background-color: #dcfce7;
+    color: #15803d;
+    font-size: 15px; /* Увеличено для мобильных */
+    font-weight: 800;
+    padding: 6px 16px;
+    border-radius: 9999px;
+    border: 1px solid #bbf7d0;
+    box-shadow: 0 4px 6px -1px rgba(21, 128, 61, 0.2);
+    white-space: nowrap;
+    z-index: 10;
+  }
+  /* fallback */
+  @media (min-width: 768px) {
+    .vk-module-save {
+      top: -16px;
+      right: 24px;
+      font-size: 12px;
+      padding: 4px 12px;
+      font-weight: 700;
+      box-shadow: none;
+    }
+  }
+  .vk-module-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+  .vk-module-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .vk-module-card p.vk-subtitle {
+    font-size: 14px;
+    color: #6b7280;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+  .vk-module-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    font-size: 14px;
+    color: #4b5563;
+  }
+  .vk-module-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  .vk-module-list i {
+    color: #22c55e;
+    margin-right: 8px;
+    margin-top: 2px;
+  }
+  .vk-module-result {
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    margin-top: auto;
+  }
+
+  /* USP Section */
+  .vk-usp-section {
+    background-color: #111827;
+    color: #fff;
+    padding: 80px 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .vk-usp-grid {
+    display: grid;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+  @media (min-width: 768px) {
+    .vk-usp-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .vk-glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 32px;
+    border-radius: 16px;
+  }
+  .vk-glass-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+  .vk-glass-card p {
+    font-size: 14px;
+    color: #9ca3af;
+  }
+  .vk-bonus-highlight {
+    background: linear-gradient(to right, #ffcc00, #eab308);
+    padding: 4px;
+    border-radius: 16px;
+  }
+  .vk-bonus-inner {
+    background-color: #111827;
+    border-radius: 12px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+  }
+  @media (min-width: 768px) {
+    .vk-bonus-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+    }
+  }
+
+  /* Pricing Section */
+  .vk-pricing-grid {
+    display: grid;
+    gap: 32px;
+    align-items: stretch;
+  }
+  @media (min-width: 1024px) {
+    .vk-pricing-grid {
+      grid-template-columns: repeat(3, 1fr);
+      align-items: flex-start;
+    }
+  }
+  .vk-pricing-card {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    border: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .vk-pricing-card h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  .vk-pricing-card .vk-price {
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 32px;
+  }
+  .vk-pricing-card ul {
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .vk-pricing-card li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  .vk-pricing-card i {
+    margin-right: 8px;
+    margin-top: 2px;
+  }
+  .vk-pricing-card-hit {
+    background-color: #111827;
+    color: #fff;
+    border: 2px solid #ffcc00;
+    position: relative;
+    transform: translateY(0);
+  }
+  @media (min-width: 1024px) {
+    .vk-pricing-card-hit {
+      transform: translateY(-16px);
+    }
+  }
+  .vk-hit-badge {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffcc00;
+    color: #000;
+    padding: 6px 16px;
+    font-weight: 900;
+    font-size: 12px;
+    border-radius: 9999px;
+    text-transform: uppercase;
+  }
+  .vk-price-btn {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: auto;
+    border: 2px solid #111827;
+    color: #111827;
+    transition: all 0.2s;
+  }
+  .vk-price-btn:hover {
+    background-color: #f9fafb;
+    transform: translateY(-2px);
+  }
+  .vk-price-btn-hit {
+    background-color: #ffcc00;
+    border: none;
+    color: #000;
+    animation: vkPulse 2s infinite;
+  }
+  .vk-price-btn-hit:hover {
+    background-color: #facc15;
+    animation: none;
+    transform: translateY(-2px);
+  }
+
+  /* Author */
+  .vk-author-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    .vk-author-flex {
+      flex-direction: row;
+    }
+  }
+  .vk-author-photo {
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 4/5;
+    background-color: #e5e7eb;
+  }
+  .vk-author-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .vk-author-stats {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr;
+    margin-bottom: 32px;
+  }
+  @media (min-width: 640px) {
+    .vk-author-stats {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .vk-author-stat {
+    background: #f9fafb;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #f3f4f6;
+  }
+
+  /* FAQ */
+  .vk-faq-item {
+    background-color: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+  .vk-faq-btn {
+    width: 100%;
+    text-align: left;
+    padding: 24px;
+    font-weight: 700;
+    font-size: 18px;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  .vk-faq-content {
+    padding: 0 24px 24px;
+    color: #4b5563;
+    border-top: 1px solid #f9fafb;
+    display: none;
+  }
+  .vk-faq-content.open {
+    display: block;
+  }
+  .vk-icon-rotate {
+    transform: rotate(180deg);
+    transition: transform 0.3s;
+  }
+  .vk-icon-normal {
+    transition: transform 0.3s;
+  }
+
+  /* Footer */
+  .vk-footer {
+    background-color: #111827;
+    color: #9ca3af;
+    padding: 40px 16px;
+    text-align: center;
+    font-size: 14px;
+  }
+</style>
+
+<!-- РЕСУРСЫ ДЛЯ GETCOURSE -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+<div class="vk-landing">
+  <!-- Блок 1. Главный экран / Hero Section -->
+  <header class="vk-hero">
+    <div class="vk-hero-bg"></div>
+    <div class="vk-hero-content">
+      <div class="vk-badge">Материалы обновлены под интерфейс марта 2026 года</div>
+      <h1>
+        Готовая связка
+        <span class="vk-text-yaRed">Яндекс</span>
+        +
+        <span class="vk-text-yaYellow">МАХ</span>
+        <br />
+        для экспертов и бизнеса
+      </h1>
+      <p>
+        Которая будет приводить вам платежеспособную аудиторию на автомате, даже если вы никогда не настраивали рекламу.
+      </p>
+
+      <div class="vk-video-placeholder">
+        <video
+          src="https://fs.getcourse.ru/fileservice/file/download/a/280201/sc/45/h/203bbf36bdd87e12893590134a272e72.mp4"
+          alt="Демо видео"
+          autoplay
+          loop
+          muted
+          playsinline></video>
+        <i class="ph-fill ph-play-circle" style="font-size: 72px; color: #ffcc00; position: relative; z-index: 10"></i>
+      </div>
+
+      <a href="#pricing" class="vk-btn">Начать получать подписчиков</a>
+    </div>
+  </header>
+
+  <!-- Блок 2. Агитация и боль / The Problem -->
+  <section class="vk-section vk-section-white">
+    <div class="vk-container-sm">
+      <h2 class="vk-h2">
+        Сколько реально стоит нанять команду
+        <br />
+        для запуска такой системы?
+      </h2>
+      <p class="vk-text-center" style="color: #4b5563; margin-bottom: 48px">
+        Чтобы собрать рабочую воронку чужими руками, вам придется оплатить чеки целого штата специалистов:
+      </p>
+
+      <div class="vk-problem-box">
+        <div class="vk-problem-badge">Традиционный путь</div>
+        <ul class="vk-problem-list">
+          <li>
+            <span>
+              <i class="ph ph-x-circle vk-text-yaRed"></i>
+              Технический специалист (связка сервисов)
+            </span>
+            <strong>~&nbsp;5&nbsp;000&nbsp;₽</strong>
+          </li>
+          <li>
+            <span>
+              <i class="ph ph-x-circle vk-text-yaRed"></i>
+              Копирайтер (тексты для рекламы и поста)
+            </span>
+            <strong>~&nbsp;7&nbsp;000&nbsp;₽</strong>
+          </li>
+          <li>
+            <span>
+              <i class="ph ph-x-circle vk-text-yaRed"></i>
+              Веб-дизайнер (лаконичный мини-лендинг)
+            </span>
+            <strong>от&nbsp;12&nbsp;000&nbsp;₽</strong>
+          </li>
+          <li>
+            <span>
+              <i class="ph ph-x-circle vk-text-yaRed"></i>
+              Директолог (настройка кампании и аналитики)
+            </span>
+            <strong>~&nbsp;50&nbsp;000&nbsp;₽</strong>
+          </li>
+        </ul>
+        <div class="vk-problem-total">
+          <p style="font-size: 14px; color: #6b7280">ИТОГО ТОЛЬКО ЗА РАБОТУ:</p>
+          <p class="vk-problem-total-num">74&nbsp;000&nbsp;₽</p>
+          <p style="font-size: 12px; color: #9ca3af">*Рекламный бюджет на тесты оплачивается отдельно</p>
+        </div>
+      </div>
+
+      <div class="vk-solution-box">
+        <h3>
+          <i class="ph-fill ph-check-circle" style="font-size: 30px; margin-right: 12px"></i>
+          Зачем инвестировать 74&nbsp;000&nbsp;₽ в чужие гипотезы?
+        </h3>
+        <p>
+          Вам не нужно быть программистом или технарем. Вы получите одну выверенную схему: это как сборка мебели по
+          инструкции — берете деталь А и прикручиваете к детали Б. Соберите всё сами и пустите сэкономленные деньги на
+          реальный рекламный бюджет.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 3. Программа -->
+  <section class="vk-section" style="background-color: #f9fafb">
+    <div class="vk-container">
+      <h2 class="vk-h2">Программа практикума «Сам себе Директолог»</h2>
+      <p class="vk-text-center" style="color: #4b5563; margin-bottom: 64px; font-size: 18px">
+        Все видео по 10-15 минут — смотри и сразу внедряй
+      </p>
+
+      <div class="vk-modules-grid">
+        <!-- Module 1 -->
+        <div class="vk-module-card">
+          <div class="vk-module-icon" style="background: #dbeafe; color: #2563eb">
+            <i class="ph ph-plugs-connected"></i>
+          </div>
+          <h3>Модуль 1. БАЗА</h3>
+          <p class="vk-subtitle">Связка сервисов без программиста</p>
+          <ul class="vk-module-list">
+            <li>
+              <i class="ph ph-check"></i>
+              <span>Зарегистрируете кабинеты и <strong>свяжете Макс, бота и Яндекс в единую систему без кода</strong></span>
+            </li>
+            <li>
+              <i class="ph ph-check"></i>
+              <span>Настроите базовые параметры отслеживания, чтобы <strong>видеть путь каждого человека от просмотра баннера до подписки</strong></span>
+            </li>
+            <li>
+              <i class="ph ph-check"></i>
+              <span>Заложите правильную архитектуру, при которой <strong>вы будете платить только за подписчиков</strong></span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Module 2 -->
+        <div class="vk-module-card">
+          <div class="vk-module-icon" style="background: #f3e8ff; color: #9333ea"><i class="ph ph-magnet"></i></div>
+          <h3>Модуль 2. Пост-магнит</h3>
+          <p class="vk-subtitle">и воронка в канале</p>
+          <ul class="vk-module-list">
+            <li>
+              <i class="ph ph-check"></i>
+              <span>Напишем несколько вариантов постов для трафика, чтобы <strong>зрители становились подписчиками</strong></span>
+            </li>
+            <li>
+              <i class="ph ph-check"></i>
+              <span>Упакуете свой лид-магнит (бесплатный бонус) так, <strong>чтобы ради него хотелось немедленно нажать кнопку «Подписаться»</strong></span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Module 3 -->
+        <div class="vk-module-card">
+          <div class="vk-module-icon" style="background: #ffedd5; color: #ea580c">
+            <i class="ph ph-browsers"></i>
+          </div>
+          <h3>Модуль 3. Сборка сайта</h3>
+          <p class="vk-subtitle">за 15 минут</p>
+          <ul class="vk-module-list">
+            <li>
+              <i class="ph ph-check"></i>
+              <span>По моим готовым шаблонам <strong>соберете одностраничный сайт без веб-дизайнеров и программистов</strong></span>
+            </li>
+            <li>
+              <i class="ph ph-check"></i>
+              <span>Напишите <strong>продающий текст для сайта</strong> с помощью ИИ и авторского промпта</span>
+            </li>
+            <li>
+              <i class="ph ph-check"></i>
+              <span>Подключите домен и <strong>свяжите сайт с Яндексом</strong></span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Module 4 -->
+        <div class="vk-module-card">
+          <div class="vk-module-icon" style="background: #fee2e2; color: #ef4444">
+            <i class="ph ph-check-square-offset"></i>
+          </div>
+          <h3>Модуль 4. Проверка цепочки</h3>
+          <p class="vk-subtitle">перед запуском</p>
+          <ul class="vk-module-list">
+            <li>
+              <i class="ph ph-check"></i>
+              <span>Проверите, что <strong>вся цепочка работает</strong> и Яндекс получает нужные данные</span>
+            </li>
+            <li>
+              <i class="ph ph-check"></i>
+              <span>Настроите <strong>автоматическую выдачу подарка</strong> за подписку</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Module 5 -->
+        <div class="vk-module-card">
+          <div class="vk-module-icon" style="background: #fce7f3; color: #db2777"><i class="ph ph-image"></i></div>
+          <h3>Модуль 5. Взлом баннерной слепоты</h3>
+          <p class="vk-subtitle">Креативы и тексты</p>
+          <ul class="vk-module-list">
+            <li>
+              <i class="ph ph-check"></i>
+              <span>Заберете мои готовые <strong>формулы рекламных заголовков, дающие самую высокую конверсию</strong></span>
+            </li>
+            <li>
+              <i class="ph ph-check"></i>
+              <span>Узнаете, <strong>какие картинки использовать, чтобы выделяться в РСЯ</strong> без оплаты дизайнеров</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Module 6 -->
+        <div class="vk-module-card">
+          <div class="vk-module-icon" style="background: #d1fae5; color: #059669">
+            <i class="ph ph-rocket-launch"></i>
+          </div>
+          <h3>Модуль 6. Запуск рекламы</h3>
+          <p class="vk-subtitle">от А до Я</p>
+          <ul class="vk-module-list">
+            <li>
+              <i class="ph ph-check"></i>
+              <span>Пройдете пошаговую настройку кабинета: <strong>покажу, какие галочки ставить, а какие категорически нельзя</strong></span>
+            </li>
+            <li>
+              <i class="ph ph-check"></i>
+              <span>Установите жесткие лимиты, чтобы <strong>система физически не могла потратить больше разрешенной суммы</strong></span>
+            </li>
+            <li>
+              <i class="ph ph-check"></i>
+              <span>Отправите кампанию на модерацию</span>
+            </li>
+            <li>
+              <i class="ph ph-check"></i>
+              <span>Научитесь использовать <strong>Яндекс лендинги (белые списки)</strong></span>
+            </li>
+            <li>
+              <i class="ph ph-check"></i>
+              <span>Запустите рекламу через <strong>нестандартные способы для снижения цены подписчика</strong></span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Module 7 -->
+        <div class="vk-module-card">
+          <div class="vk-module-icon" style="background: #cffafe; color: #0891b2">
+            <i class="ph ph-chart-line-up"></i>
+          </div>
+          <h3>Модуль 7. Аналитика</h3>
+          <p class="vk-subtitle">и улучшение рекламы</p>
+          <ul class="vk-module-list">
+            <li>
+              <i class="ph ph-check"></i>
+              <span>Разберетесь в показателях рекламного кабинета и увидите <strong>что на самом деле влияет на результат</strong></span>
+            </li>
+            <li>
+              <i class="ph ph-check"></i>
+              <span>Научитесь <strong>читать цифры и улучшать рекламу</strong></span>
+            </li>
+            <li>
+              <i class="ph ph-check"></i>
+              <span>Соберете сегменты и <strong>похожую аудиторию на ваших лучших подписчиков</strong></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="vk-text-center" style="margin-top: 48px; background-color: #fff; border: 2px dashed #facc15; border-radius: 16px; padding: 24px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);">
+        <i class="ph-fill ph-check-circle" style="color: #ea580c; font-size: 36px; margin-bottom: 12px; display: inline-block;"></i>
+        <p style="color: #111827; font-size: 20px; font-weight: 800; margin: 0; line-height: 1.4;">
+          Все уроки свежие и обновляются, как только в системах что-то меняется!
+        </p>
+      </div>
+
+      <div class="vk-text-center" style="margin-top: 48px">
+        <a href="#pricing" class="vk-btn vk-btn-dark">Выбрать тариф и начать</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- USP Section -->
+  <section class="vk-usp-section">
+    <div class="vk-container-sm">
+      <h2 class="vk-h2">Вы не только экономите на подрядчиках, но и возвращаете живые деньги!</h2>
+      <p class="vk-text-center" style="margin-bottom: 48px; color: #d1d5db; font-size: 18px">
+        Для меня важно, чтобы вы окупили обучение как можно быстрее. Доступ к закрытым партнерским привилегиям:
+      </p>
+
+      <div class="vk-usp-grid">
+        <div class="vk-glass-card">
+          <i class="ph-fill ph-crown" style="font-size: 48px; color: #ffcc00; margin-bottom: 16px"></i>
+          <h3>VIP-кабинет в Яндексе с кэшбеком 2%</h3>
+          <p>Яндекс платит кэшбек крупным агентствам. Вы получите доступ сразу и возвращаете часть бюджета.</p>
+        </div>
+        <div class="vk-glass-card">
+          <i class="ph-fill ph-gift" style="font-size: 48px; color: #ffcc00; margin-bottom: 16px"></i>
+          <h3>Пакет бонусов от партнеров</h3>
+          <p>Промокоды, бесплатные периоды и скидки на сервисы (домены, конструкторы, боты).</p>
+        </div>
+      </div>
+
+      <div class="vk-bonus-highlight">
+        <div class="vk-bonus-inner">
+          <div style="margin-bottom: 24px">
+            <p style="color: #9ca3af; font-size: 14px; text-transform: uppercase; font-weight: 700; margin-bottom: 8px">
+              Ваша прямая выгода:
+            </p>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 18px; font-weight: 500">
+              <li>
+                <i class="ph-fill ph-check-circle" style="color: #ffcc00; margin-right: 8px"></i>
+                Экономия на подрядчиках:
+                <b style="color: #fff">74&nbsp;000&nbsp;₽</b>
+              </li>
+              <li>
+                <i class="ph-fill ph-check-circle" style="color: #ffcc00; margin-right: 8px"></i>
+                Доступ к кэшбеку 2%
+              </li>
+              <li>
+                <i class="ph-fill ph-check-circle" style="color: #ffcc00; margin-right: 8px"></i>
+                Пакет партнерских скидок
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p style="font-size: 20px; font-weight: 700; color: #ffcc00; font-style: italic; max-width: 250px">
+              "Вы инвестируете в навыки один раз, а экономите бюджет — годами."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="vk-section" style="background-color: #f9fafb">
+    <div class="vk-container">
+      <h2 class="vk-h2">Выберите формат участия</h2>
+      <div style="text-align: center; margin-left: auto; margin-right: auto; margin-bottom: 48px"></div>
+
+      <div class="vk-pricing-grid">
+        <!-- Tariff 1 -->
+        <div class="vk-pricing-card">
+          <h3>«Сам себе маркетолог»</h3>
+          <p style="font-size: 14px; color: #6b7280; margin-bottom: 24px; min-height: 42px">
+            Идеально для тех, кто хочет всё сделать сам.
+          </p>
+          <div class="vk-price">9&nbsp;900&nbsp;₽</div>
+
+          <p style="font-weight: 700; font-size: 12px; color: #9ca3af; text-transform: uppercase">Что внутри:</p>
+          <ul>
+            <li>
+              <i class="ph-fill ph-check-circle" style="color: #22c55e"></i>
+              Все 6 модулей.
+            </li>
+            <li>
+              <i class="ph-fill ph-check-circle" style="color: #22c55e"></i>
+              Шаблоны и инструкции.
+            </li>
+            <li>
+              <i class="ph-fill ph-check-circle" style="color: #22c55e"></i>
+              Доступ на 3 месяца.
+            </li>
+          </ul>
+
+          <p
+            style="
+              font-weight: 700;
+              font-size: 12px;
+              color: #9ca3af;
+              text-transform: uppercase;
+              border-top: 1px solid #e5e7eb;
+              padding-top: 16px;
+            ">
+            Бонусы:
+          </p>
+          <ul>
+            <li>
+              <i class="ph-fill ph-gift" style="color: #ffcc00"></i>
+              Кабинет с кэшбеком 2%.
+            </li>
+            <li>
+              <i class="ph-fill ph-gift" style="color: #ffcc00"></i>
+              Партнерские промокоды.
+            </li>
+          </ul>
+
+          <a
+            href="https://marketing-sistema.ru/pay/yandex-plus-max?utm_source=yandex-max-main-landing"
+            class="vk-price-btn">
+            Иду на базовый
+          </a>
+        </div>
+
+        <!-- Tariff 2 (Hit) -->
+        <div class="vk-pricing-card vk-pricing-card-hit">
+          <div class="vk-hit-badge">🔥 Хит выбора 🔥</div>
+          <h3 style="color: #ffcc00">«Под контролем»</h3>
+          <p style="font-size: 14px; color: #d1d5db; margin-bottom: 24px; min-height: 42px">
+            Оптимальный баланс: я страхую вас от слива.
+          </p>
+          <div class="vk-price">21&nbsp;900&nbsp;₽</div>
+
+          <p style="font-weight: 700; font-size: 12px; color: #9ca3af; text-transform: uppercase">
+            База + Безопасность:
+          </p>
+          <ul>
+            <li>
+              <i class="ph-fill ph-check-circle" style="color: #ffcc00"></i>
+              Все 6 модулей.
+            </li>
+            <li>
+              <i class="ph-fill ph-check-circle" style="color: #ffcc00"></i>
+              <b>Закрытый чат участников.</b>
+            </li>
+            <li>
+              <i class="ph-fill ph-check-circle" style="color: #ffcc00"></i>
+              Доступ на 6 месяцев.
+            </li>
+            <li>
+              <i class="ph-fill ph-check-circle" style="color: #ffcc00"></i>
+              <b>Поддержка в чате 30 дней.</b>
+            </li>
+          </ul>
+
+          <p
+            style="
+              font-weight: 700;
+              font-size: 12px;
+              color: #ffcc00;
+              text-transform: uppercase;
+              border-top: 1px solid #374151;
+              padding-top: 16px;
+            ">
+            Главная ценность:
+          </p>
+          <ul>
+            <li>
+              <i class="ph-fill ph-star" style="color: #ffcc00"></i>
+              Личная проверка вашей кампании перед запуском.
+            </li>
+            <li>
+              <i class="ph-fill ph-gift" style="color: #ffcc00"></i>
+              Все финансовые бонусы.
+            </li>
+          </ul>
+
+          <a
+            href="https://marketing-sistema.ru/pay/yandex-plus-max-feedback?utm_source=yandex-max-main-landing"
+            class="vk-price-btn vk-price-btn-hit">
+            Хочу запуск под контролем
+          </a>
+        </div>
+
+        <!-- Tariff 3 -->
+        <div class="vk-pricing-card">
+          <h3>«VIP: Стратегия»</h3>
+          <p style="font-size: 14px; color: #6b7280; margin-bottom: 24px; min-height: 42px">
+            Индивидуальная докрутка от Senior-маркетолога.
+          </p>
+          <div class="vk-price">79&nbsp;900&nbsp;₽</div>
+
+          <p style="font-weight: 700; font-size: 12px; color: #9ca3af; text-transform: uppercase">Максимальный ROI:</p>
+          <ul>
+            <li>
+              <i class="ph-fill ph-check-circle" style="color: #22c55e"></i>
+              Все 6 модулей.
+            </li>
+            <li>
+              <i class="ph-fill ph-check-circle" style="color: #22c55e"></i>
+              <b>Две личные Zoom-сессии.</b>
+            </li>
+            <li>
+              <i class="ph-fill ph-check-circle" style="color: #22c55e"></i>
+              <b>Глубокий аудит.</b>
+            </li>
+            <li>
+              <i class="ph-fill ph-check-circle" style="color: #22c55e"></i>
+              Доступ на 12 месяцев.
+            </li>
+          </ul>
+
+          <p
+            style="
+              font-weight: 700;
+              font-size: 12px;
+              color: #9333ea;
+              text-transform: uppercase;
+              border-top: 1px solid #e5e7eb;
+              padding-top: 16px;
+            ">
+            Эксклюзив:
+          </p>
+          <ul>
+            <li>
+              <i class="ph-fill ph-star" style="color: #a855f7"></i>
+              Приоритетная поддержка.
+            </li>
+            <li>
+              <i class="ph-fill ph-gift" style="color: #ffcc00"></i>
+              Все финансовые бонусы.
+            </li>
+          </ul>
+
+          <a
+            href="https://marketing-sistema.ru/pay/yandex-plus-max-vip?utm_source=yandex-max-main-landing"
+            class="vk-price-btn">
+            Иду в VIP
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Author block -->
+  <section
+    class="vk-section"
+    style="border-top: 1px solid #f3f4f6; border-bottom: 1px solid #f3f4f6; background-color: #fff">
+    <div class="vk-container-sm vk-author-flex">
+      <div style="flex: 1; max-width: 300px">
+        <div class="vk-author-photo">
+          <img src="https://storage.yandexcloud.net/kobihub/content/yandex-max/vika.webp" alt="Виктория Кобилинская" />
+        </div>
+      </div>
+
+      <div style="flex: 2">
+        <p style="color: #f04235; font-weight: 700; font-size: 12px; text-transform: uppercase; margin-bottom: 8px">
+          Кто передает вам эту систему?
+        </p>
+        <h2 style="font-size: 30px; font-weight: 700; margin-bottom: 16px; line-height: 1.2">
+          Почему вы можете доверить мне свой рекламный бюджет?
+        </h2>
+        <p style="color: #4b5563; font-size: 18px; margin-bottom: 32px">Только сухие цифры и факты:</p>
+
+        <div class="vk-author-stats">
+          <div class="vk-author-stat">
+            <p style="font-size: 24px; font-weight: 900; color: #111827">14 лет</p>
+            <p style="font-size: 14px; color: #6b7280">в маркетинге и лидогенерации.</p>
+          </div>
+          <div class="vk-author-stat">
+            <p style="font-size: 24px; font-weight: 900; color: #111827">> 50&nbsp;млн&nbsp;₽</p>
+            <p style="font-size: 14px; color: #6b7280">открученного бюджета без штрафов РКН.</p>
+          </div>
+          <div class="vk-author-stat">
+            <p style="font-size: 24px; font-weight: 900; color: #111827">от&nbsp;30&nbsp;₽</p>
+            <p style="font-size: 14px; color: #6b7280">стоимость целевого подписчика из Яндекса.</p>
+          </div>
+          <div class="vk-author-stat">
+            <p style="font-size: 24px; font-weight: 900; color: #111827">Сотни</p>
+            <p style="font-size: 14px; color: #6b7280">протестированных гипотез.</p>
+          </div>
+        </div>
+
+        <div style="background-color: #111827; border-radius: 16px; padding: 24px; position: relative">
+          <h3 style="color: #ffcc00; font-size: 18px; font-weight: 700; margin-bottom: 12px">
+            Мой подход — математика, а не магия.
+          </h3>
+          <p style="color: #d1d5db; font-size: 14px; line-height: 1.6">
+            Я даю готовую архитектуру: как нажать нужные кнопки, забрать 2% кэшбека и запустить прогнозируемый поток
+            аудитории, опираясь только на сухую аналитику и ROI.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="vk-section" style="background-color: #f9fafb">
+    <div class="vk-container-sm">
+      <h2 class="vk-h2" style="margin-bottom: 48px">Остались вопросы?</h2>
+
+      <div class="vk-faq-item">
+        <button class="vk-faq-btn" onclick="toggleVkFaq('faq1', 'icon1')">
+          1. Нужны ли технические навыки программирования?
+          <i id="icon1" class="ph ph-caret-down vk-icon-normal text-gray-400"></i>
+        </button>
+        <div id="faq1" class="vk-faq-content">
+          Нет. Практикум построен на сборке готовой связки без кода. Если вы умеете пользоваться компьютером, вы
+          справитесь.
+        </div>
+      </div>
+
+      <div class="vk-faq-item">
+        <button class="vk-faq-btn" onclick="toggleVkFaq('faq2', 'icon2')">
+          2. Какой рекламный бюджет нужен для теста?
+          <i id="icon2" class="ph ph-caret-down vk-icon-normal text-gray-400"></i>
+        </button>
+        <div id="faq2" class="vk-faq-content">
+          Я рекомендую от 10&nbsp;000 до 15&nbsp;000&nbsp;₽ на тесты. Вы застрахованы от слива благодаря лимитам.
+        </div>
+      </div>
+
+      <div class="vk-faq-item">
+        <button class="vk-faq-btn" onclick="toggleVkFaq('faq3', 'icon3')">
+          3. Будет ли актуален практикум в 2026 году?
+          <i id="icon3" class="ph ph-caret-down vk-icon-normal text-gray-400"></i>
+        </button>
+        <div id="faq3" class="vk-faq-content">Да, все материалы обновлены под интерфейс Яндекса марта 2026 года.</div>
+      </div>
+
+      <div class="vk-text-center" style="margin-top: 48px">
+        <a href="#pricing" class="vk-btn">Занять место на практикуме</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function toggleVkFaq(contentId, iconId) {
+      var content = document.getElementById(contentId);
+      var icon = document.getElementById(iconId);
+      if (content.classList.contains("open")) {
+        content.classList.remove("open");
+        icon.classList.remove("vk-icon-rotate");
+      } else {
+        content.classList.add("open");
+        icon.classList.add("vk-icon-rotate");
+      }
+    }
+  </script>
+
+  <!-- Скрипт проброса uid в TargetHunter через Yandex Cloud Function -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const tgUid = urlParams.get("tg_uid");
+      const maxUid = urlParams.get("max_uid");
+
+      if (tgUid || maxUid) {
+        // Укажите здесь ссылку на вашу развернутую Yandex Cloud Function (которую выдал скрипт deploy.sh)
+        const cloudFunctionUrl = "https://functions.yandexcloud.net/d4e3t4q0kbrj94fj23jl";
+
+        if (cloudFunctionUrl !== "YOUR_YCF_URL_HERE") {
+          const payload = {};
+          if (tgUid) payload.tg_uid = tgUid;
+          if (maxUid) payload.max_uid = maxUid;
+
+          fetch(cloudFunctionUrl, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Успешно отправлено в воронку TH:", data);
+            })
+            .catch((error) => {
+              console.error("Ошибка при отправке в воронку TH:", error);
+            });
+        } else {
+          console.warn("Пожалуйста, замените YOUR_YCF_URL_HERE на реальную ссылку Яндекс Облачной Функции.");
+        }
+      }
+    });
+  </script>
+</div>
